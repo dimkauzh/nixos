@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, self, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, self, home-manager, zen-browser, ... } @ inputs:
   let
     system = "x86_64-linux";
   in
@@ -22,7 +23,6 @@
 
       modules = [
         ./hosts/zephyr/configuration.nix  # Updated path to the new location
-        inputs.home-manager.nixosModules.zephyr  # You can rename 'latitude' if needed
       ];
     };
   };
