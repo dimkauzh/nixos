@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    #../../modules/home-manager
-  ];
   home.username = "dima";
   home.homeDirectory = "/home/dima";
   home.stateVersion = "24.05"; # Please read the comment before changing. (dont change)
@@ -11,4 +8,5 @@
   };
 
   programs.home-manager.enable = true;
+
 }

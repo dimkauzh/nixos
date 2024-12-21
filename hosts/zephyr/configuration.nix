@@ -7,8 +7,8 @@
 {
   imports =
     [
-      ./home.nix
       ./packages.nix
+      ./power.nix
 
       ./hardware/hardware.nix
     ];
@@ -16,9 +16,11 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub = {
   	enable = true;
-	efiSupport = true;
-	device = "nodev";
+	  efiSupport = true;
+	  device = "nodev";
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   boot.loader.grub.extraEntries = ''
   	menuentry "Windows" {
@@ -51,6 +53,7 @@
   # };
 
   # Enable the X11 windowing system.
+  
   services.xserver = {
   	enable = true;
 
@@ -65,7 +68,7 @@
   };
 
 
-  
+
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -79,6 +82,8 @@
   # OR
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
 
@@ -98,7 +103,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # 
+  #
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -144,4 +149,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
