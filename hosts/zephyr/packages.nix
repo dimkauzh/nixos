@@ -2,9 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    gnumake
-    gcc
     git
+    wget
+    dconf
+    wget
 
     home-manager
     i3
@@ -16,6 +17,30 @@
 
     inputs.zen-browser.packages."${system}".specific
     vesktop
+    ente-auth
+    element-desktop
+    github-desktop
+    nemo
+
+    udevil
+    gvfs
+    udisks2
+
+    mesa
+    lutris
+    winetricks
+    prismlauncher
+    wineWowPackages.stable
+
+    zsh
+    starship
+    wakatime-cli
+
+    atk
+    gtk3
+    gtk4
+    gnome-keyring
+    libsecret
 
     rofi
     playerctl
@@ -27,9 +52,9 @@
     lxqt.lxqt-powermanagement
     lxqt.lxqt-policykit
     xsettingsd
+    arandr
     xclip
     copyq
-    blueman
     lm_sensors
     notify-osd
     libnotify
@@ -44,5 +69,42 @@
 
     thermald
     tlp
+
+    blueman
+    bluez
+    bluez-tools
+    networkmanagerapplet
+
+    dex
+    acpi
+    upower
+    xss-lock
+    betterlockscreen
+
+    gruvbox-gtk-theme
+    gruvbox-plus-icons
+    capitaine-cursors
+    lxappearance
+    qt6ct
+
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs:
+        (base.targetPkgs pkgs) ++ (with pkgs; [
+          pkg-config
+          ncurses
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "bash";
+      extraOutputsToInstall = ["dev"];
+    }))
+  ];
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    nerd-fonts.comic-shanns-mono
   ];
 }

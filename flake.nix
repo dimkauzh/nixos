@@ -15,26 +15,20 @@
     system = "x86_64-linux";
   in
   {
-    # Define the 'zephyr' machine configuration
     nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs self;
       };
 
       modules = [
-        ./hosts/zephyr/configuration.nix
-	home-manager.nixosModules.home-manager
+        ./hosts/zephyr/machine.nix
+        home-manager.nixosModules.home-manager
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            # TODO replace ryan with your own username
             home-manager.users.dima = import ./hosts/zephyr/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
         }
       ];
     };
   };
 }
-
