@@ -41,7 +41,6 @@
     extraGroups = [ "wheel" ];
   };
 
-
   # DO NOT MODIFY
   system.stateVersion = "24.11";
 }

@@ -54,6 +54,8 @@
     atk
     gtk3
     gtk4
+
+    avahi
     gnome-keyring
     libsecret
 
