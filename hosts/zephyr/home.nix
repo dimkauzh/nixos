@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/dima";
   home.stateVersion = "24.05"; # Please read the comment before changing. (dont change)
   home.sessionVariables = {
+    EDITOR = "zeditor";
   };
 
   dconf.settings = {
