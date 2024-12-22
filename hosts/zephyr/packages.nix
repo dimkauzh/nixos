@@ -1,11 +1,17 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "freeimage-unstable-2021-11-01"
+  ];
+
   environment.systemPackages = with pkgs; [
     git
     wget
     dconf
     wget
+    unzip
 
     home-manager
     i3
@@ -20,7 +26,15 @@
     ente-auth
     element-desktop
     github-desktop
+    whatsapp-for-linux
     nemo
+
+    slade
+    ghidra-bin
+
+    gzdoom
+    zeroad
+    urbanterror
 
     udevil
     gvfs
@@ -42,6 +56,14 @@
     gnome-keyring
     libsecret
 
+    lm_sensors
+    notify-osd
+    libnotify
+    brightnessctl
+    pulseaudio
+    pulsemixer
+    xorg.xbacklight
+
     rofi
     playerctl
     flameshot
@@ -55,13 +77,7 @@
     arandr
     xclip
     copyq
-    lm_sensors
-    notify-osd
-    libnotify
-    brightnessctl
-    pulseaudio
-    pulsemixer
-    xorg.xbacklight
+
     (polybar.override {
       pulseSupport = true;
       i3Support = true;
