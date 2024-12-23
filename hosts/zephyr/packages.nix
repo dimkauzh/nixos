@@ -16,6 +16,7 @@
     # Window Manager
     i3
     lightdm
+    nerdfetch
     lightdm-gtk-greeter
 
     # Development
@@ -28,9 +29,9 @@
     # Communication
     nemo
     vesktop
+    whatsie
     ente-auth
     github-desktop
-    whatsapp-for-linux
     element-desktop
     inputs.zen-browser.packages."${system}".specific
 
