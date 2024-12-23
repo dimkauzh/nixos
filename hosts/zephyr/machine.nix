@@ -38,8 +38,21 @@
 
   users.users.dima = {
     isNormalUser = true;
+    description = "Dima";
     extraGroups = [ "wheel" ];
   };
+
+  services.xserver.displayManager.lightdm.greeters.gtk = {
+    enable = true;
+    theme.package = pkgs.gruvbox-gtk-theme;
+    theme.name = "Gruvbox-Dark";
+    iconTheme.package = pkgs.gruvbox-plus-icons;
+    iconTheme.name = "Gruvbox-Plus-Dark";
+    extraConfig = ''
+      background=/home/dima/Pictures/Backgrounds/forest-3.jpg
+    '';
+  };
+
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

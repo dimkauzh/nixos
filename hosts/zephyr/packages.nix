@@ -1,111 +1,128 @@
 { config, pkgs, inputs, ... }:
 
 {
-
+  # Allow insecure packages
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
   ];
 
   environment.systemPackages = with pkgs; [
+    # Essentials
     git
     wget
     dconf
-    wget
     unzip
 
-    home-manager
+    # Window Manager
     i3
     lightdm
     lightdm-gtk-greeter
 
+    # Development
     kitty
+    slade
     neovim
     zed-editor
-
-    inputs.zen-browser.packages."${system}".specific
-    vesktop
-    ente-auth
-    element-desktop
-    github-desktop
-    whatsapp-for-linux
-    nemo
-
-    slade
     ghidra-bin
 
+    # Communication
+    nemo
+    vesktop
+    ente-auth
+    github-desktop
+    whatsapp-for-linux
+    element-desktop
+    inputs.zen-browser.packages."${system}".specific
+
+    # Media
+    vlc
+    gimp
+    obs-studio
+    darktable
+    shotcut
+
+    # Music
+    spotify
+    spicetify-cli
+
+    # Games
     gzdoom
     zeroad
     urbanterror
 
-    udevil
-    gvfs
-    udisks2
-
+    # Gaming Utilities
     mesa
     lutris
     winetricks
     prismlauncher
     wineWowPackages.stable
 
+    # Office
+    libreoffice
+    zathura
+
+    # Terminal
     zsh
     starship
     wakatime-cli
 
+    # System Utilities
     atk
+    dex
+    tlp
+    acpi
+    gvfs
     gtk3
     gtk4
-
     avahi
-    gnome-keyring
-    libsecret
-
-    lm_sensors
-    notify-osd
+    upower
+    udevil
+    thermald
+    udisks2
     libnotify
-    brightnessctl
+    notify-osd
+    lm_sensors
+    libsecret
     pulseaudio
     pulsemixer
     xorg.xbacklight
-
-    rofi
-    playerctl
-    flameshot
-    maim
-    feh
-    dunst
-    picom
-    lxqt.lxqt-powermanagement
-    lxqt.lxqt-policykit
-    xsettingsd
-    arandr
-    xclip
-    copyq
-
+    brightnessctl
+    gnome-keyring
     (polybar.override {
       pulseSupport = true;
       i3Support = true;
     })
 
-    thermald
-    tlp
+    # i3wm Utilities
+    feh
+    maim
+    rofi
+    xclip
+    dunst
+    arandr
+    picom
+    copyq
+    flameshot
+    playerctl
+    xss-lock
+    betterlockscreen
+    lxqt.lxqt-policykit
+    lxqt.lxqt-powermanagement
 
+    # Networking and Connectivity
     blueman
     bluez
     bluez-tools
     networkmanagerapplet
 
-    dex
-    acpi
-    upower
-    xss-lock
-    betterlockscreen
-
+    # Themes and Icons
+    qt6ct
+    lxappearance
     gruvbox-gtk-theme
     gruvbox-plus-icons
     capitaine-cursors
-    lxappearance
-    qt6ct
 
+    # Running Binaries
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";
@@ -120,10 +137,17 @@
       extraOutputsToInstall = ["dev"];
     }))
   ];
+
   fonts.packages = with pkgs; [
+    # System Fonts
     noto-fonts
-    noto-fonts-cjk-sans
     noto-fonts-emoji
+    noto-fonts-cjk-sans
+
+    # Coding Fonts
     nerd-fonts.comic-shanns-mono
   ];
+
+
+
 }

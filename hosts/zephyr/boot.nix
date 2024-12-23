@@ -2,10 +2,13 @@
 
 
 {
+  include = [ themes/grub.nix ];
+
   boot.loader.grub = {
   	enable = true;
 	  efiSupport = true;
 	  device = "nodev";
+		theme = "/home/dima/projects/tartarus-grub/tartarus/theme.txt";
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
