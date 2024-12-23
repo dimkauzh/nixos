@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  services.thermald.enable = true;
+  services = {
+    thermald.enable = true;
 
-  services.tlp = {
+    tlp = {
       enable = true;
       settings = {
         HANDLE_LID_SWITCH=1;
@@ -19,6 +20,6 @@
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 50;
       };
+    };
   };
-
 }

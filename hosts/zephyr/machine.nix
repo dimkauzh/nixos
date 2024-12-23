@@ -17,13 +17,23 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   nixpkgs.config.allowUnfree = true;
-  programs.nix-ld.enable = true;
 
-  networking.hostName = "zephyr";
-  networking.networkmanager.enable = true;
-  networking.dhcpcd.enable = true;
+  programs = {
+    nix-ld.enable = true;
+    zsh.enable = true;
+  };
+
+  networking = {
+    hostName = "zephyr";
+    dhcpcd.enable = true;
+    networkmanager.enable = true;
+  };
+
+  hardware = {
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
+  };
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.utf8";
@@ -33,23 +43,31 @@
     QT_QPA_PLATFORMTHEME  = "qt6ct";
   };
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
 
-  users.users.dima = {
-    isNormalUser = true;
-    description = "Dima";
-    extraGroups = [ "wheel" ];
+    users.dima = {
+      isNormalUser = true;
+      description = "Dima";
+      extraGroups = [ "wheel" ];
+    };
   };
 
   services.xserver.displayManager.lightdm.greeters.gtk = {
     enable = true;
-    theme.package = pkgs.gruvbox-gtk-theme;
-    theme.name = "Gruvbox-Dark";
-    iconTheme.package = pkgs.gruvbox-plus-icons;
-    iconTheme.name = "Gruvbox-Plus-Dark";
+
+    theme = {
+      package = pkgs.gruvbox-gtk-theme;
+      name = "Gruvbox-Dark";
+    };
+
+    iconTheme = {
+      package = pkgs.gruvbox-plus-icons;
+      name = "Gruvbox-Plus-Dark";
+    };
+
     extraConfig = ''
-      background=/home/dima/Pictures/Backgrounds/forest-3.jpg
+      background=/etc/backgrounds/forest-3.jpg
     '';
   };
 

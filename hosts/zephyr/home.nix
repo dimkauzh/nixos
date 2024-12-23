@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "dima";
-  home.homeDirectory = "/home/dima";
-  home.stateVersion = "24.05"; # Please read the comment before changing. (dont change)
-  home.sessionVariables = {
-    EDITOR = "zeditor";
+  home = {
+    username = "dima";
+    homeDirectory = "/home/dima";
+    stateVersion = "24.05"; # Please read the comment before changing. (dont change)
+    sessionVariables = {
+      EDITOR = "zeditor";
+    };
   };
 
   dconf.settings = {
@@ -15,5 +17,4 @@
   };
 
   programs.home-manager.enable = true;
-
 }

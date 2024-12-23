@@ -2,23 +2,52 @@
 
 
 {
-  include = [ themes/grub.nix ];
+  imports =
+    [
+      ./themes/grub.nix
+    ];
 
-  boot.loader.grub = {
-  	enable = true;
-	  efiSupport = true;
-	  device = "nodev";
-		theme = "/home/dima/projects/tartarus-grub/tartarus/theme.txt";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+
+    loader = {
+      efi.canTouchEfiVariables = true;
+
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        extraEntries = ''
+        	menuentry "Windows" {
+      		set root=(hd0,gpt1)
+      		chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+       	  }
+        '';
+      };
+    };
+
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
+
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "plymouth.ignore-udev"
+      "plymouth.theme=rings:no-logo"
+    ];
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  boot.loader.grub.extraEntries = ''
-  	menuentry "Windows" {
-		set root=(hd0,gpt1)
-		chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-	}
-  '';
-
-  boot.loader.efi.canTouchEfiVariables = true;
 }

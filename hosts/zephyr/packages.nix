@@ -137,17 +137,4 @@
       extraOutputsToInstall = ["dev"];
     }))
   ];
-
-  fonts.packages = with pkgs; [
-    # System Fonts
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk-sans
-
-    # Coding Fonts
-    nerd-fonts.comic-shanns-mono
-  ];
-
-
-
 }
