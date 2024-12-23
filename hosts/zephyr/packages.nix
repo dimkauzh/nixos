@@ -22,6 +22,7 @@
     # Development
     kitty
     slade
+    gzdoom
     neovim
     zed-editor
     ghidra-bin
@@ -46,17 +47,14 @@
     spotify
     spicetify-cli
 
-    # Games
-    gzdoom
-    zeroad
-    urbanterror
-
     # Gaming Utilities
     mesa
     lutris
     winetricks
+    vulkan-tools
     prismlauncher
     wineWowPackages.stable
+    dxvk
 
     # Office
     libreoffice

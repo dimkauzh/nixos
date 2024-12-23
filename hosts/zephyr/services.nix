@@ -28,15 +28,16 @@
     };
 
     xserver = {
-     	enable = true;
+      enable = true;
+      videoDrivers = [ "i915" ];
 
-     	windowManager = {
-    		i3.enable = true;
-     	};
+      windowManager = {
+        i3.enable = true;
+      };
 
-     	displayManager = {
+      displayManager = {
     		lightdm.enable = true;
-     	};
+      };
       config = ''
         Section "InputClass"
             Identifier "libinput touchpad catchall"

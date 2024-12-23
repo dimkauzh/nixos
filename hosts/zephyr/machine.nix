@@ -12,6 +12,7 @@
       ./packages.nix
       ./services.nix
       ./power.nix
+      ./fonts.nix
 
       ./hardware/hardware.nix
     ];
@@ -31,8 +32,18 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+      ];
+    };
   };
 
   time.timeZone = "Europe/Amsterdam";
