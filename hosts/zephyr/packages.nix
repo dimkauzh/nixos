@@ -2,7 +2,9 @@
 
 let
   mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
-  gruvbox-plus-icons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
+    inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
+  };
 in
 {
   # Allow insecure packages
@@ -70,9 +72,9 @@ in
     starship
     wakatime-cli
 
-    # Custom Packages
+    # Custom Package
     mantablockscreen
-    gruvbox-plus-icons
+    gruvboxPlusIcons
     inputs.zen-browser.packages."${system}".specific
 
     # System Utilities
