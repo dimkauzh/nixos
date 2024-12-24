@@ -1,6 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports =
+    [
+      ./packages/main.nix
+    ];
+
   # Allow insecure packages
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -32,9 +37,9 @@
     vesktop
     whatsie
     ente-auth
+    protonvpn-gui
     github-desktop
     element-desktop
-    inputs.zen-browser.packages."${system}".specific
 
     # Media
     vlc
@@ -65,6 +70,11 @@
     starship
     wakatime-cli
 
+    # Custom Packages
+    imports.mantablockscreen
+    inputs.zen-browser.packages."${system}".specific
+
+
     # System Utilities
     atk
     dex
@@ -94,16 +104,17 @@
 
     # i3wm Utilities
     feh
-    maim
     rofi
     xclip
     dunst
+    scrot
     arandr
     picom
     copyq
     flameshot
     playerctl
     xss-lock
+    xsettingsd
     betterlockscreen
     lxqt.lxqt-policykit
     lxqt.lxqt-powermanagement

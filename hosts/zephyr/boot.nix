@@ -2,11 +2,6 @@
 
 
 {
-  imports =
-    [
-      ./themes/grub.nix
-    ];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
 
@@ -17,6 +12,7 @@
         enable = true;
         efiSupport = true;
         device = "nodev";
+        theme = import ./packages/tartarus.nix { inherit pkgs; };
         extraEntries = ''
         	menuentry "Windows" {
       		set root=(hd0,gpt1)
