@@ -73,6 +73,19 @@ in
     starship
     wakatime-cli
 
+    # Development
+    go
+    gcc
+    gnumake
+    pkg-config
+    xorg.libXi
+    xorg.libX11
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXcursor
+    xorg.libXxf86vm
+    xorg.libXinerama
+
     # Custom Package
     xeventbind
     mantablockscreen
