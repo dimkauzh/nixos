@@ -1,5 +1,10 @@
 { config, lib, pkgs, ... }:
 
+let
+  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
+    inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
+  };
+in
 {
   imports =
     [
@@ -67,7 +72,7 @@
     };
 
     iconTheme = {
-      package = pkgs.gruvbox-plus-icons;
+      package = gruvboxPlusIcons;
       name = "Gruvbox-Plus-Dark";
     };
 
