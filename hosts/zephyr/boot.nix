@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-
+let
+  tartarus = import ./packages/tartarus.nix { inherit pkgs; };
+in
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
@@ -12,7 +14,7 @@
         enable = true;
         efiSupport = true;
         device = "nodev";
-        theme = import ./packages/tartarus.nix { inherit pkgs; };
+        theme = tartarus;
         extraEntries = ''
         	menuentry "Windows" {
       		set root=(hd0,gpt1)

@@ -30,6 +30,7 @@
     xserver = {
       enable = true;
       videoDrivers = [ "i915" ];
+      xkb.layout = "us";
 
       windowManager = {
         i3.enable = true;

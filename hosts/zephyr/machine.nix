@@ -48,7 +48,6 @@
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.utf8";
-  services.xserver.xkb.layout = "us";
 
   environment.variables = lib.mkForce {
     QT_QPA_PLATFORMTHEME  = "qt6ct";

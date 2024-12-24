@@ -1,11 +1,10 @@
 { config, pkgs, inputs, ... }:
 
+let
+  mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
+  gruvbox-plus-icons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+in
 {
-  imports =
-    [
-      ./packages/main.nix
-    ];
-
   # Allow insecure packages
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -22,6 +21,7 @@
     i3
     lightdm
     nerdfetch
+    i3lock-color
     lightdm-gtk-greeter
 
     # Development
@@ -71,9 +71,9 @@
     wakatime-cli
 
     # Custom Packages
-    imports.mantablockscreen
+    mantablockscreen
+    gruvbox-plus-icons
     inputs.zen-browser.packages."${system}".specific
-
 
     # System Utilities
     atk
@@ -129,7 +129,6 @@
     qt6ct
     lxappearance
     gruvbox-gtk-theme
-    gruvbox-plus-icons
     capitaine-cursors
 
     # Running Binaries
