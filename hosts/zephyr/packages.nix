@@ -2,6 +2,7 @@
 
 let
   mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
+  xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
     inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
   };
@@ -73,6 +74,7 @@ in
     wakatime-cli
 
     # Custom Package
+    xeventbind
     mantablockscreen
     gruvboxPlusIcons
     inputs.zen-browser.packages."${system}".specific
