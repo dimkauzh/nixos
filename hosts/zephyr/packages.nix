@@ -76,6 +76,7 @@ in
     wakatime-cli
 
     # Custom Package
+    powerkit
     xeventbind
     mantablockscreen
     gruvboxPlusIcons
@@ -94,7 +95,6 @@ in
     udevil
     direnv
     udisks2
-    powerkit
     thermald
     libnotify
     nix-direnv
@@ -126,7 +126,6 @@ in
     xsettingsd
     betterlockscreen
     lxqt.lxqt-policykit
-    lxqt.lxqt-powermanagement
 
     # Networking and Connectivity
     blueman

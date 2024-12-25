@@ -4,11 +4,6 @@ let
   tartarus = import ./packages/tartarus.nix { inherit pkgs; };
 in
 {
-
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30s
-  '';
-
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
 
@@ -49,8 +44,7 @@ in
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
-      "plymouth.ignore-udev"
-      "plymouth.theme=rings:no-logo"
+      "systemd.show_status=1"
     ];
   };
 }

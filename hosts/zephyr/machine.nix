@@ -20,7 +20,9 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=15m
+  '';
 
   services.logind.extraConfig = ''
     HandleSuspendKey=suspend-then-hibernate

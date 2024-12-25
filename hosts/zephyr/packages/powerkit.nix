@@ -6,43 +6,35 @@ pkgs.stdenv.mkDerivation {
 
   src = pkgs.fetchgit {
     url = "https://github.com/rodlie/powerkit";
-    rev = "f179578cfffc433b13cdb204cb27af9b6e35449b"; # Replace with desired commit hash
-    sha256 = "sha256-placeholder"; # Replace this with the correct sha256
+    rev = "f179578cfffc433b13cdb204cb27af9b6e35449b";
+    sha256 = "05dpp2q0yz39g9vjjhz8f5p1ygg175nyql8cqnyzj8nzyc7v6q7k";
   };
 
   nativeBuildInputs = [
     pkgs.cmake
     pkgs.libsForQt5.qt5.qtbase
+    pkgs.libsForQt5.qt5.wrapQtAppsHook
   ];
 
   buildInputs = [
     pkgs.libsForQt5.qt5.qtbase
-    pkgs.xorg.libx11
-    pkgs.xorg.libxrandr
+    pkgs.xorg.libX11
+    pkgs.xorg.libXrandr
     pkgs.xorg.libXext
+    pkgs.xorg.libXScrnSaver
     pkgs.libutempter
     pkgs.upower
   ];
 
-  cmakeFlags = [
-    "-DUSE_QT5=ON"
-    "-DCMAKE_BUILD_TYPE=Release"
-  ];
-
-  # preBuild = ''
-  #   sed -i 's|/usr/local|$out|g' CMakeLists.txt
-  # '';
-
   buildPhase = ''
-    mkdir -p build
-    cd build
-    cmake .. ${cmakeFlags}
+    cmake -DCMAKE_INSTALL_PREFIX=$out -DCMAKE_BUILD_TYPE=Release .
     make
   '';
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp build/powerkit $out/bin/powerkit
+    mkdir -p $out
+    mkdir $out/bin
+    cp powerkit $out/bin/powerkit
     chmod +x $out/bin/powerkit
   '';
 
