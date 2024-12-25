@@ -3,6 +3,7 @@
 let
   mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
   xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
+  powerkit = import ./packages/powerkit.nix { inherit pkgs; };
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
     inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
   };
@@ -37,6 +38,7 @@ in
 
     # Communication
     nemo
+    halloy
     vesktop
     whatsie
     ente-auth
@@ -91,8 +93,9 @@ in
     upower
     udevil
     direnv
-    thermald
     udisks2
+    powerkit
+    thermald
     libnotify
     nix-direnv
     notify-osd

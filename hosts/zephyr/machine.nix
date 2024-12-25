@@ -20,6 +20,14 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+
+
+  services.logind.extraConfig = ''
+    HandleSuspendKey=suspend-then-hibernate
+    HandleLidSwitch=suspend-then-hibernate
+    HandleLidSwitchDocked=suspend-then-hibernate
+  '';
+
   programs = {
     nix-ld.enable = true;
     zsh.enable = true;

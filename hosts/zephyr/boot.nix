@@ -4,6 +4,11 @@ let
   tartarus = import ./packages/tartarus.nix { inherit pkgs; };
 in
 {
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30s
+  '';
+
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
 
