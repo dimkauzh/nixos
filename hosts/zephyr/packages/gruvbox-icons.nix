@@ -1,47 +1,37 @@
-{
-  lib
-, stdenvNoCC
-, fetchFromGitHub
-, gtk3
-, plasma5Packages
-, gnome-icon-theme
-, hicolor-icon-theme
-}:
+{ pkgs }:
 
-stdenvNoCC.mkDerivation (finalAttrs: {
+pkgs.stdenv.mkDerivation {
   pname = "gruvbox-plus-icons";
-  version = "6.0.2";
+  version = "git";
 
-  src = fetchFromGitHub {
-    owner = "SylEleuth";
-    repo = "gruvbox-plus-icon-pack";
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-PT8s4YFvL8YAZpDFSEsDT05S5yLInVOvvcGJIN1TIPU=";
+  src = pkgs.fetchgit {
+    url = "https://github.com/SylEleuth/gruvbox-plus-icon-pack.git";
+    rev = "766a007b548c65fe538b2fb9b9e4965d6ca55c4a";
+    sha256 = "sha256-KBSmzXEUtVNrBeYL0fNjQ9G2PVzLD35WJA6jQCkNMxc=";
   };
 
-  nativeBuildInputs = [ gtk3 ];
+  nativeBuildInputs = [ pkgs.gtk3 ];
 
-  propagatedBuildInputs = [ plasma5Packages.breeze-icons gnome-icon-theme hicolor-icon-theme ];
+  propagatedBuildInputs = [ pkgs.plasma5Packages.breeze-icons pkgs.gnome-icon-theme pkgs.hicolor-icon-theme ];
+
+ 	phases = [ "installPhase" ];
 
   installPhase = ''
-    runHook preInstall
-
     mkdir -p $out/share/icons
-    cp -r Gruvbox-Plus-Dark $out/share/icons/
-    gtk-update-icon-cache $out/share/icons/Gruvbox-Plus-Dark
+    cp -r $src/* $out/share/icons/
 
-    runHook postInstall
+    gtk-update-icon-cache $out/share/icons/Gruvbox-Plus-Dark
   '';
 
   dontDropIconThemeCache = true;
   dontBuild = true;
   dontConfigure = true;
 
-  meta = with lib; {
+  meta = with pkgs.lib; {
     description = "Icon pack for Linux desktops based on the Gruvbox color scheme";
     homepage = "https://github.com/SylEleuth/gruvbox-plus-icon-pack";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
     maintainers = with maintainers; [ eureka-cpu RGBCube ];
   };
-})
+}

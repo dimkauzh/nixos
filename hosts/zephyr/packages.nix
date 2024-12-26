@@ -5,9 +5,7 @@ let
   xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
   powerkit = import ./packages/powerkit.nix { inherit pkgs; };
   zen-browser = import ./packages/zen.nix { inherit pkgs; };
-  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
-    inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
-  };
+  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
 in
 {
   # Allow insecure packages
@@ -112,6 +110,7 @@ in
       pulseSupport = true;
       i3Support = true;
     })
+    gnome-system-monitor
 
     # i3wm Utilities
     feh
