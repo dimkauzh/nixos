@@ -4,7 +4,7 @@ let
   mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
   xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
   powerkit = import ./packages/powerkit.nix { inherit pkgs; };
-  zen-browser = import ./packages/zen-browser.nix { inherit pkgs; };
+  zen-browser = import ./packages/zen.nix { inherit pkgs; };
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix {
     inherit (pkgs) lib stdenvNoCC fetchFromGitHub gtk3 plasma5Packages gnome-icon-theme hicolor-icon-theme;
   };
@@ -83,7 +83,6 @@ in
     zen-browser
     mantablockscreen
     gruvboxPlusIcons
-    inputs.zen-browser.packages."${system}".default
 
     # System Utilities
     atk
