@@ -23,7 +23,6 @@ in
     # Window Manager
     i3
     lightdm
-    nerdfetch
     i3lock-color
     lightdm-gtk-greeter
 
@@ -74,6 +73,12 @@ in
     zsh
     starship
     wakatime-cli
+
+    # Ricing
+    pipes
+    nitch
+    cbonsai
+    nerdfetch
 
     # Custom Package
     powerkit
