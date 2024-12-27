@@ -1,7 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
   imports =
@@ -11,9 +12,11 @@ in
       ./services.nix
       ./power.nix
       ./fonts.nix
-      ./environment.nix
+      ./enviorment.nix
 
       ./hardware/hardware.nix
+
+      inputs.spicetify-nix.nixosModules.default
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,6 +45,15 @@ in
         enable = true;
         package = pkgs.nix-direnv;
       };
+    };
+
+    spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        shuffle
+      ];
+      theme = spicePkgs.themes.onepunch;
     };
   };
 

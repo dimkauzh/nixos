@@ -9,7 +9,6 @@ in
 
     loader = {
       efi.canTouchEfiVariables = true;
-
       grub = {
         enable = true;
         efiSupport = true;
@@ -34,8 +33,12 @@ in
       ];
     };
 
+    initrd = {
+      verbose = false;
+      systemd.enable = true;
+    };
+
     consoleLogLevel = 0;
-    initrd.verbose = false;
     kernelParams = [
       "quiet"
       "splash"
