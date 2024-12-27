@@ -60,6 +60,7 @@ in
     mesa
     lutris
     winetricks
+    joystickwake
     vulkan-tools
     prismlauncher
     wineWowPackages.stable
@@ -108,6 +109,7 @@ in
     libsecret
     pulseaudio
     pulsemixer
+    pwvucontrol
     xorg.xbacklight
     brightnessctl
     gnome-keyring

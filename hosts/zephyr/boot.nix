@@ -25,8 +25,9 @@ in
 
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = "nixos-bgrt";
       themePackages = with pkgs; [
+        nixos-bgrt-plymouth
         (adi1090x-plymouth-themes.override {
           selected_themes = [ "rings" ];
         })
@@ -35,7 +36,6 @@ in
 
     initrd = {
       verbose = false;
-      systemd.enable = true;
     };
 
     consoleLogLevel = 0;
