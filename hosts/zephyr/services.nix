@@ -14,6 +14,8 @@
     gnome.gnome-keyring.enable = true;
     acpid.enable = true;
 
+    blueman.enable = true;
+
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -59,5 +61,11 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    logind.extraConfig = ''
+      HandleSuspendKey=suspend-then-hibernate
+      HandleLidSwitch=suspend-then-hibernate
+      HandleLidSwitchDocked=suspend-then-hibernate
+    '';
   };
 }

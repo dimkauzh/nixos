@@ -16,6 +16,7 @@ in
   environment.systemPackages = with pkgs; [
     # Essentials
     git
+    gcc
     wget
     dconf
     unzip
@@ -87,6 +88,9 @@ in
     zen-browser
     mantablockscreen
     gruvboxPlusIcons
+
+    # Dependencies
+    nodejs-slim_23
 
     # System Utilities
     atk
