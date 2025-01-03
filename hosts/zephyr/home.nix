@@ -2,6 +2,11 @@
 
 
 {
+  imports =
+    [
+      ./home/options.nix
+    ];
+
   home = {
     username = "dima";
     homeDirectory = "/home/dima";
@@ -13,14 +18,6 @@
       QT_QPA_PLATFORMTHEME="darker";
       QT_STYLE_OVERRIDE="Fusion";
       GTK_THEME="Gruvbox-Dark";
-    };
-  };
-
-
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
     };
   };
 

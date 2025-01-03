@@ -35,7 +35,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.dima = import ./hosts/zephyr/home.nix;
-            home-manager.option = import ./hosts/zephyr/home/options.nix;
         }
       ];
     };
