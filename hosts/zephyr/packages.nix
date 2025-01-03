@@ -54,22 +54,22 @@ in
     shotcut
 
     # Music
-    spotify
-    spicetify-cli
+    # spotify
+    # spicetify-cli
 
     # Gaming Utilities
     mesa
+    dxvk
     lutris
     winetricks
     joystickwake
     vulkan-tools
     prismlauncher
     wineWowPackages.stable
-    dxvk
 
     # Office
-    libreoffice
     zathura
+    libreoffice
 
     # Terminal
     zsh
@@ -85,11 +85,12 @@ in
     # Custom Package
     powerkit
     xeventbind
-    zen-browser
     mantablockscreen
     gruvboxPlusIcons
+    inputs.zen-browser.packages."${system}".default
 
     # Dependencies
+    jdk
     nodejs-slim_23
 
     # System Utilities
@@ -136,8 +137,12 @@ in
     playerctl
     xss-lock
     xsettingsd
-    betterlockscreen
     lxqt.lxqt-policykit
+
+    # Storage Utilities
+    baobab
+    timeshift
+    xarchiver
 
     # Networking and Connectivity
     blueman
