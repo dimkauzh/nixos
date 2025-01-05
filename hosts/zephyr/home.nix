@@ -10,15 +10,15 @@
   home = {
     username = "dima";
     homeDirectory = "/home/dima";
-    stateVersion = "24.05"; # (dont change)
+    stateVersion = "24.11"; # (dont change)
     sessionVariables = {
       EDITOR = "zeditor";
       BROWSER = "zen-browser";
-
-      QT_QPA_PLATFORMTHEME="darker";
-      QT_STYLE_OVERRIDE="Fusion";
-      GTK_THEME="Gruvbox-Dark";
     };
+
+    activation.symlinkZen = pkgs.lib.mkAfter ''
+        ln -sf ~/projects/nixos/hosts/zephyr/packages/assets/zen.desktop ~/.local/share/applications/zen.desktop
+    '';
   };
 
   programs.home-manager.enable = false;

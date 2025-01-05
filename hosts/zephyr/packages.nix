@@ -32,15 +32,17 @@ in
     slade
     gzdoom
     neovim
+    filezilla
     zed-editor
     ghidra-bin
 
     # Communication
     nemo
     halloy
+    zapzap
     vesktop
-    whatsie
     ente-auth
+    wireguard-ui
     protonvpn-gui
     github-desktop
     element-desktop
@@ -52,10 +54,6 @@ in
     obs-studio
     darktable
     shotcut
-
-    # Music
-    # spotify
-    # spicetify-cli
 
     # Gaming Utilities
     mesa
@@ -122,6 +120,9 @@ in
       pulseSupport = true;
       i3Support = true;
     })
+
+    # Gnome Utilities
+    gnome-disk-utility
     gnome-system-monitor
 
     # i3wm Utilities
