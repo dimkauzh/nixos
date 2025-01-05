@@ -12,6 +12,7 @@ in
       ./services.nix
       ./power.nix
       ./fonts.nix
+      ./environment.nix
 
       ./hardware/hardware.nix
 
