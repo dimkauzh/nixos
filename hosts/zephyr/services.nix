@@ -39,7 +39,7 @@
       };
 
       displayManager = {
-    		lightdm.enable = true;
+        lightdm.enable = true;
       };
       config = ''
         Section "InputClass"

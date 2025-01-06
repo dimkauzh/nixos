@@ -5,6 +5,7 @@
   imports =
     [
       ./home/options.nix
+      ./home/setup.nix
     ];
 
   home = {
@@ -15,10 +16,6 @@
       EDITOR = "zeditor";
       BROWSER = "zen-browser";
     };
-
-    activation.symlinkZen = pkgs.lib.mkAfter ''
-        ln -sf ~/projects/nixos/hosts/zephyr/packages/assets/zen.desktop ~/.local/share/applications/zen.desktop
-    '';
   };
 
   programs.home-manager.enable = false;

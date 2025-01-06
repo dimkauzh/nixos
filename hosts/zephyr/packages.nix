@@ -55,7 +55,8 @@ in
     darktable
     shotcut
 
-    # Gaming Utilities
+    # Games/Emulation and Tools
+    mgba
     mesa
     dxvk
     lutris
