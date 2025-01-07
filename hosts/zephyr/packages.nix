@@ -123,6 +123,7 @@ in
     })
 
     # Gnome Utilities
+    gnome-calculator
     gnome-disk-utility
     gnome-system-monitor
 
@@ -155,8 +156,6 @@ in
     # Themes and Icons
     qt6ct
     lxappearance
-    gruvbox-gtk-theme
-    capitaine-cursors
 
     # Running Binaries
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

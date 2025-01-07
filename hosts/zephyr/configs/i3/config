@@ -14,8 +14,6 @@ font pango:Noto Sans 10
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- bash ~/.config/i3/scripts/lock.sh --nofork
 
-
-
 # System Audio Controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id bash ~/.config/i3/scripts/volume_brightness.sh volume_up
 bindsym XF86AudioLowerVolume exec --no-startup-id bash ~/.config/i3/scripts/volume_brightness.sh volume_down
@@ -32,8 +30,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id bash ~/.config/i3/scripts/volum
 bindsym XF86MonBrightnessDown exec --no-startup-id bash ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
 # Binding other top keys
-bindsym $mod+p exec arandr # This is due to the fact that screen key is mirrored to $mod+p
-bindsym F9 exec zeditor
+bindsym $mod+p exec arandr # This is due to the fact that projection key is mirrored to $mod+p
+bindsym F9 exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -140,7 +138,7 @@ mode "system" {
   bindsym p exec --no-startup-id systemctl suspend, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
   bindsym s exec --no-startup-id systemctl poweroff, mode "default"
-  bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+  bindsym h exec --no-startup-id systemctl suspend-then-hibernate, mode "default"
 
   # escaping current mode
   bindsym Escape mode "default"

@@ -61,11 +61,5 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    logind.extraConfig = ''
-      HandleSuspendKey=suspend-then-hibernate
-      HandleLidSwitch=suspend-then-hibernate
-      HandleLidSwitchDocked=suspend-then-hibernate
-    '';
   };
 }
