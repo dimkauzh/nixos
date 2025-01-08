@@ -9,5 +9,6 @@
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/rofi ~/.config/rofi
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/nvim ~/.config/nvim
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/kitty ~/.config/kitty
+      ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/greenclip/greenclip.toml ~/.config/greenclip.toml
   '';
 }

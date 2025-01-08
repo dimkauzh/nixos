@@ -32,7 +32,11 @@
     xserver = {
       enable = true;
       videoDrivers = [ "i915" ];
-      xkb.layout = "us";
+
+      xkb = {
+        layout = "us";
+        options = "compose:rctrl";
+      };
 
       windowManager = {
         i3.enable = true;

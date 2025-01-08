@@ -4,11 +4,11 @@ let
     gruvboxPlusIcons = import ../packages/gruvbox-icons.nix { inherit pkgs; };
 in
 {
-  home.gtk = {
+  gtk = {
     enable = true;
     theme = {
       name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme
+      package = pkgs.gruvbox-gtk-theme;
     };
 
     iconTheme = {
@@ -18,7 +18,7 @@ in
 
     cursorTheme = {
       name = "capitaine-cursors";
-      package = pkgs.capitaine-cursors
+      package = pkgs.capitaine-cursors;
     };
 
     gtk3.extraConfig = {

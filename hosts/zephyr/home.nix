@@ -6,6 +6,8 @@
     [
       ./home/options.nix
       ./home/setup.nix
+
+      ./home/gtk.nix
     ];
 
   home = {

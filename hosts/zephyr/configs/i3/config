@@ -31,7 +31,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id bash ~/.config/i3/scripts/vol
 
 # Binding other top keys
 bindsym $mod+p exec arandr # This is due to the fact that projection key is mirrored to $mod+p
-bindsym F9 exec kitty
+bindsym F9 exec powerkit --config
 
 # kill focused window
 bindsym $mod+q kill
@@ -115,8 +115,11 @@ bindsym $mod+Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots
 # run rofi
 bindsym $mod+space exec rofi -show drun
 
+# run greenclip
+bindsym $mod+x exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
 # reset monitor settings
-bindsym $mod+x exec ~/.config/i3/scripts/reset_monitor.sh
+bindsym $mod+z exec ~/.config/i3/scripts/reset_monitor.sh
 
 # display redraw
 bindsym $mod+Shift+x exec ~/.config/i3/scripts/display_redraw.sh
@@ -200,7 +203,7 @@ exec --no-startup-id lxqt-policykit-agent
 exec --no-startup-id polybar
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id xclip
+exec --no-startup-id greenclip daemon
 exec --no-startup-id sleep 1 && copyq
 exec --no-startup-id ~/.config/i3/scripts/background.sh
 exec --no-startup-id xeventbind resolution ~/.config/i3/scripts/display_redraw.sh

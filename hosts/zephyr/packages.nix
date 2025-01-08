@@ -135,12 +135,12 @@ in
     scrot
     arandr
     picom
-    copyq
     flameshot
     playerctl
     xss-lock
     xsettingsd
     lxqt.lxqt-policykit
+    haskellPackages.greenclip
 
     # Storage Utilities
     baobab
