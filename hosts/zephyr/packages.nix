@@ -34,18 +34,14 @@ in
     neovim
     filezilla
     zed-editor
-    ghidra-bin
 
     # Communication
     nemo
-    halloy
     zapzap
     vesktop
     ente-auth
-    wireguard-ui
     protonvpn-gui
     github-desktop
-    element-desktop
 
     # Media
     vlc
@@ -62,7 +58,6 @@ in
     lutris
     winetricks
     joystickwake
-    vulkan-tools
     prismlauncher
     wineWowPackages.stable
 
@@ -154,7 +149,6 @@ in
     networkmanagerapplet
 
     # Themes and Icons
-    qt6ct
     lxappearance
 
     # Running Binaries

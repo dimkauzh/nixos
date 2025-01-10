@@ -58,5 +58,9 @@
     selected-urgent-foreground:  @urgent-foreground;
 }
 
-@import "gruvbox-common.rasi"
+element-text {
+ background-color: inherit;
+ text-color: inherit;
+}
 
+@import "gruvbox-common.rasi"

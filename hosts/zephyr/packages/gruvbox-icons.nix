@@ -20,7 +20,7 @@ pkgs.stdenv.mkDerivation {
     mkdir -p $out/share/icons
     cp -r $src/* $out/share/icons/
 
-    gtk-update-icon-cache $out/share/icons/Gruvbox-Plus-Dark
+    # gtk-update-icon-cache $out/share/icons/Gruvbox-Plus-Dark
   '';
 
   dontDropIconThemeCache = true;

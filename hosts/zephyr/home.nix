@@ -8,6 +8,7 @@
       ./home/setup.nix
 
       ./home/gtk.nix
+      ./home/zsh.nix
     ];
 
   home = {
