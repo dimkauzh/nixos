@@ -7,14 +7,19 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    histSize = 4000;
-    histFile = "$HOME/.zsh_history"
-    shellInit = ''
-      export PATH="$PATH:~/.local/bin:~/.local/go/bin"
-      export GOPATH=~/.local/go
-      export GOMODCACHE=~/.local/go/pkg/mod
-      export TERM=xterm-256color
-    '';
+    history = {
+      size = 4000;
+      path = "$HOME/.zsh_history";
+      share = true;
+      append = true;
+    };
+
+    sessionVariables = {
+      PATH="$PATH:~/.local/bin:~/.local/go/bin";
+      GOPATH="~/.local/go";
+      GOMODCACHE="~/.local/go/pkg/mod";
+      TERM="xterm-256color";
+    };
 
     initExtra = ''
       # Oh-My-Posh
@@ -86,13 +91,6 @@
       if autoload -Uz compinit && compinit; then
         compdef '_files -W ~/projects/' project
       fi
-
-      # Terminal title
-      autoload -Uz add-zsh-hook
-      add-zsh-hook chpwd set_terminal_title
-      set_terminal_title
-      setopt share_history
-      setopt append_history
     '';
-  }
+  };
 }
