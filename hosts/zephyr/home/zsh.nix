@@ -14,7 +14,7 @@
       append = true;
     };
 
-    sessionVariables = {
+    localVariables = {
       PATH="$PATH:~/.local/bin:~/.local/go/bin";
       GOPATH="~/.local/go";
       GOMODCACHE="~/.local/go/pkg/mod";
@@ -61,13 +61,11 @@
       system() {
         case "$1" in
           update)
-            if [[ $(pwd) != "$HOME/projects/nixos" ]]; then
-              echo "Error: You need to be in ~/projects/nixos to run this command."
-              return 1
-            fi
-
             echo "Updating system flake..."
-            nix flake update
+            (
+              cd ~/projects/nixos || { echo "Error: Directory ~/projects/nixos does not exist."; return 1; }
+              nix flake update
+            )
             ;;
 
           rebuild)
