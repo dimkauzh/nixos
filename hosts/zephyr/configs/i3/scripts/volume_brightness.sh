@@ -1,5 +1,3 @@
-#!/bin/bash
-
 volume_step=5
 brightness_step=5
 max_volume=150

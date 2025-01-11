@@ -10,6 +10,8 @@ set $ctrl Control
 # Default font
 font pango:Noto Sans 10
 
+bindsym $mod+l exec echo $XDG_DATA_DIRS > ~/test.txt
+
 # i3 statup and sleep initialization
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- bash ~/.config/i3/scripts/lock.sh --nofork
@@ -113,7 +115,7 @@ bindsym $mod+Print exec --no-startup-id scrot -u - | xclip -selection clipboard 
 bindsym $mod+Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots
 
 # run rofi
-bindsym $mod+space exec rofi -show drun
+bindsym $mod+space exec zsh ~/.config/i3/scripts/rofi.sh
 
 # run greenclip
 bindsym $mod+x exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
