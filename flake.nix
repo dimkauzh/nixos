@@ -15,9 +15,12 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
   };
 
-  outputs = { nixpkgs, self, spicetify-nix, zen-browser, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, self, spicetify-nix, zen-browser, home-manager, nix-flatpak, ... } @ inputs:
   let
     system = "x86_64-linux";
   in
@@ -34,8 +37,12 @@
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.dima = import ./hosts/zephyr/home.nix;
+            home-manager.users.dima.imports = [
+              ./hosts/zephyr/home.nix
+              nix-flatpak.homeManagerModules.nix-flatpak
+            ];
         }
+        nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };

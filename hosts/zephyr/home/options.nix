@@ -4,6 +4,7 @@
 {
   xdg = {
     configFile."mimeapps.list".force = true;
+
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -17,6 +18,16 @@
 
         "inode/directory" = [ "nemo.desktop" ];
       };
+    };
+
+    portal = {
+      enable = true;
+      config.common.default = "*";
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-xapp
+      ];
     };
   };
 

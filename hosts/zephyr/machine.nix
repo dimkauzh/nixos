@@ -1,7 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
@@ -87,24 +86,6 @@ in
       description = "Dima";
       extraGroups = [ "wheel" ];
     };
-  };
-
-  services.xserver.displayManager.lightdm.greeters.gtk = {
-    enable = true;
-
-    theme = {
-      package = pkgs.gruvbox-gtk-theme;
-      name = "Gruvbox-Dark";
-    };
-
-    iconTheme = {
-      package = gruvboxPlusIcons;
-      name = "Gruvbox-Plus-Dark";
-    };
-
-    extraConfig = ''
-      background=/etc/backgrounds/forest-3.jpg
-    '';
   };
 
   # DO NOT MODIFY

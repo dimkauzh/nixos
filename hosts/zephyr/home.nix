@@ -6,6 +6,7 @@
     [
       ./home/options.nix
       ./home/setup.nix
+      ./home/services.nix
 
       ./home/gtk.nix
       ./home/zsh.nix

@@ -77,6 +77,7 @@ in
     nerdfetch
 
     # Custom Package
+    flatpak
     powerkit
     xeventbind
     mantablockscreen

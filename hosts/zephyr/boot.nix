@@ -48,6 +48,7 @@ in
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "systemd.show_status=1"
+      "intel_pstate=passive"
     ];
   };
 }

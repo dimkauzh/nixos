@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-
+let
+  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+in
 {
   services = {
     devmon.enable = true;
@@ -42,8 +44,26 @@
         i3.enable = true;
       };
 
-      displayManager = {
-        lightdm.enable = true;
+      displayManager.lightdm = {
+        enable = true;
+
+        greeters.gtk = {
+          enable = true;
+
+          theme = {
+            package = pkgs.gruvbox-gtk-theme;
+            name = "Gruvbox-Dark";
+          };
+
+          iconTheme = {
+            package = gruvboxPlusIcons;
+            name = "Gruvbox-Plus-Dark";
+          };
+
+          extraConfig = ''
+            background=/etc/backgrounds/forest-3.jpg
+          '';
+        };
       };
       config = ''
         Section "InputClass"
