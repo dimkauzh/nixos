@@ -7,7 +7,6 @@
     tlp = {
       enable = true;
       settings = {
-        HANDLE_LID_SWITCH=1;
         CPU_BOOST_ON_BAT=0;
 
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
