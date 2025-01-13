@@ -6,6 +6,7 @@ let
   powerkit = import ./packages/powerkit.nix { inherit pkgs; };
   zen-browser = import ./packages/zen.nix { inherit pkgs; };
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+  wallpapers = import ./packages/wallpapers.nix { inherit pkgs; };
 in
 {
   # Allow insecure packages
