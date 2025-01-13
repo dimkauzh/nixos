@@ -7,14 +7,14 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchgit {
     url = "https://github.com/AngelJumbo/gruvbox-wallpapers.git";
     rev = "edb315e711791d2eca4e5873d583ba47325672e0";
-    sha256 = "";
+    sha256 = "sha256-HiaP9i3OmL4l3bRLaI7FKbx41rxJmQlx6kY4/5M/3SY=";
   };
 
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out/etc/backgrounds
-    cp -r $src/wallpapers/irl/* $out/etc/backgrounds/
+    mkdir -p $out/backgrounds
+    cp -r $src/wallpapers/irl/* $out/backgrounds/
   '';
 
   dontBuild = true;

@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-
+let
+  nvim-config = import ./packages/neovim.nix { inherit pkgs; };
+in
 {
   xdg = {
     configFile."mimeapps.list".force = true;
@@ -28,6 +30,10 @@
         xdg-desktop-portal-gtk
         xdg-desktop-portal-xapp
       ];
+    };
+
+    configFile."nvim/" = {
+      source = "${nvim-config}/nvim";
     };
   };
 

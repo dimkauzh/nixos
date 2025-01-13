@@ -4,9 +4,9 @@ let
   mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
   xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
   powerkit = import ./packages/powerkit.nix { inherit pkgs; };
-  zen-browser = import ./packages/zen.nix { inherit pkgs; };
-  gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
   wallpapers = import ./packages/wallpapers.nix { inherit pkgs; };
+  nvim-config = import ./packages/neovim.nix { inherit pkgs; };
+  zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
 in
 {
   # Allow insecure packages
@@ -78,15 +78,16 @@ in
     nerdfetch
 
     # Custom Package
-    flatpak
     powerkit
+    wallpapers
     xeventbind
+    zen-browser
+    nvim-config
     mantablockscreen
-    gruvboxPlusIcons
-    inputs.zen-browser.packages."${system}".default
 
     # Dependencies
     jdk
+    flatpak
     nodejs-slim_23
 
     # System Utilities

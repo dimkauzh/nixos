@@ -2,6 +2,7 @@
 
 let
   gruvboxPlusIcons = import ./packages/gruvbox-icons.nix { inherit pkgs; };
+  wallpapers = import ./packages/wallpapers.nix { inherit pkgs; };
 in
 {
   services = {
@@ -61,7 +62,7 @@ in
           };
 
           extraConfig = ''
-            background=/etc/backgrounds/forest-3.jpg
+            background=${wallpapers}/backgrounds/forest-3.jpg
           '';
         };
       };
