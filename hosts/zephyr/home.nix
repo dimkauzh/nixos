@@ -10,8 +10,7 @@
 
       ./home/gtk.nix
 
-      ./home/programs/zsh.nix
-      ./home/programs/starship.nix
+      ./home/programs/programs.nix
     ];
 
   home = {
