@@ -1,3 +1,5 @@
+{ lib, config, pkgs, inputs, ... }:
+
 {
   imports = [
     ./rofi.nix

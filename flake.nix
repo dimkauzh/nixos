@@ -41,6 +41,9 @@
               ./hosts/zephyr/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
             ];
+            home-manager.extraSpecialArgs = {
+              inherit inputs self;
+            };
         }
         nix-flatpak.nixosModules.nix-flatpak
       ];
