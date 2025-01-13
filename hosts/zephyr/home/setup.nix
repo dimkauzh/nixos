@@ -7,6 +7,5 @@
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/i3 ~/.config/i3
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/polybar ~/.config/polybar
       ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/kitty ~/.config/kitty
-      ln -sf /home/dima/projects/nixos/hosts/zephyr/configs/greenclip/greenclip.toml ~/.config/greenclip.toml
   '';
 }
