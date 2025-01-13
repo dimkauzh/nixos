@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  nvim-config = import ./packages/neovim.nix { inherit pkgs; };
+  nvim-config = import ../packages/neovim.nix { inherit pkgs; };
 in
 {
   xdg = {
@@ -33,7 +33,7 @@ in
     };
 
     configFile."nvim/" = {
-      source = "${nvim-config}/nvim";
+      source = "${nvim-config}/nvim/";
     };
   };
 

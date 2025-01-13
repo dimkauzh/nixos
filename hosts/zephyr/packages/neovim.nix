@@ -6,8 +6,8 @@ pkgs.stdenv.mkDerivation {
 
   src = pkgs.fetchgit {
     url = "https://github.com/dimkauzh/nvim-config.git";
-    rev = "0b74d82ee33aea0dd7bdcd802da17511e7201eeb";
-    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # Replace with the actual hash
+    rev = "aa6e5ab4cdb165a1b967bfb070ae296278ae8027";
+    sha256 = "sha256-KuKTR89WAfEEfAnmZr5Kmn0CQ4oVgRKi+Mny/xPdShU="; # Replace with the actual hash
   };
 
   phases = [ "installPhase" ];
