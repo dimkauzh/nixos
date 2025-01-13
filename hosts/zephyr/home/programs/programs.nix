@@ -6,5 +6,6 @@
     ./zsh.nix
     ./starship.nix
     ./greenclip.nix
+    ./kitty.nix
   ];
 }
