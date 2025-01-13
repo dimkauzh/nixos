@@ -35,6 +35,26 @@ in
     configFile."nvim/" = {
       source = "${nvim-config}/nvim/";
     };
+    desktopEntries = {
+      zen = {
+        name = "Zen Browser";
+        exec = "zen %u";
+        icon = "zen";
+        genericName = "Web Browser";
+        terminal = false;
+        categories = [ "Application" "Network" "WebBrowser" ];
+        mimeType = [
+          "text/html"
+          "text/xml"
+          "application/xhtml+xml"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+          "application/x-xpinstall"
+          "application/pdf"
+          "application/json"
+        ];
+      };
+    };
   };
 
   dconf.settings = {
