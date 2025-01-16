@@ -7,5 +7,6 @@
     ./starship.nix
     ./greenclip.nix
     ./kitty.nix
+    ./polybar.nix
   ];
 }

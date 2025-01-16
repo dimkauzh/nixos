@@ -14,6 +14,11 @@
       append = true;
     };
 
+    shellAliases = {
+      clean-old-generations = "sudo /run/current-system/bin/switch-to-configuration boot
+";
+    };
+
     localVariables = {
       PATH="$PATH:~/.local/bin:~/.local/go/bin";
       GOPATH="~/.local/go";

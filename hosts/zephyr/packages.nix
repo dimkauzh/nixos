@@ -95,7 +95,6 @@ in
     dex
     tlp
     acpi
-    gvfs
     gtk3
     gtk4
     avahi
@@ -115,12 +114,9 @@ in
     xorg.xbacklight
     brightnessctl
     gnome-keyring
-    (polybar.override {
-      pulseSupport = true;
-      i3Support = true;
-    })
 
     # Gnome Utilities
+    gnome-firmware
     gnome-calculator
     gnome-disk-utility
     gnome-system-monitor

@@ -14,10 +14,11 @@ in
     upower.enable = true;
     openssh.enable = true;
 
-    gnome.gnome-keyring.enable = true;
     acpid.enable = true;
+    fwupd.enable = true;
 
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     avahi = {
       enable = true;
@@ -79,6 +80,10 @@ in
         EndSection
       '';
     };
+
+    logind.extraConfig = ''
+       HandlePowerKey=ignore
+    '';
 
     pipewire = {
       enable = true;
