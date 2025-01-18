@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.activation.symlinkZen = pkgs.lib.mkAfter ''
