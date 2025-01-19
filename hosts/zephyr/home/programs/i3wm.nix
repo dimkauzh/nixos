@@ -3,14 +3,15 @@
 let
   mod = "Mod4";
   alt = "Mod1";
-  ctrl = "Control";
-  wallpapers = import ./packages/wallpapers.nix { inherit pkgs; };
+  wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
 in
 {
   xsession.windowManager.i3 = {
     enable = true;
 
     config = {
+      bars = [];
+
       fonts = {
         names = [ "Noto Sans" ];
         style = "Regular";
@@ -139,8 +140,8 @@ in
         "${mod}+r" = "reload";
 
         # Modes
-        "${mod}+Escape" = "mode 'system'";
-        "${mod}+Shift+r" = "mode 'resize'";
+        "${mod}+Escape" = "mode system";
+        "${mod}+Shift+r" = "mode resize";
       };
 
       colors = {
@@ -166,6 +167,37 @@ in
           text = "#dfbf8e";
           indicator = "#282828";
           childBorder = "#282828";
+        };
+      };
+
+      modes = {
+        system = {
+          e = "exec i3-msg exit";
+          l = "exec mantablockscreen -sc, mode default";
+          p = "exec systemctl suspend, mode default";
+          h = "exec systemctl hibernate, mode default";
+          r = "exec systemctl reboot, mode default";
+          s = "exec systemctl poweroff, mode default";
+
+          Escape = "mode default";
+          Return = "mode default";
+          "${mod}+Escape" = "mode default";
+        };
+
+        resize = {
+          j = "resize shrink width 5 px or 5 ppt";
+          k = "resize grow height 5 px or 5 ppt";
+          l = "resize shrink height 5 px or 5 ppt";
+          semicolon = "resize grow width 5 px or 5 ppt";
+
+          Left = "resize shrink width 5 px or 5 ppt";
+          Down = "resize grow height 5 px or 5 ppt";
+          Up = "resize shrink height 5 px or 5 ppt";
+          Right = "resize grow width 5 px or 5 ppt";
+
+          Return = "mode default";
+          Escape = "mode default";
+          "${mod}+Shift+r" = "mode default";
         };
       };
 
@@ -208,7 +240,7 @@ in
         pkill picom
         picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl"
       '';
-      mode = "0755";
+      executable = true;
     };
 
     ".config/i3/window_ss.sh" = {
@@ -220,7 +252,7 @@ in
 
         notify-send "Screenshot saved" "File: $filename (copied to clipboard)"
       '';
-      mode = "0755";
+      executable = true;
     };
 
     ".config/i3/volume_brightness.sh" = {
@@ -305,7 +337,7 @@ in
                 ;;
         esac
       '';
-      mode = "0755";
+      executable = true;
     };
   };
 }

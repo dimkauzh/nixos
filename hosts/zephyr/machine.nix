@@ -29,6 +29,11 @@ in
     nix-ld.enable = true;
     zsh.enable = true;
 
+    xss-lock = {
+      enable = true;
+      lockerCommand = "mantablockscreen -sc";
+    };
+
     direnv = {
       package = pkgs.direnv;
       silent = false;

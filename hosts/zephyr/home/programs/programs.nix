@@ -9,5 +9,6 @@
     ./kitty.nix
     ./polybar.nix
     ./dunst.nix
+    ./i3wm.nix
   ];
 }
