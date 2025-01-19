@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
+  mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
@@ -31,7 +32,11 @@ in
 
     xss-lock = {
       enable = true;
-      lockerCommand = "mantablockscreen -sc";
+      lockerCommand = "${mantablockscreen}/bin/mantablockscreen -sc";
+      extraOptions = [
+        "--transfer-sleep-lock"
+        "--nofork"
+      ];
     };
 
     direnv = {
