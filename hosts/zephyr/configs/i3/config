@@ -10,8 +10,6 @@ set $ctrl Control
 # Default font
 font pango:Noto Sans 10
 
-bindsym $mod+l exec echo $XDG_DATA_DIRS > ~/test.txt
-
 # i3 statup and sleep initialization
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- bash ~/.config/i3/scripts/lock.sh --nofork
@@ -118,13 +116,13 @@ bindsym $mod+Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots
 bindsym $mod+space exec zsh ~/.config/i3/scripts/rofi.sh
 
 # run greenclip
-bindsym $mod+x exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym $mod+x exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
 
 # reset monitor settings
 bindsym $mod+z exec ~/.config/i3/scripts/reset_monitor.sh
 
 # display redraw
-bindsym $mod+Shift+x exec ~/.config/i3/scripts/display_redraw.sh
+bindsym $mod+Shift+z exec ~/.config/i3/scripts/display_redraw.sh
 
 # toggle polybar
 bindsym $alt+p exec polybar-msg cmd toggle

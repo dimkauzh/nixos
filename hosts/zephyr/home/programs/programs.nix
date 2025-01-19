@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -8,5 +8,6 @@
     ./greenclip.nix
     ./kitty.nix
     ./polybar.nix
+    ./dunst.nix
   ];
 }

@@ -1,10 +1,10 @@
-{...}:
+{ pkgs, ... }:
 
 let
-  gruvboxPlusIcons = import ../packages/gruvbox-icons.nix { inherit pkgs; };
+  gruvboxPlusIcons = import ../../packages/gruvbox-icons.nix { inherit pkgs; };
 in
 {
-  programs.dunst = {
+  services.dunst = {
     enable = true;
 
     iconTheme = {
@@ -17,9 +17,9 @@ in
         monitor = 0;
         follow = "keyboard";
         origin = "top-right";
-        offset = "15x40";
+        offset = "(15, 40)";
         width = 320;
-        height = [ 50 220 ];
+        height = "(50, 220)";
         indicate_hidden = true;
         transparency = 10;
         separator_height = 2;
@@ -31,7 +31,7 @@ in
         font = "Noto Sans 12";
         line_height = 0;
         markup = "full";
-        format = "<b>%s</b>\n%b";
+        format = "<b>%s</b>\\n%b";
         alignment = "left";
         show_age_threshold = 60;
         ellipsize = "middle";
@@ -55,24 +55,24 @@ in
       };
 
       urgency_low = {
-       	background = "#32302f";
-       	foreground = "#a89984";
-       	frame_color = "#a9b665";
-       	timeout = 2;
+        background = "#32302f";
+        foreground = "#a89984";
+        frame_color = "#a9b665";
+        timeout = 2;
       };
 
       urgency_normal = {
-       	background = "#32302f";
-       	foreground = "#a89984";
-       	frame_color = "#a9b665";
-       	timeout = 4;
+        background = "#32302f";
+        foreground = "#a89984";
+        frame_color = "#a9b665";
+        timeout = 4;
       };
 
       urgency_critical = {
-       	background = "#32302f";
-       	foreground = "#a89984";
-       	frame_color = "#cc241d";
-       	timeout = 6;
+        background = "#32302f";
+        foreground = "#a89984";
+        frame_color = "#cc241d";
+        timeout = 6;
       };
     };
   };
