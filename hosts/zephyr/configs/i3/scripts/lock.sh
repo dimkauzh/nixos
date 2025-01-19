@@ -1,1 +1,0 @@
-mantablockscreen -sc

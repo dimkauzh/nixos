@@ -64,18 +64,26 @@
       }
 
       system() {
+        local DEFAULT_NIXOS_PATH="$HOME/projects/nixos"
+
+        local NIXOS_CONFIG_PATH="$DEFAULT_NIXOS_PATH"
+        if [[ -n "$NIXOS_PATH" ]]; then
+          NIXOS_CONFIG_PATH="$NIXOS_PATH"
+        fi
+
         case "$1" in
           update)
-            echo "Updating system flake..."
+            echo "Updating system flake in $NIXOS_CONFIG_PATH..."
             (
-              cd ~/projects/nixos || { echo "Error: Directory ~/projects/nixos does not exist."; return 1; }
+              cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
               nix flake update
             )
             ;;
 
           rebuild)
-            echo "Rebuilding the system configuration..."
-            sudo nixos-rebuild switch --flake ~/projects/nixos#zephyr
+            echo "Rebuilding the system configuration in $NIXOS_CONFIG_PATH..."
+            cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
+            sudo nixos-rebuild switch --flake .#zephyr
             ;;
 
           upgrade)
