@@ -10,5 +10,6 @@
     ./polybar.nix
     ./dunst.nix
     ./i3wm.nix
+    ./xsettingsd.nix
   ];
 }

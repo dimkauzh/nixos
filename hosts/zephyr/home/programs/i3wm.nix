@@ -20,9 +20,9 @@ in
 
       keybindings = {
         # System Audio Controls
-        "XF86AudioRaiseVolume" = "exec bash ~/.config/i3/scripts/volume_brightness.sh volume_up";
-        "XF86AudioLowerVolume" = "exec bash ~/.config/i3/scripts/volume_brightness.sh volume_down";
-        "XF86AudioMute" = "exec bash ~/.config/i3/scripts/volume_brightness.sh volume_mute";
+        "XF86AudioRaiseVolume" = "exec bash ~/.config/i3/volume_brightness.sh volume_up";
+        "XF86AudioLowerVolume" = "exec bash ~/.config/i3/volume_brightness.sh volume_down";
+        "XF86AudioMute" = "exec bash ~/.config/i3/volume_brightness.sh volume_mute";
 
         # Media keys
         "XF86AudioPlay" = "exec playerctl play-pause";
@@ -31,8 +31,8 @@ in
         "XF86AudioPrev" = "exec playerctl position 10-";
 
         # System Brightness Controls
-        "XF86MonBrightnessUp" = "exec bash ~/.config/i3/scripts/volume_brightness.sh brightness_up";
-        "XF86MonBrightnessDown" = "exec bash ~/.config/i3/scripts/volume_brightness.sh brightness_down";
+        "XF86MonBrightnessUp" = "exec bash ~/.config/i3/volume_brightness.sh brightness_up";
+        "XF86MonBrightnessDown" = "exec bash ~/.config/i3/volume_brightness.sh brightness_down";
 
         # Binding other top keys
         "${mod}+p" = "exec arandr";
@@ -218,6 +218,7 @@ in
       };
 
       startup = [
+        { command = "xss-lock --transfer-sleep-lock -- mantablockscreen -sc --nofork"; }
         { command = "picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl"; }
         { command = "xsettingsd"; }
         { command = "dunst"; }
