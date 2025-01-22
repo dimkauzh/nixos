@@ -46,11 +46,13 @@ in
 
     # Media
     vlc
+    feh
     gimp
     zbar
-    obs-studio
-    darktable
     shotcut
+    darktable
+    obs-studio
+    caffeine-ng
 
     # Games/Emulation and Tools
     mgba
@@ -90,30 +92,43 @@ in
     flatpak
     nodejs-slim_23
 
+    # System Audio
+    pulseaudio
+    pulsemixer
+    pwvucontrol
+
+    # System Power
+    tlp
+    upower
+    thermald
+    lm_sensors
+
+    # System Security
+    libsecret
+    gnome-keyring
+
+    # System Messages
+    dunst
+    libnotify
+    notify-osd
+
+    # System Storage
+    udevil
+    udisks2
+
+    # System Display
+    brightnessctl
+    xorg.xbacklight
+
     # System Utilities
     atk
     dex
-    tlp
     acpi
     gtk3
     gtk4
     avahi
-    upower
-    udevil
     direnv
-    udisks2
-    thermald
-    libnotify
     nix-direnv
-    notify-osd
-    lm_sensors
-    libsecret
-    pulseaudio
-    pulsemixer
-    pwvucontrol
-    xorg.xbacklight
-    brightnessctl
-    gnome-keyring
 
     # Gnome Utilities
     gnome-firmware
@@ -122,10 +137,8 @@ in
     gnome-system-monitor
 
     # i3wm Utilities
-    feh
     rofi
     xclip
-    dunst
     scrot
     arandr
     picom

@@ -167,7 +167,7 @@
 
       "module/cpu-temp" = {
         type = "custom/script";
-        exec = "sensors | awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
+        exec = "${pkgs.lm-sensors}/bin/sensors | ${pkgs.awk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
         interval = 2;
         format-prefix = "TEM ";
         format-prefix-foreground = "\${colors.primary}";

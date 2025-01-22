@@ -128,13 +128,13 @@ in
         "${mod}+z" = "exec xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off";
 
         # Display redraw
-        "${mod}+Shift+z" = "bash ~/.config/i3/redraw.sh";
+        "${mod}+Shift+z" = "exec bash ~/.config/i3/redraw.sh";
 
         # Toggle polybar
         "${alt}+p" = "exec polybar-msg cmd toggle";
 
         # Restart picom
-        "${mod}+Shift+p" = "exec pkill picom; picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl";
+        "${mod}+Shift+p" = "exec systemctl --user restart picom";
 
         # Reload the configuration file
         "${mod}+r" = "reload";
@@ -220,13 +220,10 @@ in
       startup = [
         { command = "xss-lock --transfer-sleep-lock -- mantablockscreen -sc --nofork"; }
         { command = "picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl"; }
-        { command = "xsettingsd"; }
-        { command = "dunst"; }
+        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet"; }
         { command = "powerkit"; }
         { command = "lxqt-policykit-agent"; }
-        { command = "polybar"; }
         { command = "nm-applet"; }
-        { command = "blueman-applet"; }
         { command = "greenclip daemon"; }
         { command = "feh --bg-scale ${wallpapers}/backgrounds/forest-2.jpg"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
@@ -239,19 +236,26 @@ in
       text = ''
         feh --bg-scale ${wallpapers}/backgrounds/forest-2.jpg
         pkill picom
-        picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl"
+        picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl
       '';
       executable = true;
     };
 
     ".config/i3/window_ss.sh" = {
       text = ''
-        filename="~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+        filename="$HOME/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+        mkdir -p "$HOME/Pictures/Screenshots"
 
         scrot -u "$filename"
-        xclip -selection clipboard -t image/png -i "$filename"
 
-        notify-send "Screenshot saved" "File: $filename (copied to clipboard)"
+        if [[ -f "$filename" ]]; then
+            xclip -selection clipboard -t image/png -i "$filename"
+
+            notify-send "Screenshot saved" "File: $filename (copied to clipboard)"
+        else
+            notify-send "Screenshot failed" "File: $filename could not be saved"
+        fi
       '';
       executable = true;
     };

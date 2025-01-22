@@ -11,5 +11,8 @@
     ./dunst.nix
     ./i3wm.nix
     ./xsettingsd.nix
+    ./caffeine.nix
+    ./feh.nix
+    ./picom.nix
   ];
 }
