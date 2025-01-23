@@ -4,13 +4,7 @@
 {
   imports =
     [
-      ./home/options.nix
-      ./home/setup.nix
-      ./home/services.nix
-
-      ./home/gtk.nix
-
-      ./home/programs/programs.nix
+      ./home/modules.nix
     ];
 
   home = {

@@ -3,7 +3,7 @@
 {
   services.polybar = {
     enable = true;
-    script = "polybar";
+    script = "polybar main";
 
     package = pkgs.polybar.override {
       pulseSupport = true;
@@ -21,7 +21,7 @@
         disabled = "#7c6f64";
       };
 
-      "bar/example" = {
+      "bar/main" = {
         width = "100%";
         height = "24pt";
         radius = 8;
@@ -167,7 +167,7 @@
 
       "module/cpu-temp" = {
         type = "custom/script";
-        exec = "${pkgs.lm-sensors}/bin/sensors | ${pkgs.awk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
+        exec = "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
         interval = 2;
         format-prefix = "TEM ";
         format-prefix-foreground = "\${colors.primary}";
@@ -190,5 +190,10 @@
         pseudo-transparency = true;
       };
     };
+  };
+
+  systemd.user.services.polybar = {
+    Service.TimeoutStartSec = 0;
+    Service.MemoryLimit = "128M";
   };
 }

@@ -35,7 +35,6 @@ in
       lockerCommand = "${mantablockscreen}/bin/mantablockscreen -sc";
       extraOptions = [
         "--transfer-sleep-lock"
-        "--nofork"
       ];
     };
 

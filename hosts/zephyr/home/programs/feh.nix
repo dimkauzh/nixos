@@ -4,11 +4,10 @@ let
   wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
 in
 {
-  home.services.feh = {
-    enable = true;
-    description = "Set wallpaper using feh";
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
+  systemd.user.services.feh = {
+    Unit.Description = "Set wallpaper using feh";
+    Install.WantedBy = [ "default.target" ];
+    Service = {
       ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${wallpapers}/backgrounds/forest-2.jpg";
       Restart = "on-failure";
     };

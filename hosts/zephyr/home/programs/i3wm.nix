@@ -218,14 +218,11 @@ in
       };
 
       startup = [
-        { command = "xss-lock --transfer-sleep-lock -- mantablockscreen -sc --nofork"; }
-        { command = "picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl"; }
-        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet"; }
+        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
         { command = "powerkit"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
-        { command = "feh --bg-scale ${wallpapers}/backgrounds/forest-2.jpg"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
       ];
     };
@@ -234,9 +231,7 @@ in
   home.file = {
     ".config/i3/redraw.sh" = {
       text = ''
-        feh --bg-scale ${wallpapers}/backgrounds/forest-2.jpg
-        pkill picom
-        picom --window-shader-fg=/home/$USER/.config/picom/rounded-borders.glsl
+        systemctl --user restart picom feh
       '';
       executable = true;
     };

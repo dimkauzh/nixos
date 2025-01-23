@@ -14,6 +14,8 @@ pkgs.stdenv.mkDerivation {
     pkgs.imagemagick
     pkgs.i3lock-color
     pkgs.picom
+    pkgs.xorg.xrandr
+    pkgs.dbus
   ];
 
   nativeBuildInputs = [ pkgs.makeWrapper ];
@@ -26,6 +28,8 @@ pkgs.stdenv.mkDerivation {
     mkdir -p $out/bin
     cp mantablockscreen $out/bin/mantablockscreen
     chmod +x $out/bin/mantablockscreen
+    wrapProgram $out/bin/mantablockscreen \
+      --prefix PATH : "${pkgs.imagemagick}/bin:${pkgs.xorg.xrandr}/bin:${pkgs.dbus}/bin:${pkgs.i3lock-color}/bin"
   '';
 
   meta = with pkgs.lib; {
