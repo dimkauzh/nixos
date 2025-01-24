@@ -33,9 +33,6 @@ in
     xss-lock = {
       enable = true;
       lockerCommand = "${mantablockscreen}/bin/mantablockscreen -sc";
-      extraOptions = [
-        "--transfer-sleep-lock"
-      ];
     };
 
     direnv = {
