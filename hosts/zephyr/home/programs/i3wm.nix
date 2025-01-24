@@ -218,7 +218,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
+        { command = "systemctl --user start caffeine xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
         { command = "powerkit"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }
@@ -226,6 +226,13 @@ in
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
       ];
     };
+
+    extraConfig = ''
+      default_border pixel 2
+      default_floating_border pixel 2
+      for_window [class="^.*"] border pixel 2
+    '';
+
   };
 
   home.file = {
