@@ -218,7 +218,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user start caffeine xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
+        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
         { command = "powerkit"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }
