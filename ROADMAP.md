@@ -1,14 +1,10 @@
 ## Things left to port over
-- xsettingsd
+- Git
+  - Credentials
 
-- picom
-  - start the service
+- ZSH
+  - unhardwire some things
 
-- polybar
-  - rewrite the cpu-temp to use pkgs.<name>
-
-- xeventbind
-  - systemctl service
-  - get rid of redraw.sh and replace with systemctl
-
-- caffeine (for music)
+- Modular approach
+  - Every program config is a module
+  - Import, overwrite etc
