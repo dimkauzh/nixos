@@ -21,9 +21,6 @@
   };
 
   outputs = { nixpkgs, self, spicetify-nix, zen-browser, home-manager, nix-flatpak, ... } @ inputs:
-  let
-    system = "x86_64-linux";
-  in
   {
     nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -39,6 +36,30 @@
             home-manager.useUserPackages = true;
             home-manager.users.dima.imports = [
               ./hosts/zephyr/home.nix
+              nix-flatpak.homeManagerModules.nix-flatpak
+            ];
+            home-manager.extraSpecialArgs = {
+              inherit inputs self;
+            };
+        }
+        nix-flatpak.nixosModules.nix-flatpak
+      ];
+    };
+
+    nixosConfigurations.zephyrwork = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs self;
+      };
+
+      modules = [
+        ./hosts/zephyrwork/machine.nix
+        home-manager.nixosModules.home-manager
+        {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.dima.imports = [
+              ./hosts/zephyrwork/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
             ];
             home-manager.extraSpecialArgs = {

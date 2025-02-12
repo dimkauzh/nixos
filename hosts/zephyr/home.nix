@@ -4,18 +4,16 @@
 {
   imports =
     [
-      ./home/modules.nix
+      ../default/home/dima.nix
+      ../default/home/modules.nix
     ];
 
-  home = {
-    username = "dima";
-    homeDirectory = "/home/dima";
-    stateVersion = "24.11"; # (dont change)
-    sessionVariables = {
-      EDITOR = "zeditor";
-      BROWSER = "zen-browser";
-    };
+  home.sessionVariables = {
+    EDITOR = "zeditor";
+    BROWSER = "zen-browser";
   };
+
+  home.stateVersion = "24.11"; # (dont change)
 
   programs.home-manager.enable = false;
 }
