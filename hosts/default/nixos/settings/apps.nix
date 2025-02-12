@@ -10,5 +10,5 @@
       ./services/fonts.nix
       ./services/x.nix
       ./services/others.nix
-    ]
+    ];
 }

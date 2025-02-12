@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
+  wallpapers = import ../../nixos/packages/wallpapers.nix { inherit pkgs; };
 in
 {
   systemd.user.services.feh = {

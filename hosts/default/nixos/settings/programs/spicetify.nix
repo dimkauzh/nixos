@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};

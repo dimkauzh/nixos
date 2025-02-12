@@ -1,11 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 let
-  mantablockscreen = import ./packages/mantablockscreen.nix { inherit pkgs; };
-  xeventbind = import ./packages/xeventbind.nix { inherit pkgs; };
-  powerkit = import ./packages/powerkit.nix { inherit pkgs; };
-  wallpapers = import ./packages/wallpapers.nix { inherit pkgs; };
-  nvim-config = import ./packages/neovim.nix { inherit pkgs; };
+  mantablockscreen = import ../default/nixos/packages/mantablockscreen.nix { inherit pkgs; };
+  xeventbind = import ../default/nixos/packages/xeventbind.nix { inherit pkgs; };
+  powerkit = import ../default/nixos/packages/powerkit.nix { inherit pkgs; };
+  wallpapers = import ../default/nixos/packages/wallpapers.nix { inherit pkgs; };
+  nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
 in
 {

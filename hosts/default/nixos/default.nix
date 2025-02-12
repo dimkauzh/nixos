@@ -10,5 +10,5 @@
     ./settings/variables.nix
     ./settings/zone.nix
     ./settings/security.nix
-  ]
+  ];
 }

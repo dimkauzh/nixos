@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  nvim-config = import ../../packages/neovim.nix { inherit pkgs; };
+  nvim-config = import ../../nixos/packages/neovim.nix { inherit pkgs; };
 in
 {
   xdg = {

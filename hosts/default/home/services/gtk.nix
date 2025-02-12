@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-    gruvboxPlusIcons = import ../../packages/gruvbox-icons.nix { inherit pkgs; };
+    gruvboxPlusIcons = import ../../nixos/packages/gruvbox-icons.nix { inherit pkgs; };
 in
 {
   gtk = {

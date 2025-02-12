@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   alt = "Mod1";
-  wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
+  wallpapers = import ../../nixos/packages/wallpapers.nix { inherit pkgs; };
 in
 {
   xsession.windowManager.i3 = {
