@@ -6,6 +6,6 @@ in
 {
   programs.xss-lock = {
     enable = true;
-    lockerCommand = "${mantablockscreen}/bin/mantablockscreen -sc";
+    lockerCommand = "${pkgs.lightdm}/bin/dm-tool switch-to-greeter";
   };
 }
