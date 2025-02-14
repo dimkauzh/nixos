@@ -3,7 +3,6 @@
 {
   imports =
     [
-      ./programs/direnv.nix
       ./programs/spicetify.nix
       ./programs/xss.nix
 
