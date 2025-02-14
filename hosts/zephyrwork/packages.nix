@@ -51,6 +51,7 @@ in
     ente-auth
     protonvpn-gui
     github-desktop
+    element-desktop
 
     # Media
     vlc
@@ -171,6 +172,7 @@ in
 
     # Themes and Icons
     lxappearance
+    capitaine-cursors
 
     # Running Binaries
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

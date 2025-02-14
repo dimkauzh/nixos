@@ -13,12 +13,16 @@
       ./hardware/hardware.nix
     ];
 
-  services.fprintd.enable = true;
-  services.fprintd.tod.enable = false;
+  services.fprintd = {
+    enable = true;
+    tod.enable = false;
+  };
   security.pam.services.lightdm.fprintAuth = true;
 
-  networking.hostName = "zephyr";
-  networking.networkmanager.wifi.powersave = false;
+  networking = {
+    hostName = "zephyr";
+    networkmanager.wifi.powersave = false;
+  };
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

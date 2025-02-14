@@ -3,8 +3,7 @@
 {
   hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       mesa
       mesa.drivers
@@ -15,9 +14,9 @@
     ];
     extraPackages32 = with pkgs; [
       driversi686Linux.mesa
-      driversi686Linux.vulkan-loader
-      driversi686Linux.vulkan-validation-layers
       driversi686Linux.amdvlk
     ];
   };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }

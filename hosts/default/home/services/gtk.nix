@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
     gruvboxPlusIcons = import ../../nixos/packages/gruvbox-icons.nix { inherit pkgs; };
