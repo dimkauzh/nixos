@@ -4,6 +4,7 @@
   imports =
     [
       ../default/nixos/default.nix
+      ../default/graphics/amd.nix
 
 
       ./boot.nix
