@@ -10,5 +10,6 @@
     ./polybar.nix
     ./i3wm.nix
     ./feh.nix
+    ./direnv.nix
   ];
 }

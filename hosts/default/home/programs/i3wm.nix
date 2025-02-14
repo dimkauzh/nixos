@@ -3,7 +3,6 @@
 let
   mod = "Mod4";
   alt = "Mod1";
-  wallpapers = import ../../nixos/packages/wallpapers.nix { inherit pkgs; };
 in
 {
   xsession.windowManager.i3 = {
@@ -218,7 +217,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user start xsettingsd polybar dunst blueman-applet picom xss-lock feh"; }
+        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock"; }
         { command = "powerkit"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }

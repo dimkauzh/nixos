@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   services.polybar = {
     enable = true;
-    script = "polybar main";
+    script = "polybar --reload main";
 
     package = pkgs.polybar.override {
       pulseSupport = true;
@@ -117,7 +117,7 @@
       "module/battery" = {
         type = "internal/battery";
         battery = "BAT0";
-        full-at = 97;
+        full-at = 99;
 
         label-full = "%{F#b8bb26}BAT %{F#FFFFFF}%percentage%%";
         label-charging = "%{F#83a598}BAT %{F#FFFFFF}%percentage%%";
@@ -167,7 +167,7 @@
 
       "module/cpu-temp" = {
         type = "custom/script";
-        exec = "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
+        exec = "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^cpu_f75303@4d:/ {temp = $2 + 0.5; print int(temp)\"°\"}'";
         interval = 2;
         format-prefix = "TEM ";
         format-prefix-foreground = "\${colors.primary}";
@@ -193,7 +193,9 @@
   };
 
   systemd.user.services.polybar = {
-    Service.TimeoutStartSec = 0;
-    Service.MemoryLimit = "128M";
+    Service = {
+      Type = lib.mkForce "simple";
+      TimeoutStartSec = "5s";
+    };
   };
 }

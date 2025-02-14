@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   programs.zsh = {
@@ -15,8 +15,7 @@
     };
 
     shellAliases = {
-      clean-old-generations = "sudo /run/current-system/bin/switch-to-configuration boot
-";
+      clean-old-generations = "sudo /run/current-system/bin/switch-to-configuration boot";
     };
 
     localVariables = {
@@ -29,9 +28,6 @@
     initExtra = ''
       # Oh-My-Posh
       eval "$(starship init zsh)"
-
-      # Direnv
-      eval "$(direnv hook zsh)"
 
       # Functions
       nvim-config() {
@@ -83,7 +79,7 @@
           rebuild)
             echo "Rebuilding the system configuration in $NIXOS_CONFIG_PATH..."
             cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
-            sudo nixos-rebuild switch --flake .#zephyr
+            sudo nixos-rebuild switch --flake .#zephyrwork
             ;;
 
           upgrade)

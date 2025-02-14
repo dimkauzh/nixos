@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   mantablockscreen = import ../default/nixos/packages/mantablockscreen.nix { inherit pkgs; };
@@ -20,7 +20,6 @@ in
     gcc
     wget
     dconf
-    unzip
 
     # Window Manager
     i3
@@ -35,6 +34,15 @@ in
     neovim
     filezilla
     zed-editor
+
+    # Programming
+    go
+    nil
+    nixd
+
+    # Archives
+    unzip
+    unrar
 
     # Communication
     nemo
@@ -98,12 +106,13 @@ in
     pwvucontrol
 
     # System Power
-    tlp
     upower
     thermald
     lm_sensors
+    auto-cpufreq
 
     # System Security
+    fprintd
     libsecret
     gnome-keyring
 

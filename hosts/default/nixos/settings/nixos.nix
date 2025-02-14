@@ -39,4 +39,13 @@ in
 
     consoleLogLevel = 0;
   };
+
+  environment.etc."/var/lib/AccountsService/users/dima".text = ''
+    [User]
+    Icon=/var/lib/AccountsService/icons/dima
+  '';
+
+  system.activationScripts.script.text = ''
+    cp /home/dima/.face /var/lib/AccountsService/icons/dima
+  '';
 }
