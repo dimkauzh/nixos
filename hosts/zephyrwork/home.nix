@@ -20,6 +20,17 @@
       text = ''
         *dpi: 100
         Xft.dpi: 100
+        Xcursor.theme: capitaine-cursors
+      '';
+    };
+
+    file.".icons/default/index.theme" = {
+      enable = true;
+      text = ''
+        [Icon Theme]
+        Name=Default
+        Comment=Default Cursor Theme
+        Inherits=capitaine-cursors
       '';
     };
 

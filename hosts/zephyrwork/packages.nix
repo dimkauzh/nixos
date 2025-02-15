@@ -19,6 +19,7 @@ in
     git
     gcc
     wget
+    btop
     dconf
 
     # Window Manager
@@ -32,8 +33,10 @@ in
     slade
     gzdoom
     neovim
+    godot_4
     filezilla
     zed-editor
+    ghidra-bin
 
     # Programming
     go
@@ -87,6 +90,7 @@ in
     nitch
     cbonsai
     nerdfetch
+    fastfetch
 
     # Custom Package
     powerkit
@@ -145,6 +149,7 @@ in
     gnome-calculator
     gnome-disk-utility
     gnome-system-monitor
+    gnome-network-displays
 
     # i3wm Utilities
     rofi
@@ -155,6 +160,7 @@ in
     flameshot
     playerctl
     xss-lock
+    xautolock
     xsettingsd
     lxqt.lxqt-policykit
     haskellPackages.greenclip
@@ -173,6 +179,10 @@ in
     # Themes and Icons
     lxappearance
     capitaine-cursors
+
+    # XDG stuff
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
 
     # Running Binaries
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

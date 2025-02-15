@@ -218,7 +218,7 @@ in
 
       startup = [
         { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock"; }
-        { command = "powerkit"; }
+        { command = "xautolock -time 5 -locker 'systemctl suspend-then-hibernate'"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
@@ -265,7 +265,7 @@ in
       text = ''
         volume_step=5
         brightness_step=5
-        max_volume=150
+        max_volume=125
         notification_timeout=1000
 
         function get_volume {

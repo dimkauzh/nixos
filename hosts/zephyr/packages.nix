@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   mantablockscreen = import ../default/nixos/packages/mantablockscreen.nix { inherit pkgs; };
@@ -145,6 +145,7 @@ in
     flameshot
     playerctl
     xss-lock
+    xautolock
     xsettingsd
     lxqt.lxqt-policykit
     haskellPackages.greenclip
