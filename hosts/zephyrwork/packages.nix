@@ -166,6 +166,7 @@ in
     haskellPackages.greenclip
 
     # Storage Utilities
+    tokei
     baobab
     timeshift
     xarchiver

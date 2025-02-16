@@ -26,8 +26,8 @@
     };
 
     initExtra = ''
-      # Oh-My-Posh
       eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
 
       # Functions
       nvim-config() {
