@@ -9,6 +9,5 @@
     ./flatpak.nix
     ./gtk.nix
     ./xdg.nix
-    ./locker.nix
   ];
 }

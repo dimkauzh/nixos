@@ -217,8 +217,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock"; }
-        { command = "xautolock -time 5 -locker 'systemctl suspend-then-hibernate'"; }
+        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock xautolock"; }
         { command = "lxqt-policykit-agent"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
@@ -251,7 +250,7 @@ in
         scrot -u "$filename"
 
         if [[ -f "$filename" ]]; then
-            xclip -selection clipboard -t image/png -i "$filename"
+            xclip -selection clipboard -t image/png < "$filename"
 
             notify-send "Screenshot saved" "File: $filename (copied to clipboard)"
         else

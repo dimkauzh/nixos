@@ -17,6 +17,16 @@ in
       i3.enable = true;
     };
 
+    xautolock = {
+      enable = true;
+      time = 5;
+      locker = "${pkgs.systemd}/bin/systemctl suspend-then-hibernate";
+      extraOptions = [
+        "-detectsleep"
+      ];
+    };
+
+
     displayManager.lightdm = {
       enable = true;
 
