@@ -71,6 +71,7 @@ in
     mesa
     dxvk
     lutris
+    zeroad
     winetricks
     joystickwake
     prismlauncher
@@ -103,6 +104,7 @@ in
     # Dependencies
     jdk
     flatpak
+    libapparmor
     nodejs-slim_23
 
     # System Audio
@@ -113,6 +115,7 @@ in
     # System Power
     upower
     thermald
+    cbatticon
     lm_sensors
     auto-cpufreq
 
@@ -145,7 +148,9 @@ in
     nix-direnv
 
     # Gnome Utilities
+    gnome-clocks
     gnome-firmware
+    gnome-calendar
     gnome-calculator
     gnome-disk-utility
     gnome-system-monitor

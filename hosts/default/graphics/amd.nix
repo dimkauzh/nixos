@@ -7,6 +7,10 @@
     extraPackages = with pkgs; [
       mesa
       mesa.drivers
+      libGL
+      libglvnd
+      libva
+      vaapiVdpau
       vulkan-loader
       vulkan-validation-layers
       vulkan-tools

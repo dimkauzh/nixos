@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 
 {
@@ -32,6 +32,15 @@
         Comment=Default Cursor Theme
         Inherits=capitaine-cursors
       '';
+    };
+
+    file."games/0ad/run.sh" = {
+      enable = true;
+      text = ''
+        #!/bin/bash
+        ${pkgs.zeroad}/bin/0ad
+      '';
+      executable = true;
     };
 
     stateVersion = "24.11"; # (dont change)
