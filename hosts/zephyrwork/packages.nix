@@ -115,7 +115,8 @@ in
     # System Power
     upower
     thermald
-    cbatticon
+    batsignal
+    geekbench
     lm_sensors
     auto-cpufreq
 

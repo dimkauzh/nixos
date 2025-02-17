@@ -101,7 +101,7 @@ in
     tlp
     upower
     thermald
-    cbatticon
+    batsignal
     lm_sensors
 
     # System Security

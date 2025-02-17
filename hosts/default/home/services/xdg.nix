@@ -35,6 +35,7 @@ in
     configFile."nvim/" = {
       source = "${nvim-config}/nvim/";
     };
+
     desktopEntries = {
       zen = {
         name = "Zen Browser";

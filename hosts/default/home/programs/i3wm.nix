@@ -222,7 +222,6 @@ in
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
-        { command = "bash ~/.config/i3/battery-notify.sh"; }
       ];
     };
 
@@ -257,36 +256,6 @@ in
         else
             notify-send "Screenshot failed" "File: $filename could not be saved"
         fi
-      '';
-      executable = true;
-    };
-
-    ".config/i3/battery-notify.sh" = {
-      text = ''
-        #!/bin/bash
-
-        # Notification levels
-        LEVELS=(15 10 5)
-
-        while true; do
-            # Get battery percentage
-            BATTERY=$(acpi -b | grep -oP '\d+\%' | tr -d '\%')
-
-            # Get charging status (optional)
-            STATUS=$(acpi -b | grep -o 'Charging\|Discharging')
-
-            if [[ "$STATUS" == "Discharging" ]]; then
-                for LEVEL in "\''${LEVELS[@]}"; do
-                    if [[ "\''$BATTERY" -eq "\''$LEVEL" ]]; then
-                        notify-send -u critical "Battery Low" "Battery is at \''$BATTERY%. Plug in the charger!"
-                        break
-                    fi
-                done
-            fi
-
-            sleep 60  # Check every 60 seconds
-        done
-
       '';
       executable = true;
     };
