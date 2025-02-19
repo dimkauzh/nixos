@@ -1,7 +1,12 @@
 { ... }:
 
 {
-  boot.kernelParams = [
+  boot = {
+    extraModprobeConfig = ''
+      options mt7921e disable_aspm=1
+    '';
+
+    kernelParams = [
       "quiet"
       "splash"
       "boot.shell_on_fail"
@@ -11,5 +16,6 @@
       "udev.log_priority=3"
       "systemd.show_status=1"
       "amd_pstate=active"
-  ];
+    ];
+  };
 }

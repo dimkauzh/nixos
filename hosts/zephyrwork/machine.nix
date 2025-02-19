@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   imports =
@@ -20,9 +20,10 @@
   security.pam.services.lightdm.fprintAuth = true;
 
   networking = {
-    hostName = "zephyr";
+    hostName = lib.mkForce "zephyrwork";
     networkmanager.wifi.powersave = false;
   };
+
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

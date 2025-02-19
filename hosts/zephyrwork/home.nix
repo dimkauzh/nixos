@@ -43,6 +43,24 @@
       executable = true;
     };
 
+    file."games/doom/run.sh" = {
+      enable = true;
+      text = ''
+        #!/bin/bash
+        ${pkgs.gzdoom}/bin/gzdoom
+      '';
+      executable = true;
+    };
+
+    file."games/quake3/run.sh" = {
+      enable = true;
+      text = ''
+        #!/bin/bash
+        ${pkgs.ioquake3}/bin/ioquake3
+      '';
+      executable = true;
+    };
+
     stateVersion = "24.11"; # (dont change)
   };
 

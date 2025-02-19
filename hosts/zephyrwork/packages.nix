@@ -34,6 +34,7 @@ in
     gzdoom
     neovim
     godot_4
+    simulide
     filezilla
     zed-editor
     ghidra-bin
@@ -72,6 +73,7 @@ in
     dxvk
     lutris
     zeroad
+    ioquake3
     winetricks
     joystickwake
     prismlauncher
