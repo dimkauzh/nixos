@@ -1,3 +1,0 @@
-[submodule "hosts/default/home/assets/nvim"]
-	path = hosts/default/home/assets/nvim
-	url = git@github.com:dimkauzh/nvim-config.git
