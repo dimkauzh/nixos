@@ -33,7 +33,7 @@ in
     };
 
     configFile."nvim/" = {
-      source = "${nvim-config}/nvim/";
+      source = ../assets/nvim;
     };
 
     desktopEntries = {

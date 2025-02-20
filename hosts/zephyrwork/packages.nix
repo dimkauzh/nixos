@@ -37,6 +37,7 @@ in
     simulide
     filezilla
     zed-editor
+    rpi-imager
     ghidra-bin
 
     # Programming
@@ -67,16 +68,19 @@ in
     obs-studio
     caffeine-ng
 
-    # Games/Emulation and Tools
+    # Games
+    zeroad
+    minetest
+    ioquake3
+    prismlauncher
+
+    # Emulation and Tools
     mgba
     mesa
     dxvk
     lutris
-    zeroad
-    ioquake3
     winetricks
     joystickwake
-    prismlauncher
     wineWowPackages.stable
 
     # Office
@@ -96,12 +100,13 @@ in
     fastfetch
 
     # Custom Package
-    powerkit
     wallpapers
     xeventbind
     zen-browser
-    nvim-config
     mantablockscreen
+    # nvim-config
+    # powerkit
+
 
     # Dependencies
     jdk
