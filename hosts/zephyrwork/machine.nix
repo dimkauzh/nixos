@@ -21,7 +21,26 @@
 
   networking = {
     hostName = lib.mkForce "zephyrwork";
-    networkmanager.wifi.powersave = false;
+
+    networkmanager.wifi = {
+      powersave = false;
+      backend = "iwd";
+    };
+
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        IPv6 = {
+          Enabled = true;
+        };
+        IPv4 = {
+          Enabled = true;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
+    };
   };
 
   systemd.services.fingerprint-restart = {
@@ -31,11 +50,10 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = ''
-        ${pkgs.systemd}/bin/systemctl restart open-fprintd.service python3-validity.service lightdm-gtk-greeter.service
+        ${pkgs.systemd}/bin/systemctl lightdm-gtk-greeter.service restart open-fprintd.service python3-validity.service
       '';
     };
   };
-
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

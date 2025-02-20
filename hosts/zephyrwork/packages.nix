@@ -112,6 +112,7 @@ in
 
     # Dependencies
     jdk
+    iwd
     flatpak
     ripgrep
     libapparmor
