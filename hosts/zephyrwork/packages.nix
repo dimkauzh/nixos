@@ -111,6 +111,7 @@ in
     # Dependencies
     jdk
     flatpak
+    ripgrep
     libapparmor
     nodejs-slim_23
 

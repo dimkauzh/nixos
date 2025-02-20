@@ -41,6 +41,7 @@ in
   };
 
   system.activationScripts.script.text = ''
+    # User icon
     cp /home/dima/.face /var/lib/AccountsService/icons/dima
     echo -e "[User]\nIcon=/var/lib/AccountsService/icons/dima\n" > /var/lib/AccountsService/users/dima
   '';
