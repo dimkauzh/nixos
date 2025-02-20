@@ -32,10 +32,6 @@ in
       ];
     };
 
-    configFile."nvim/" = {
-      source = ../assets/nvim;
-    };
-
     desktopEntries = {
       zen = {
         name = "Zen Browser";

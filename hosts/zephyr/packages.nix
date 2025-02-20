@@ -80,12 +80,14 @@ in
     nerdfetch
 
     # Custom Package
-    powerkit
     wallpapers
     xeventbind
     zen-browser
-    nvim-config
     mantablockscreen
+    # powerkit
+    # nvim-config
+
+
 
     # Dependencies
     jdk
