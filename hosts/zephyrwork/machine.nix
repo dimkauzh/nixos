@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports =
@@ -22,6 +22,18 @@
   networking = {
     hostName = lib.mkForce "zephyrwork";
     networkmanager.wifi.powersave = false;
+  };
+
+  systemd.services.fingerprint-restart = {
+    description = "Restart services to fix fingerprint integration";
+    wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target" ];
+    after = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''
+        ${pkgs.systemd}/bin/systemctl restart open-fprintd.service python3-validity.service lightdm-gtk-greeter.service
+      '';
+    };
   };
 
 
