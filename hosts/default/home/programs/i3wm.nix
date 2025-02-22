@@ -217,7 +217,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock xautolock"; }
+        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock xautolock gnome-keyring"; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
