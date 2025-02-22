@@ -13,10 +13,8 @@
     polkit.addRule(function(action, subject) {
       if (action.id == "org.freedesktop.login1.suspend" ||
           action.id == "org.freedesktop.login1.hibernate" ||
-          action.id == "org.freedesktop.login1.suspend-then-hibernate") {
-        return polkit.Result.YES;
-      }
-      if (action.id == "net.reactivated.fprint.device.verify") {
+          action.id == "org.freedesktop.login1.suspend-then-hibernate" ||
+          action.id == "net.reactivated.fprint.device.verify") {
         return polkit.Result.YES;
       }
     });
