@@ -30,12 +30,6 @@
     wireless.iwd = {
       enable = true;
       settings = {
-        IPv6 = {
-          Enabled = true;
-        };
-        IPv4 = {
-          Enabled = true;
-        };
         Settings = {
           AutoConnect = true;
         };
@@ -43,17 +37,12 @@
     };
   };
 
-  systemd.services.fingerprint-restart = {
-    description = "Restart services to fix fingerprint integration";
-    wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target" ];
-    after = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''
-        ${pkgs.systemd}/bin/systemctl lightdm-gtk-greeter.service restart open-fprintd.service python3-validity.service
-      '';
-    };
-  };
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", \
+    ATTRS{idVendor}=="27c6", ATTRS{idProduct}=="609c", \
+    ATTR{power/persist}="1", RUN+="${pkgs.coreutils}/bin/chmod 444 %S%p/../power/persist"
+  '';
+
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

@@ -10,5 +10,8 @@
     # Apps
     ZED_WINDOW_DECORATIONS = "server";
     DOOMWADDIR = "$HOME/games/doom";
+
+    # NixOS
+    XDG_RUNTIME_DIR = "/run/user/$UID";
   };
 }
