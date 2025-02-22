@@ -160,6 +160,7 @@ in
     nix-direnv
 
     # Gnome Utilities
+    polkit_gnome
     gnome-clocks
     gnome-firmware
     gnome-calendar

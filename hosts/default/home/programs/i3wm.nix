@@ -218,7 +218,7 @@ in
 
       startup = [
         { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock xautolock"; }
-        { command = "lxqt-policykit-agent"; }
+        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }

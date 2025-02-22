@@ -10,5 +10,6 @@
     ./gtk.nix
     ./xdg.nix
     ./batsignal.nix
+    ./keyring.nix
   ];
 }

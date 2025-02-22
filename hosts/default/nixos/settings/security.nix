@@ -7,6 +7,7 @@
   security.pam.services.gdm-password = {
     enableGnomeKeyring = true;
   };
+
   services.gnome.gnome-keyring.enable = true;
 
   security.polkit.extraConfig = ''

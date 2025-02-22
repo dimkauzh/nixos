@@ -31,10 +31,9 @@
 
       # Functions
       nvim-config() {
-        local current_dir=$(pwd)
         cd ~/.config/nvim
         nvim
-        cd "$current_dir"
+        cd -
       }
 
       project() {
@@ -73,6 +72,7 @@
             (
               cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
               nix flake update
+              cd -
             )
             ;;
 
@@ -80,6 +80,7 @@
             echo "Rebuilding the system configuration in $NIXOS_CONFIG_PATH..."
             cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
             sudo nixos-rebuild switch --flake .#zephyrwork
+            cd -
             ;;
 
           upgrade)
