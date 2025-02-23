@@ -37,7 +37,7 @@ in
     godot_4
     simulide
     filezilla
-    zed-editor
+    # zed-editor
     rpi-imager
     ghidra-bin
     gtkradiant
@@ -58,6 +58,7 @@ in
     zapzap
     vesktop
     ente-auth
+    riseup-vpn
     protonvpn-gui
     cinny-desktop
     github-desktop

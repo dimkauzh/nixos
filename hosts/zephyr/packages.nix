@@ -34,13 +34,14 @@ in
     gzdoom
     neovim
     filezilla
-    zed-editor
+    # zed-editor
 
     # Communication
     nemo
     zapzap
     vesktop
     ente-auth
+    riseup-vpn
     protonvpn-gui
     github-desktop
 
