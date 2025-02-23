@@ -149,7 +149,7 @@ in
     flameshot
     playerctl
     xss-lock
-    xautolock
+    xidlehook
     xsettingsd
     lxqt.lxqt-policykit
     haskellPackages.greenclip
