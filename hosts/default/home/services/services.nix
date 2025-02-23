@@ -11,5 +11,6 @@
     ./xdg.nix
     ./batsignal.nix
     ./keyring.nix
+    ./xidlehook.nix
   ];
 }

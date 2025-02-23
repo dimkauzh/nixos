@@ -217,10 +217,11 @@ in
       };
 
       startup = [
-        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock xautolock gnome-keyring"; }
+        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock gnome-keyring xidlehook"; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
+        { command = "joystickwake"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
       ];
     };
