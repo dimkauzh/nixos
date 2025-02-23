@@ -118,8 +118,9 @@ in
     # Dependencies
     jdk
     iwd
-    flatpak
+    clang
     ripgrep
+    flatpak
     libapparmor
     nodejs-slim_23
 
