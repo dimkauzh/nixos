@@ -79,7 +79,7 @@
           rebuild)
             echo "Rebuilding the system configuration in $NIXOS_CONFIG_PATH..."
             cd "$NIXOS_CONFIG_PATH" || { echo "Error: Directory $NIXOS_CONFIG_PATH does not exist."; return 1; }
-            sudo nixos-rebuild switch --flake .#zephyrwork
+            sudo nixos-rebuild switch --flake .#$(hostname)
             cd -
             ;;
 
