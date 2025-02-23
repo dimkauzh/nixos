@@ -18,9 +18,17 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
+    fuckingnode = {
+      url = "github:ZakaHaceCosas/FuckingNode";
+    };
   };
 
-  outputs = { nixpkgs, self, spicetify-nix, zen-browser, home-manager, nix-flatpak, ... } @ inputs:
+  outputs = {
+    nixpkgs, self,
+    home-manager,
+    spicetify-nix, zen-browser, nix-flatpak, fuckingnode,
+    ...
+  } @ inputs:
   {
     nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
