@@ -18,6 +18,7 @@ in
         enable = true;
         efiSupport = true;
         device = "nodev";
+        splashImage = ../assets/grub/background.png;
         theme = tartarus;
       };
     };

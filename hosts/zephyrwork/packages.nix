@@ -7,6 +7,7 @@ let
   wallpapers = import ../default/nixos/packages/wallpapers.nix { inherit pkgs; };
   # nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
+  fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
 in
 {
   # Allow insecure packages
@@ -53,10 +54,12 @@ in
 
     # Communication
     nemo
+    slack
     zapzap
     vesktop
     ente-auth
     protonvpn-gui
+    cinny-desktop
     github-desktop
     element-desktop
 
@@ -105,6 +108,7 @@ in
     wallpapers
     xeventbind
     zen-browser
+    fuckingnode
     mantablockscreen
     # nvim-config
     # powerkit

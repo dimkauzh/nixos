@@ -35,7 +35,7 @@ in
 
         # Binding other top keys
         "${mod}+p" = "exec arandr";
-        "F9" = "exec powerkit --config";
+        "F9" = "exec kitty";
 
         # Kill focused window
         "${mod}+q" = "kill";
