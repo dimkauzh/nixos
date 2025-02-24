@@ -145,11 +145,11 @@ in
 
       colors = {
         focused = {
-          border = "#b8bb26";
-          background = "#b8bb26";
+          border = "#83a598";
+          background = "#83a598";
           text = "#32302f";
-          indicator = "#b8bb26";
-          childBorder = "#b8bb26";
+          indicator = "#83a598";
+          childBorder = "#83a598";
         };
 
         unfocused = {
