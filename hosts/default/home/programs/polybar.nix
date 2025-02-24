@@ -277,7 +277,7 @@
         format = "<label>";
         format-prefix = "%{T1}%{T-}";
         format-prefix-foreground = "\${colors.purple}";
-        format-background = "\${colors.bg-darker}";
+        format-background = "\${colors.bg}";
         format-foreground = "\${colors.fg}";
         format-padding = 1;
         label = "%{T0}%time%%{T-}";
