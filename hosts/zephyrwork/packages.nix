@@ -32,6 +32,7 @@ in
     # Development
     kitty
     slade
+    docker
     gzdoom
     neovim
     godot_4
@@ -56,6 +57,7 @@ in
     nemo
     slack
     zapzap
+    halloy
     vesktop
     ente-auth
     riseup-vpn

@@ -14,6 +14,10 @@
   };
 
   fonts.packages = with pkgs; [
+    # For polybar
+    jetbrains-mono
+    material-icons
+
     # System Fonts
     noto-fonts
     noto-fonts-emoji

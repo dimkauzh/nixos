@@ -14,7 +14,7 @@ pkgs.stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/backgrounds
-    cp -r $src/wallpapers/irl/* $out/backgrounds/
+    cp -r $src/wallpapers/ $out/backgrounds/
   '';
 
   dontBuild = true;

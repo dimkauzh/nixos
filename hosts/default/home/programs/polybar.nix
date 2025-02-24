@@ -12,13 +12,29 @@
 
     settings = {
       "colors" = {
-        background = "#282828";
-        background-alt = "#3c3836";
-        foreground = "#ebdbb2";
-        primary = "#fabd2f";
-        secondary = "#83a598";
-        alert = "#fb4934";
-        disabled = "#7c6f64";
+        bg = "#282828";
+        bg-alt = "#3c3836";
+        bg-darker = "#1d2021";
+        fg = "#fbf1c7";
+
+        blue = "#83a598";
+        cyan = "#8ec07c";
+        green = "#b8bb26";
+        orange = "#fe8019";
+        purple = "#d3869b";
+        red = "#fb4934";
+        yellow = "#fabd2f";
+
+        bg-blue = "#458588";
+        bg-cyan = "#689d6a";
+        bg-green = "#98971a";
+        bg-orange = "#d65d0e";
+        bg-purple = "#b16268";
+        bg-red = "#cc241d";
+        bg-yellow = "#d79921";
+
+        black = "#000";
+        white = "#FFF";
       };
 
       "bar/main" = {
@@ -26,8 +42,8 @@
         height = "24pt";
         radius = 8;
 
-        background = "\${colors.background}";
-        foreground = "\${colors.foreground}";
+        background = "\${colors.bg}";
+        foreground = "\${colors.fg}";
 
         line-size = "3pt";
 
@@ -39,13 +55,14 @@
 
         module-margin = 1;
 
-        separator = "|";
         separator-foreground = "\${colors.disabled}";
 
-        font-0 = "monospace"; #;2
+        font-0 = "JetBrainsMono:style=Bold:size=12;3";
+        font-1 = "Material Icons Round:size=14;5";
 
-        modules-left = "i3 xwindow";
-        modules-right = "systray battery backlight pulseaudio memory cpu cpu-temp date";
+
+        modules-left = "i3 divider title";
+        modules-right = "tray divider battery cpu memory pulseaudio temperature backlight date";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
@@ -53,141 +70,223 @@
         enable-ipc = true;
       };
 
-      "module/systray" = {
-        type = "internal/tray";
-        tray-position = "left";
-
-        format-margin = "8pt";
-        tray-spacing = "16pt";
-      };
-
       "module/i3" = {
         type = "internal/i3";
-        pin-workspaces = true;
-        strip-wsnumbers = true;
         index-sort = true;
-        enable-click = true;
-        enable-scroll = false;
-        wrapping-scroll = false;
-        reverse-scroll = false;
-        fuzzy-match = false;
+
+        show-urgent = true;
+
+        ws-icon-0 = "1: ff;%{T1}%{T-}";
+        ws-icon-1 = "2;%{T1}%{T-}";
+        ws-icon-2 = "3;%{T1}%{T-}";
+        ws-icon-3 = "4;%{T1}%{T-}";
+        ws-icon-4 = "5: msg;%{T1}%{T-}";
+        ws-icon-5 = "6;%{T1}%{T-}";
+        ws-icon-default = "%{T1}%{T-}";
+
+        format = "<label-state> <label-mode>";
 
         label-mode = "%mode%";
-        label-mode-padding = 2;
-        label-mode-background = "\${colors.alert}";
+        label-mode-padding = 1;
+        label-mode-background = "\${colors.orange}";
+        label-mode-foreground = "\${colors.black}";
 
-        label-focused = "%name%";
-        label-focused-background = "\${colors.background}";
-        label-focused-underline = "\${colors.primary}";
-        label-focused-padding = 2;
+        label-focused = "%icon% %name%";
+        label-focused-foreground = "\${colors.white}";
+        label-focused-background = "\${colors.blue}";
+        label-focused-padding = 1;
 
-        label-unfocused = "%name%";
-        label-unfocused-padding = 2;
+        label-unfocused = "%icon% %name%";
+        label-unfocused-foreground = "\${colors.purple}";
+        label-unfocused-padding = 1;
 
-        label-urgent = "%name%";
-        label-urgent-background = "\${colors.alert}";
-        label-urgent-padding = 2;
-      };
+        label-visible = "%icon% %name%";
+        label-visible-foreground = "\${colors.blue}";
+        label-visible-padding = 1;
 
-      "module/xworkspaces" = {
-        type = "internal/xworkspaces";
-
-        label-active = "%name%";
-        label-active-background = "\${colors.background-alt}";
-        label-active-underline = "\${colors.primary}";
-        label-active-padding = 1;
-
-        label-occupied = "%name%";
-        label-occupied-padding = 1;
-
-        label-urgent = "%name%";
-        label-urgent-background = "\${colors.alert}";
+        label-urgent = "%icon% %name%";
+        label-urgent-foreground = "\${colors.red}";
         label-urgent-padding = 1;
-
-        label-empty = "%name%";
-        label-empty-foreground = "\${colors.disabled}";
-        label-empty-padding = 1;
       };
 
-      "module/xwindow" = {
+      "module/divider" = {
+        type = "custom/text";
+        label = "|";
+        format-padding = 1;
+      };
+
+      "module/title" = {
         type = "internal/xwindow";
-        label = "%title:0:60:...%";
+        format = "<label>";
+        format-foreground = "\${colors.fg}";
+        format-padding = 1;
+        label = "%title%";
+        label-maxlen = 35;
+      };
+
+      "module/tray" = {
+        type = "internal/tray";
+        format = "<tray>";
+        format-margin = "8px";
+        format-background = "\${colors.bg}";
+        tray-padding = "8px";
+        # tray-size = "150%";
       };
 
       "module/battery" = {
         type = "internal/battery";
         battery = "BAT0";
-        full-at = 99;
+        adapter = "AC";
+        full-at = 98;
 
-        label-full = "%{F#b8bb26}BAT %{F#FFFFFF}%percentage%%";
-        label-charging = "%{F#83a598}BAT %{F#FFFFFF}%percentage%%";
-        label-discharging = "%{F#fabd2f}BAT %{F#FFFFFF}%percentage%%";
-        format = "%label%";
-      };
+        format-charging = "<label-charging>";
+        format-charging-padding = 1;
+        format-charging-prefix = "%{T1}%{T-}";
+        format-charging-prefix-foreground = "\${colors.blue}";
+        label-charging = "%{T0}%percentage%%%{T-}";
+        label-charging-padding = 1;
 
-      "module/backlight" = {
-        type = "internal/backlight";
-        interval = 1;
+        format-discharging = "<label-discharging>";
+        format-discharging-padding = 1;
+        format-discharging-prefix = "%{T1}%{T-}";
+        format-discharging-prefix-foreground = "\${colors.blue}";
+        label-discharging = "%{T0}%percentage%%%{T-}";
+        label-discharging-padding = 1;
 
-        card = "intel_backlight";
-        format-prefix = "BRI ";
-        format-prefix-foreground = "\${colors.primary}";
-        label = "%percentage%%";
-      };
-
-      "module/pulseaudio" = {
-        type = "internal/pulseaudio";
-        interval = 1;
-
-        format-volume-prefix = "VOL ";
-        format-volume-prefix-foreground = "\${colors.primary}";
-        format-volume = "<label-volume>";
-
-        label-volume = "%percentage%%";
-
-        label-muted = "muted";
-        label-muted-foreground = "\${colors.disabled}";
-      };
-
-      "module/memory" = {
-        type = "internal/memory";
-        interval = 2;
-        format-prefix = "RAM ";
-        format-prefix-foreground = "\${colors.primary}";
-        label = "%percentage_used:2%%";
+        format-full = "<label-full>";
+        format-full-padding = 1;
+        format-full-prefix = "%{T1}%{T-}";
+        format-full-prefix-foreground = "\${colors.blue}";
+        label-full = "%{T0}%percentage%%%{T-}";
+        label-full-padding = 1;
       };
 
       "module/cpu" = {
         type = "internal/cpu";
-        interval = 2;
-        format-prefix = "CPU ";
-        format-prefix-foreground = "\${colors.primary}";
-        label = "%percentage:2%%";
+        interval = 1;
+        format = "<label>";
+        format-padding = 1;
+        format-prefix = "%{T1}%{T-}";
+        format-prefix-foreground = "\${colors.purple}";
+        label = "%{T0}%percentage:2%%%{T-}";
+        label-foreground = "\${colors.fg}";
+        label-padding = 1;
       };
 
-      "module/cpu-temp" = {
-        type = "custom/script";
-        exec = "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
-        interval = 2;
-        format-prefix = "TEM ";
-        format-prefix-foreground = "\${colors.primary}";
-        label = "%output%";
+      "module/memory" = {
+        type = "internal/memory";
+        interval = 1;
+        format = "<label>";
+        format-padding = 1;
+        format-prefix = "%{T0}%{T-}";
+        format-prefix-foreground = "\${colors.blue}";
+        label = "%{T0}%percentage_used%%%{T-}";
+        label-foreground = "\${colors.fg}";
+        label-padding = 1;
+      };
+
+      "module/wlan" = {
+        type = "internal/network";
+        interface = "wlp1s0";
+        interval = 1.0;
+
+        format-connected = "<label-connected>";
+        format-connected-padding = 1;
+        format-connected-prefix = "%{T1}%{T-}";
+        format-connected-prefix-foreground = "$\{colors.orange}";
+        label-connected = "%{T1}%{T-}%{T0}%downspeed%%{T-}";
+        label-connected-foreground = "\${colors.fg}";
+        label-connected-padding = 1;
+
+        format-disconnected = "<label-disconnected>";
+        format-disconnected-padding = 1;
+        format-disconnected-prefix = "%{T1}%{T-}";
+        format-disconnected-prefix-foreground = "$\{colors.red}";
+        label-disconnected = "%{T0}:(%{T-}";
+        label-disconnected-foreground = "\${colors.fg}";
+        label-disconnected-padding = 1;
+      };
+
+      "module/pulseaudio" = {
+        type = "internal/pulseaudio";
+        use-ui-max = true;
+
+        format-volume = "<label-volume>";
+        format-volume-padding = 1;
+        format-volume-prefix = "%{T0}%{T-}";
+        format-volume-prefix-foreground = "\${colors.orange}";
+        label-volume = "%{T0}%percentage%%%{T-}";
+        label-volume-foreground = "\${colors.fg}";
+        label-volume-padding = 1;
+
+        format-muted = "<label-muted>";
+        format-muted-padding = 1;
+        format-muted-prefix = "%{T0}%{T-}";
+        format-muted-prefix-foreground = "\${colors.red}";
+        label-muted = "%{T0}%percentage%%%{T-}";
+        label-muted-foreground = "\${colors.fg}";
+        label-muted-padding = 1;
+
+        # click-right = "pavucontrol&";
+      };
+
+      "module/temperature" = {
+        type = "internal/temperature";
+        thermal-zone = 0;
+        warn-temperature = 75;
+        zone-type = "acpitz";
+
+        format = "<label>";
+        format-padding = 1;
+        format-prefix = "%{T1}%{T-}";
+        format-prefix-foreground = "\${colors.orange}";
+
+        format-warn = "<label-warn>";
+        format-warn-padding = 1;
+        format-warn-prefix = "%{T1}%{T-}";
+        format-warn-prefix-foreground = "\${colors.red}";
+
+        label = "%{T0}%temperature-c%%{T-}";
+        label-foreground = "\${colors.fg}";
+        label-padding = 1;
+
+        label-warn = "%{T0}%temperature-c%%{T-}";
+        label-warn-foreground = "\${colors.fg}";
+        label-warn-padding = 1;
+      };
+
+      "module/backlight" = {
+        type = "internal/backlight";
+        card = "amdgpu_bl0";
+        enable-scroll = true;
+        format = "<label>";
+        format-padding = 1;
+        format-prefix = "%{T1}%{T-}";
+        format-prefix-foreground = "\${colors.blue}";
+        label = "%{T0}%percentage%%%{T-}";
+        label-foreground = "\${colors.fg}";
+        label-padding = 1;
       };
 
       "module/date" = {
         type = "internal/date";
         interval = 1;
+        time = "%H:%M";
+        time-alt = "%a, %b %d %H:%M:%S";
 
-        date = "%H:%M";
-        date-alt = "%Y-%m-%d %H:%M:%S";
-
-        label = "%date%";
-        label-foreground = "\${colors.primary}";
+        format = "<label>";
+        format-prefix = "%{T1}%{T-}";
+        format-prefix-foreground = "\${colors.purple}";
+        format-background = "\${colors.bg-darker}";
+        format-foreground = "\${colors.fg}";
+        format-padding = 1;
+        label = "%{T0}%time%%{T-}";
+        label-padding = 1;
       };
 
       "settings" = {
         screenchange-reload = true;
-        pseudo-transparency = true;
+        # pseudo-transparency = true;
       };
     };
   };

@@ -34,7 +34,7 @@ in
         };
 
         extraConfig = ''
-          background=${wallpapers}/backgrounds/forest-3.jpg
+          background=${wallpapers}/backgrounds/wallpapers/irl/forest-3.jpg
         '';
       };
     };

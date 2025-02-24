@@ -6,6 +6,8 @@
     [
       ../default/home/dima.nix
       ../default/home/modules.nix
+
+      ./overwrites.nix
     ];
 
   home.sessionVariables = {
