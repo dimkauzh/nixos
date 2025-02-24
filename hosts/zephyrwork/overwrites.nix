@@ -11,5 +11,6 @@
   services.polybar.settings = {
     "module/battery".battery = lib.mkForce "BAT1";
     "module/backlight".card = lib.mkForce "amdgpu_bl1";
+    "module/temperature".hwmon-path = lib.mkForce "/sys/devices/platform/cros_ec_lpcs.0/cros-ec-dev.2.auto/cros-ec-hwmon.11.auto/hwmon/hwmon7/temp4_input";
   };
 }

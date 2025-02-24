@@ -234,7 +234,6 @@
         type = "internal/temperature";
         thermal-zone = 0;
         warn-temperature = 75;
-        zone-type = "acpitz";
 
         format = "<label>";
         format-padding = 1;
