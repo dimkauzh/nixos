@@ -62,7 +62,7 @@
 
 
         modules-left = "i3 divider title";
-        modules-right = "tray divider battery cpu memory pulseaudio temperature backlight date";
+        modules-right = "tray divider battery cpu memory pulseaudio cpu-temp backlight date";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
@@ -105,7 +105,8 @@
         label-visible-padding = 1;
 
         label-urgent = " %name% ";
-        label-urgent-foreground = "\${colors.red}";
+        label-urgent-foreground = "\${colors.white}";
+        label-urgent-background = "\${colors.red}";
         label-urgent-padding = 1;
       };
 
@@ -230,10 +231,10 @@
         # click-right = "pavucontrol&";
       };
 
-      "module/temperature" = {
-        type = "internal/temperature";
-        thermal-zone = 0;
-        warn-temperature = 75;
+      "module/cpu-temp" = {
+        type = "custom/script";
+        exec = "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^Package id 0:/ {temp = $4 + 0.5; print int(temp)\"°\"}'";
+        interval = 2;
 
         format = "<label>";
         format-padding = 1;
@@ -245,11 +246,11 @@
         format-warn-prefix = "%{T1}%{T-}";
         format-warn-prefix-foreground = "\${colors.red}";
 
-        label = "%{T0}%temperature-c%%{T-}";
+        label = "%{T0}%output%%{T-}";
         label-foreground = "\${colors.fg}";
         label-padding = 1;
 
-        label-warn = "%{T0}%temperature-c%%{T-}";
+        label-warn = "%{T0}%output%%{T-}";
         label-warn-foreground = "\${colors.fg}";
         label-warn-padding = 1;
       };
