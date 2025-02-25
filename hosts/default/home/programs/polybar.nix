@@ -57,8 +57,8 @@
 
         separator-foreground = "\${colors.disabled}";
 
-        font-0 = "JetBrainsMono:style=Bold:size=12;3";
-        font-1 = "Material Icons Round:size=14;5";
+        font-0 = "JetBrainsMono:style=Bold:size=13;3";
+        font-1 = "Material Icons Round:size=15;5";
 
 
         modules-left = "i3 divider title";
@@ -86,25 +86,25 @@
 
         format = "<label-state> <label-mode>";
 
-        label-mode = "%mode%";
+        label-mode = " %mode% ";
         label-mode-padding = 1;
         label-mode-background = "\${colors.orange}";
         label-mode-foreground = "\${colors.black}";
 
-        label-focused = "%name%";
+        label-focused = " %name% ";
         label-focused-foreground = "\${colors.white}";
         label-focused-background = "\${colors.blue}";
         label-focused-padding = 1;
 
-        label-unfocused = "%name%";
+        label-unfocused = " %name% ";
         label-unfocused-foreground = "\${colors.purple}";
         label-unfocused-padding = 1;
 
-        label-visible = "%name%";
+        label-visible = " %name% ";
         label-visible-foreground = "\${colors.blue}";
         label-visible-padding = 1;
 
-        label-urgent = "%name%";
+        label-urgent = " %name% ";
         label-urgent-foreground = "\${colors.red}";
         label-urgent-padding = 1;
       };
