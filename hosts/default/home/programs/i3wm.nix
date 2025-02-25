@@ -235,6 +235,12 @@ in
   };
 
   home.file = {
+    ".Xresources" = {
+      text = ''
+        Xcursor.theme: capitaine-cursors
+      '';
+    };
+
     ".config/i3/redraw.sh" = {
       text = ''
         systemctl --user restart picom feh
