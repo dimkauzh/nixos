@@ -6,4 +6,4 @@ This is my nixos configuration.
 - Zephyrwork: Framework Laptop 13 (AMD R5 7640u, 16GB, 1TB)
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/a391051b-8ceb-4216-8984-e165cdf27a41)
+![image](https://github.com/user-attachments/assets/5501ccce-d48c-49bf-a474-6f4b7fdb3d10)
