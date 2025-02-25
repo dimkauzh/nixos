@@ -40,15 +40,15 @@
       "bar/main" = {
         width = "100%";
         height = "24pt";
-        radius = 8;
+        radius = 15;
 
         background = "\${colors.bg}";
         foreground = "\${colors.fg}";
 
-        line-size = "3pt";
+        line-size = "2pt";
 
-        border-size = "4pt";
-        border-color = "#00000000";
+        border-size = "2pt";
+        border-color = "\${colors.bg-cyan}";
 
         padding-left = 0;
         padding-right = 1;

@@ -230,6 +230,7 @@ in
       default_border pixel 2
       default_floating_border pixel 2
       for_window [class="^.*"] border pixel 2
+      for_window [class="^Polybar$"] border pixel 2
     '';
 
   };

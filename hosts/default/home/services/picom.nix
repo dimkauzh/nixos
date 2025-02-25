@@ -19,6 +19,12 @@
 
     };
 
+    wintypes = {
+      dock = { shadow = false; corner-radius = 0; };
+      fullscreen = { shadow = false; corner-radius = 0; };
+      notification = { shadow = false; corner-radius = 0; };
+    };
+
     extraArgs = [
       "--window-shader-fg=${config.xdg.configFile."picom/rounded-borders.glsl".target}"
     ];
@@ -26,6 +32,24 @@
 
   xdg.configFile = {
     "picom/picom.conf".text = lib.mkAfter ''
+      rules = (
+        {
+          match = "class_g = 'Polybar'";
+          shadow = false;
+          corner-radius = 0;
+        },
+        {
+          match = "class_g = 'Dunst'";
+          shadow = false;
+          corner-radius = 0;
+        },
+        {
+          match = "fullscreen";
+          shadow = false;
+          corner-radius = 0;
+        }
+      );
+
       animations = (
       {
         triggers = [
@@ -53,23 +77,6 @@
         preset = "geometry-change";
         duration = "1";
       })
-
-      rules: (
-        {
-          match = "name = 'Notification'   || "
-                  "class_g = 'Conky'       || "
-                  "class_g = 'Dunst'       || "
-                  "class_g ?= 'Notify-osd' || "
-                  "class_g = 'Cairo-clock' || "
-                  "_GTK_FRAME_EXTENTS@";
-          shadow = false;
-          corner-radius = 0;
-        },
-        {
-          match = "fullscreen";
-          corner-radius = 0;
-        },
-      )
     '';
 
     "picom/rounded-borders.glsl".text = ''
