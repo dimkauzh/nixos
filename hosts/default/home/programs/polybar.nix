@@ -45,10 +45,10 @@
         background = "\${colors.bg}";
         foreground = "\${colors.fg}";
 
-        line-size = "2pt";
+        line-size = "3pt";
 
-        border-size = "2pt";
-        border-color = "\${colors.bg-cyan}";
+        border-size = "4pt";
+        border-color = "#00000000";
 
         padding-left = 0;
         padding-right = 1;
@@ -82,7 +82,7 @@
         ws-icon-3 = "4;%{T1}%{T-}";
         ws-icon-4 = "5: msg;%{T1}%{T-}";
         ws-icon-5 = "6;%{T1}%{T-}";
-        ws-icon-default = "%{T1}%{T-}";
+        ws-icon-default = "%{T1}%{T-}";
 
         format = "<label-state> <label-mode>";
 
@@ -91,20 +91,20 @@
         label-mode-background = "\${colors.orange}";
         label-mode-foreground = "\${colors.black}";
 
-        label-focused = "%icon% %name%";
+        label-focused = "%name%";
         label-focused-foreground = "\${colors.white}";
         label-focused-background = "\${colors.blue}";
         label-focused-padding = 1;
 
-        label-unfocused = "%icon% %name%";
+        label-unfocused = "%name%";
         label-unfocused-foreground = "\${colors.purple}";
         label-unfocused-padding = 1;
 
-        label-visible = "%icon% %name%";
+        label-visible = "%name%";
         label-visible-foreground = "\${colors.blue}";
         label-visible-padding = 1;
 
-        label-urgent = "%icon% %name%";
+        label-urgent = "%name%";
         label-urgent-foreground = "\${colors.red}";
         label-urgent-padding = 1;
       };
