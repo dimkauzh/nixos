@@ -10,6 +10,12 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  programs.ssh = {
+    extraConfig = ''
+      AddKeysToAgent yes
+    '';
+  };
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (action.id == "org.freedesktop.login1.suspend" ||

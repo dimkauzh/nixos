@@ -118,7 +118,7 @@ in
         "${mod}+Shift+Print" = "exec flameshot full -c -p ~/Pictures/Screenshots";
 
         # Rofi
-        "${mod}+space" = "exec XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/$USER/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share rofi -show drun";
+        "${mod}+space" = "exec XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/$USER/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share rofi -show drun -show-icons";
 
         # Greenclip
         "${mod}+x" = "exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";

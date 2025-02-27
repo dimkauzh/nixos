@@ -20,8 +20,8 @@
 }
 
 window {
-    height: 600;
-    width: 600;
+    height: 575;
+    width: 800;
 
     border: 1;
     border-radius: 10;
@@ -102,7 +102,7 @@ element.selected.urgent {
 }
 
 element-text, element-icon {
-    size: 40;
+    size: 48;
     margin: 0 10 0 0;
     vertical-align: 0.5;
     background-color: inherit;

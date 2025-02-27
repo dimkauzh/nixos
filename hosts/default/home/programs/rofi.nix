@@ -1,15 +1,22 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   programs.rofi = {
     enable = true;
     font = "Noto Sans 14";
     terminal = "${pkgs.kitty}/bin/kitty";
-    theme = ../assets/rofi/gruvbox-dark-soft.rasi;
+    theme = ../assets/rofi/gruvbox-material.rasi;
 
     extraConfig = {
-      show-icons = true;
+      show-icons = false;
       icon-theme = "Gruvbox-Plus-Dark";
+      icon-fallback = false;
+
+      display-ssh = "";
+      display-run = "";
+      display-drun = "";
+      display-window = "";
+      display-combi = "";
     };
   };
 }
