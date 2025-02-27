@@ -122,7 +122,7 @@
         format-foreground = "\${colors.fg}";
         format-padding = 1;
         label = "%title%";
-        label-maxlen = 35;
+        label-maxlen = 60;
       };
 
       "module/tray" = {
