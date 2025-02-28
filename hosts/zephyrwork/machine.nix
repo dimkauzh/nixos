@@ -41,6 +41,8 @@
     ATTRS{idVendor}=="27c6", ATTRS{idProduct}=="609c", \
     ATTR{power/persist}="1", RUN+="${pkgs.coreutils}/bin/chmod 444 %S%p/../power/persist", \
     OPTIONS+="static_node=persist"
+
+    ACTION=="add|change", SUBSYSTEM=="usb", ATTRS{idVendor}=="27c6", ATTRS{idProduct}=="609c", ATTR{power/persist}="0"
   '';
 
 

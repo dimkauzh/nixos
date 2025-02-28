@@ -11,5 +11,6 @@
     ./i3wm.nix
     ./feh.nix
     ./direnv.nix
+    ./halloy.nix
   ];
 }

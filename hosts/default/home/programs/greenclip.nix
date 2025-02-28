@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   settingsFormat = pkgs.formats.toml { };

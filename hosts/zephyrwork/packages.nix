@@ -38,6 +38,7 @@ in
     godot_4
     simulide
     filezilla
+    xfce.mousepad
     # zed-editor
     rpi-imager
     ghidra-bin
@@ -69,9 +70,11 @@ in
     # Media
     vlc
     feh
-    gimp
     zbar
+    gimp
+    lmms
     shotcut
+    blender
     darktable
     obs-studio
     caffeine-ng

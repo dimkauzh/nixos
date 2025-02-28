@@ -10,7 +10,6 @@
     extraConfig = {
       show-icons = false;
       icon-theme = "Gruvbox-Plus-Dark";
-      icon-fallback = false;
 
       display-ssh = "";
       display-run = "";
