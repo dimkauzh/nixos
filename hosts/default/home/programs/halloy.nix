@@ -4,6 +4,7 @@ let
   settingsFormat = pkgs.formats.toml { };
 
   settings = {
+    scale_factor = 0.8;
     servers.liberachat = {
       nickname = "dimkauzh";
       server = "irc.libera.chat";

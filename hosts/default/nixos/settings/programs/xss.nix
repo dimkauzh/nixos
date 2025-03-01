@@ -9,10 +9,14 @@
     ];
   };
 
-    
   systemd.services.lock-screen = {
     description = "Lock the screen on resume from sleep/hibernation";
-    after = [ "systemd-user-sessions.service" ];
+    after = [
+      "systemd-user-sessions.service"
+      "systemd-logind.service"
+      "graphical.target"
+    ];
+    wants = [ "graphical.target" ];
 
     serviceConfig = {
       Type = "oneshot";
@@ -21,9 +25,10 @@
     };
 
     wantedBy = [
-      "systemd-suspend.service"
-      "systemd-hibernate.service"
-      "systemd-suspend-then-hibernate.service"
+      "sleep.target"
+      "suspend.target"
+      "hibernate.target"
+      "suspend-then-hibernate.target"
     ];
   };
 }

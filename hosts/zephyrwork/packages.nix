@@ -35,6 +35,8 @@ in
     docker
     gzdoom
     neovim
+    leocad
+    freecad
     godot_4
     simulide
     filezilla
