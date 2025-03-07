@@ -26,7 +26,7 @@
   outputs = {
     nixpkgs, self,
     home-manager,
-    spicetify-nix, zen-browser, nix-flatpak, fuckingnode,
+    nix-flatpak,
     ...
   } @ inputs:
   {

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   settingsFormat = pkgs.formats.toml { };
@@ -7,7 +7,7 @@ let
     greenclip = {
       blacklisted_applications = [];
       enable_image_support = true;
-      history_file = "/home/$USER/.cache/greenclip.history";
+      history_file = "${config.home.homeDirectory}/.cache/greenclip.history";
       image_cache_directory = "/tmp/greenclip";
       max_history_length = 200;
       max_selection_size_bytes = 0;

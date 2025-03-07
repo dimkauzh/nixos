@@ -12,5 +12,6 @@
     ./feh.nix
     ./direnv.nix
     ./halloy.nix
+    ./git.nix
   ];
 }

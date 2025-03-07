@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   mod = "Mod4";
@@ -118,7 +118,7 @@ in
         "${mod}+Shift+Print" = "exec flameshot full -c -p ~/Pictures/Screenshots";
 
         # Rofi
-        "${mod}+space" = "exec XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/$USER/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share rofi -show drun -show-icons";
+        "${mod}+space" = "exec XDG_DATA_DIRS=$XDG_DATA_DIRS:${config.home.homeDirectory}/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share rofi -show drun -show-icons";
 
         # Greenclip
         "${mod}+x" = "exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
@@ -241,15 +241,16 @@ in
         Xcursor.theme: capitaine-cursors
       '';
     };
+  };
 
-    ".config/i3/redraw.sh" = {
+  xdg.configFile = {
+    "i3/redraw.sh" = {
       text = ''
-        systemctl --user restart picom feh
       '';
       executable = true;
     };
 
-    ".config/i3/window_ss.sh" = {
+    "i3/window_ss.sh" = {
       text = ''
         filename="$HOME/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
 
@@ -268,7 +269,7 @@ in
       executable = true;
     };
 
-    ".config/i3/volume_brightness.sh" = {
+    "i3/volume_brightness.sh" = {
       text = ''
         volume_step=5
         brightness_step=5

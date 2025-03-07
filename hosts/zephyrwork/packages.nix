@@ -40,11 +40,12 @@ in
     godot_4
     simulide
     filezilla
-    xfce.mousepad
     # zed-editor
     rpi-imager
     ghidra-bin
     gtkradiant
+    xfce.mousepad
+
 
     # Programming
     go
@@ -58,13 +59,17 @@ in
 
     # Communication
     nemo
+    xpad
     slack
     zapzap
     halloy
+    spotube
     vesktop
+    obsidian
     ente-auth
     riseup-vpn
     protonvpn-gui
+    youtube-music
     cinny-desktop
     github-desktop
     element-desktop
@@ -86,6 +91,7 @@ in
     minetest
     ioquake3
     prismlauncher
+    extremetuxracer
 
     # Emulation and Tools
     mgba
