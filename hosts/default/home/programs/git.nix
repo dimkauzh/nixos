@@ -8,6 +8,7 @@
     userEmail = "uzhdimka@gmail.com";
 
     aliases = {
+      "a" = "add";
       "c" = "commit";
       "p" = "push";
       "pl" = "pull";
