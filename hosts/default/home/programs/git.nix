@@ -12,6 +12,7 @@
       "c" = "commit";
       "p" = "push";
       "pl" = "pull";
+      "s" = "status";
     };
   };
 }

@@ -1,11 +1,9 @@
 { pkgs, inputs, ... }:
 
 let
-  mantablockscreen = import ../default/nixos/packages/mantablockscreen.nix { inherit pkgs; };
   xeventbind = import ../default/nixos/packages/xeventbind.nix { inherit pkgs; };
-  # powerkit = import ../default/nixos/packages/powerkit.nix { inherit pkgs; };
   wallpapers = import ../default/nixos/packages/wallpapers.nix { inherit pkgs; };
-  # nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
+  nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
   fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
 in
@@ -66,6 +64,7 @@ in
     spotube
     vesktop
     obsidian
+    tuxguitar
     ente-auth
     riseup-vpn
     protonvpn-gui
@@ -82,14 +81,15 @@ in
     lmms
     shotcut
     blender
-    darktable
     obs-studio
     caffeine-ng
+    rawtherapee
 
     # Games
     zeroad
     minetest
     ioquake3
+    superTuxKart
     prismlauncher
     extremetuxracer
 
@@ -123,10 +123,7 @@ in
     xeventbind
     zen-browser
     fuckingnode
-    mantablockscreen
-    # nvim-config
-    # powerkit
-
+    nvim-config
 
     # Dependencies
     jdk

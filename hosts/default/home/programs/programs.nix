@@ -13,5 +13,6 @@
     ./direnv.nix
     ./halloy.nix
     ./git.nix
+    ./neovim.nix
   ];
 }
