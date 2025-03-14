@@ -38,7 +38,6 @@ in
     godot_4
     simulide
     filezilla
-    # zed-editor
     rpi-imager
     ghidra-bin
     gtkradiant
@@ -67,6 +66,7 @@ in
     tuxguitar
     ente-auth
     riseup-vpn
+    figma-linux
     protonvpn-gui
     youtube-music
     cinny-desktop
