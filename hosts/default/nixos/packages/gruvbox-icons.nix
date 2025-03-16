@@ -6,8 +6,8 @@ pkgs.stdenv.mkDerivation {
 
   src = pkgs.fetchgit {
     url = "https://github.com/SylEleuth/gruvbox-plus-icon-pack.git";
-    rev = "766a007b548c65fe538b2fb9b9e4965d6ca55c4a";
-    sha256 = "sha256-KBSmzXEUtVNrBeYL0fNjQ9G2PVzLD35WJA6jQCkNMxc=";
+    rev = "e00bebc4366116d5d5d6ef1cbc33b0ace354141c";
+    sha256 = "sha256-/OwBOsC5GuRCt7aLMldOCMHaabOv5uqgrCLrxspaKxk=";
   };
 
   nativeBuildInputs = [ pkgs.gtk3 ];
@@ -32,6 +32,6 @@ pkgs.stdenv.mkDerivation {
     homepage = "https://github.com/SylEleuth/gruvbox-plus-icon-pack";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ eureka-cpu RGBCube ];
+    maintainers = with maintainers; [ Dimkauzh ];
   };
 }

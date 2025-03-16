@@ -143,6 +143,7 @@ in
     upower
     thermald
     batsignal
+    fw-ectool
     geekbench
     lm_sensors
     auto-cpufreq

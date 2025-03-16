@@ -14,5 +14,6 @@
     ./halloy.nix
     ./git.nix
     ./neovim.nix
+    ./sway.nix
   ];
 }
