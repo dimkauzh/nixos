@@ -11,8 +11,8 @@
 
   home = {
     sessionVariables = {
-      EDITOR = "zeditor";
-      BROWSER = "zen-browser";
+      EDITOR = "nvim";
+      BROWSER = "zen";
     };
 
 

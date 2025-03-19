@@ -81,9 +81,13 @@ in
     lmms
     shotcut
     blender
+    snapshot
+    audacity
+    darktable
     obs-studio
     caffeine-ng
     rawtherapee
+    libresprite
 
     # Games
     zeroad
