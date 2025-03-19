@@ -24,6 +24,10 @@
           action.id == "net.reactivated.fprint.device.verify") {
         return polkit.Result.YES;
       }
+      if (action.id == "org.freedesktop.NetworkManager.settings.modify.system" &&
+        subject.isInGroup("dima")) {
+        return polkit.Result.YES;
+      }
     });
   '';
 }
