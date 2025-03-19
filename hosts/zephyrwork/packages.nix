@@ -112,6 +112,7 @@ in
 
     # Terminal
     zsh
+    lazygit
     starship
     wakatime-cli
 
