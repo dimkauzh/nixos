@@ -17,6 +17,8 @@
     enable = true;
     tod.enable = false;
   };
+
+  programs.steam.enable = true;
   security.pam.services.lightdm.fprintAuth = true;
 
   networking = {
@@ -37,16 +39,10 @@
     };
   };
 
-  # ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", \
-  # ATTRS{idVendor}=="27c6", ATTRS{idProduct}=="609c", \
-  # ATTR{power/persist}="1", RUN+="${pkgs.coreutils}/bin/chmod 444 %S%p/../power/persist", \
-  # OPTIONS+="static_node=persist"
-
   services.udev.extraRules = ''
+    # Wakeup on keyboard
     ACTION=="add", SUBSYSTEM=="serio", DRIVERS=="atkbd", ATTR{power/wakeup}="enabled"
   '';
-
-
 
   # DO NOT MODIFY
   system.stateVersion = "24.11";

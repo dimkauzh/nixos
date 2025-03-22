@@ -99,7 +99,6 @@ in
 
     # Emulation and Tools
     mgba
-    mesa
     dxvk
     lutris
     winetricks

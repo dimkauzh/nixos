@@ -1,13 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   tartarus = import ../packages/tartarus.nix { inherit pkgs; };
 in
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
 
+  nixpkgs = {
+    overlays = [ inputs.niri.overlays.niri ];
+    config.allowUnfree = true;
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;

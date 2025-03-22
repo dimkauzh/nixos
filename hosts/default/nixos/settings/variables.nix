@@ -1,4 +1,4 @@
-{ ... }:
+{ mesa-pkg, ... }:
 
 {
   environment.variables = {
@@ -13,5 +13,8 @@
 
     # NixOS
     XDG_RUNTIME_DIR = "/run/user/$UID";
+
+    LIBGL_DRIVERS_PATH = "${mesa-pkg.mesa.drivers}/lib/dri";
+    LIBGL_DRIVERS_PATH_32 = "${mesa-pkg.pkgsi686Linux.mesa.drivers}/lib/dri";
   };
 }

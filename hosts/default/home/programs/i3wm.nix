@@ -245,6 +245,7 @@ in
   xdg.configFile = {
     "i3/redraw.sh" = {
       text = ''
+        systemctl --user restart feh picom
       '';
       executable = true;
     };
