@@ -2,7 +2,7 @@
 
 {
   services.batsignal = {
-    enable = true;
+    enable = false;
     extraArgs = [
       "-d 5"
       "-w 15"

@@ -19,6 +19,7 @@
   };
 
   programs.steam.enable = true;
+  programs.niri.enable = lib.mkForce true;
   security.pam.services.lightdm.fprintAuth = true;
 
   networking = {

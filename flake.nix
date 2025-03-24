@@ -26,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-      url = "github:sodiboo/nix-config?ref=main";
+      url = "github:sodiboo/niri-flake?ref=main";
     };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak?ref=latest";
@@ -88,12 +88,12 @@
             home-manager.users.dima.imports = [
               ./hosts/zephyrwork/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
+              niri.homeModules.niri
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs self;
             };
         }
-        nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };

@@ -222,6 +222,7 @@ in
         { command = "nm-applet"; }
         { command = "greenclip daemon"; }
         { command = "joystickwake"; }
+        { command = "${pkgs.batsignal}/bin/batsignal '-d 5' '-w 15' '-c 10'"; }
         { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
       ];
     };
@@ -238,6 +239,7 @@ in
     ".Xresources" = {
       text = ''
         Xcursor.theme: capitaine-cursors
+        Xcursor.size: 30
       '';
     };
   };

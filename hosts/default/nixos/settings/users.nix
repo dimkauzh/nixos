@@ -12,6 +12,4 @@
       extraGroups = [ "wheel" ];
     };
   };
-
-  programs.sway.enable = true;
 }
