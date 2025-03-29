@@ -1,15 +1,12 @@
 { pkgs, ... }:
 
-let
-  gruvboxPlusIcons = import ../../nixos/packages/gruvbox-icons.nix { inherit pkgs; };
-in
 {
   services.dunst = {
     enable = true;
 
     iconTheme = {
       name = "Gruvbox-Plus-Dark";
-      package = gruvboxPlusIcons;
+      package = pkgs.gruvbox-plus-icons;
     };
 
     settings = {

@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 
 {
   imports =
     [
-      ../default/home/dima.nix
-      ../default/home/modules.nix
+      ../../modules/home/home/dima.nix
+      ../../modules/home/modules.nix
 
       ./overwrites.nix
     ];

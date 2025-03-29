@@ -3,6 +3,9 @@
 let
   mod = "Mod4";
   alt = "Mod1";
+
+  resizeSpeed = "8";
+  moveSpeed = "10";
 in
 {
   xsession.windowManager.i3 = {
@@ -136,11 +139,12 @@ in
         "${mod}+Shift+p" = "exec systemctl --user restart picom";
 
         # Reload the configuration file
-        "${mod}+r" = "reload";
+        "${mod}+Shift+r" = "reload";
 
         # Modes
         "${mod}+Escape" = "mode system";
-        "${mod}+Shift+r" = "mode resize";
+        "${mod}+r" = "mode resize";
+        "${mod}+m" = "move move";
       };
 
       colors = {
@@ -184,19 +188,37 @@ in
         };
 
         resize = {
-          j = "resize shrink width 5 px or 5 ppt";
-          k = "resize grow height 5 px or 5 ppt";
-          l = "resize shrink height 5 px or 5 ppt";
-          semicolon = "resize grow width 5 px or 5 ppt";
+          j = "resize shrink width ${resizeSpeed} px or ${resizeSpeed} ppt";
+          k = "resize grow height ${resizeSpeed} px or ${resizeSpeed} ppt";
+          l = "resize shrink height ${resizeSpeed} px or ${resizeSpeed} ppt";
+          semicolon = "resize grow width ${resizeSpeed} px or ${resizeSpeed} ppt";
 
-          Left = "resize shrink width 5 px or 5 ppt";
-          Down = "resize grow height 5 px or 5 ppt";
-          Up = "resize shrink height 5 px or 5 ppt";
-          Right = "resize grow width 5 px or 5 ppt";
+          Left = "resize shrink width ${resizeSpeed} px or ${resizeSpeed} ppt";
+          Down = "resize grow height ${resizeSpeed} px or ${resizeSpeed} ppt";
+          Up = "resize shrink height ${resizeSpeed} px or ${resizeSpeed} ppt";
+          Right = "resize grow width ${resizeSpeed} px or ${resizeSpeed} ppt";
 
           Return = "mode default";
           Escape = "mode default";
           "${mod}+Shift+r" = "mode default";
+          "${mod}+r" = "mode default";
+        };
+
+        move = {
+          j = "move down ${moveSpeed} px";
+          k = "move up ${moveSpeed} px";
+          l = "move right ${moveSpeed} px";
+          semicolon = "move left ${moveSpeed} px";
+
+          Left = "move left ${moveSpeed} px";
+          Down = "move down ${moveSpeed} px";
+          Up = "move up ${moveSpeed} px";
+          Right = "move right ${moveSpeed} px";
+
+          Return = "mode default";
+          Escape = "mode default";
+          "${mod}+Shift+m" = "mode default";
+          "${mod}+m" = "mode default";
         };
       };
 

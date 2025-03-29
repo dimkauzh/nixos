@@ -12,4 +12,6 @@
       extraGroups = [ "wheel" ];
     };
   };
+
+  nix.settings.trusted-users = [ "root" "dima" ];
 }

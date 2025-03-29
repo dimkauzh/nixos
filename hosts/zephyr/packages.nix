@@ -1,11 +1,9 @@
 { pkgs, inputs, ... }:
 
 let
-  mantablockscreen = import ../default/nixos/packages/mantablockscreen.nix { inherit pkgs; };
-  xeventbind = import ../default/nixos/packages/xeventbind.nix { inherit pkgs; };
-  powerkit = import ../default/nixos/packages/powerkit.nix { inherit pkgs; };
-  wallpapers = import ../default/nixos/packages/wallpapers.nix { inherit pkgs; };
-  nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
+  xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
+  wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
+  nvim-config = import ../../modules/nixos/packages/neovim.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
 in
 {
@@ -84,11 +82,7 @@ in
     wallpapers
     xeventbind
     zen-browser
-    mantablockscreen
-    # powerkit
-    # nvim-config
-
-
+    nvim-config
 
     # Dependencies
     jdk

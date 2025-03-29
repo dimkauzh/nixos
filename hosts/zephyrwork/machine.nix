@@ -3,8 +3,8 @@
 {
   imports =
     [
-      ../default/nixos/default.nix
-      ../default/graphics/amd.nix
+      ../../modules/nixos/default.nix
+      ../../modules/graphics/amd.nix
 
 
       ./boot.nix

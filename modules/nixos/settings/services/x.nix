@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  gruvboxPlusIcons = import ../../packages/gruvbox-icons.nix { inherit pkgs; };
   wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
 in
 {
@@ -29,7 +28,7 @@ in
         };
 
         iconTheme = {
-          package = gruvboxPlusIcons;
+          package = pkgs.gruvbox-plus-icons;
           name = "Gruvbox-Plus-Dark";
         };
 

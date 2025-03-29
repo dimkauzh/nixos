@@ -1,9 +1,9 @@
 { pkgs, inputs, ... }:
 
 let
-  xeventbind = import ../default/nixos/packages/xeventbind.nix { inherit pkgs; };
-  wallpapers = import ../default/nixos/packages/wallpapers.nix { inherit pkgs; };
-  nvim-config = import ../default/nixos/packages/neovim.nix { inherit pkgs; };
+  xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
+  wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
+  nvim-config = import ../../modules/nixos/packages/neovim.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
   fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
 in
@@ -11,6 +11,7 @@ in
   # Allow insecure packages
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
+    "freeimage-3.18.0-unstable-2024-04-18"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -42,7 +43,6 @@ in
     ghidra-bin
     gtkradiant
     xfce.mousepad
-
 
     # Programming
     go
@@ -138,6 +138,10 @@ in
     libapparmor
     nodejs-slim_23
 
+    # Wayland specific
+    weston
+    waydroid
+
     # System Audio
     pulseaudio
     pulsemixer
@@ -201,6 +205,7 @@ in
     xss-lock
     xidlehook
     xsettingsd
+    rofi-wayland
     lxqt.lxqt-policykit
     haskellPackages.greenclip
 

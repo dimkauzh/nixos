@@ -5,8 +5,8 @@
   imports =
     [
       ./overwrites.nix
-      ../default/home/dima.nix
-      ../default/home/modules.nix
+      ../../modules/home/dima.nix
+      ../../modules/home/modules.nix
     ];
 
   home = {
