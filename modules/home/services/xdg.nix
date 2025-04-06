@@ -47,12 +47,13 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
         xdg-desktop-portal-xapp
+        xdg-desktop-portal-gnome
       ];
     };
 
     desktopEntries = {
-      zen = {
-        name = "Zen Browser";
+      zen-beta = {
+        name = "Zen Browser (Beta)";
         exec = "zen %u";
         icon = "zen";
         genericName = "Web Browser";

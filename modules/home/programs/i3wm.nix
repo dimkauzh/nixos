@@ -144,7 +144,7 @@ in
         # Modes
         "${mod}+Escape" = "mode system";
         "${mod}+r" = "mode resize";
-        "${mod}+m" = "move move";
+        "${mod}+m" = "mode move";
       };
 
       colors = {
@@ -202,6 +202,7 @@ in
           Escape = "mode default";
           "${mod}+Shift+r" = "mode default";
           "${mod}+r" = "mode default";
+          "${mod}+m" = "mode move";
         };
 
         move = {
@@ -219,6 +220,7 @@ in
           Escape = "mode default";
           "${mod}+Shift+m" = "mode default";
           "${mod}+m" = "mode default";
+          "${mod}+r" = "mode resize";
         };
       };
 

@@ -25,6 +25,10 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvim-config = {
+      url = "github:dimkauzh/nvim-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri = {
       url = "github:sodiboo/niri-flake?ref=main";
     };
@@ -34,6 +38,7 @@
     fuckingnode = {
       url = "github:ZakaHaceCosas/FuckingNode";
     };
+
   };
 
   outputs = {

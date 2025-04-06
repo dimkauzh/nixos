@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
-  nvim-config = import ../../nixos/packages/neovim.nix { inherit pkgs; };
+  nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
 in 
 
 {

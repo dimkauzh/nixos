@@ -3,9 +3,10 @@
 let
   xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
   wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
-  nvim-config = import ../../modules/nixos/packages/neovim.nix { inherit pkgs; };
+  sladeC = import ../../modules/nixos/packages/slade.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
   fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
+  nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
 in
 {
   # Allow insecure packages
@@ -30,7 +31,6 @@ in
 
     # Development
     kitty
-    slade
     docker
     gzdoom
     neovim
@@ -66,6 +66,7 @@ in
     tuxguitar
     ente-auth
     riseup-vpn
+    teamviewer
     figma-linux
     protonvpn-gui
     youtube-music
@@ -88,6 +89,7 @@ in
     caffeine-ng
     rawtherapee
     libresprite
+    davinci-resolve
 
     # Games
     zeroad
@@ -97,9 +99,22 @@ in
     prismlauncher
     extremetuxracer
 
+    # VMs
+    spice
+    spice-gtk
+    win-spice
+    win-virtio
+    virt-viewer
+    gnome-boxes
+    virt-manager
+    virglrenderer
+    spice-protocol
+
+
     # Emulation and Tools
     mgba
     dxvk
+    ruffle
     lutris
     winetricks
     joystickwake
@@ -123,6 +138,7 @@ in
     fastfetch
 
     # Custom Package
+    sladeC
     wallpapers
     xeventbind
     zen-browser
@@ -137,10 +153,12 @@ in
     flatpak
     libapparmor
     nodejs-slim_23
+    lua-language-server
 
     # Wayland specific
     weston
     waydroid
+    xwayland-satellite
 
     # System Audio
     pulseaudio
@@ -200,7 +218,6 @@ in
     scrot
     arandr
     picom
-    flameshot
     playerctl
     xss-lock
     xidlehook
@@ -208,6 +225,7 @@ in
     rofi-wayland
     lxqt.lxqt-policykit
     haskellPackages.greenclip
+    (flameshot.override { enableWlrSupport = true; })
 
     # Storage Utilities
     tokei
@@ -228,6 +246,7 @@ in
     # XDG stuff
     xdg-desktop-portal
     xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
 
     # Running Binaries
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

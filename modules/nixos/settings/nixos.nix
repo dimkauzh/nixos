@@ -4,7 +4,7 @@ let
   tartarus = import ../packages/tartarus.nix { inherit pkgs; };
 in
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];
   programs.nix-ld.enable = true;
 
   nixpkgs = {

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports =
@@ -21,6 +21,23 @@
   programs.steam.enable = true;
   programs.niri.enable = lib.mkForce true;
   security.pam.services.lightdm.fprintAuth = true;
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "dima" ];
+
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+  services.spice-vdagentd.enable = true;
+  services.teamviewer.enable = true;
 
   networking = {
     hostName = lib.mkForce "zephyrwork";
