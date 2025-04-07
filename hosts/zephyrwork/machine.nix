@@ -38,6 +38,7 @@
   };
   services.spice-vdagentd.enable = true;
   services.teamviewer.enable = true;
+  services.desktopManager.cosmic.enable = true;
 
   networking = {
     hostName = lib.mkForce "zephyrwork";

@@ -4,9 +4,11 @@
   nixConfig = {
     extra-substituters = [
       "https://niri.cachix.org"
+      "https://cosmic.cachix.org/"
     ];
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
   };
 
@@ -29,16 +31,19 @@
       url = "github:dimkauzh/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fuckingnode = {
+      url = "github:ZakaHaceCosas/FuckingNode";
+      inputs.nixpkgs.follows = "nixpkgs"
+    };
     niri = {
       url = "github:sodiboo/niri-flake?ref=main";
+    };
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
     };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak?ref=latest";
     };
-    fuckingnode = {
-      url = "github:ZakaHaceCosas/FuckingNode";
-    };
-
   };
 
   outputs = {
@@ -47,6 +52,7 @@
     nix-flatpak,
     mesa-pinned,
     niri,
+    cosmic,
     ...
   } @ inputs:
   let
@@ -74,7 +80,6 @@
               inherit inputs self;
             };
         }
-        nix-flatpak.nixosModules.nix-flatpak
       ];
     };
 
@@ -86,6 +91,7 @@
 
       modules = [
         ./hosts/zephyrwork/machine.nix
+        cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
         {
             home-manager.useGlobalPkgs = true;
