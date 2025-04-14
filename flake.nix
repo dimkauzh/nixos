@@ -4,11 +4,9 @@
   nixConfig = {
     extra-substituters = [
       "https://niri.cachix.org"
-      "https://cosmic.cachix.org/"
     ];
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
   };
 
@@ -33,13 +31,10 @@
     };
     fuckingnode = {
       url = "github:ZakaHaceCosas/FuckingNode";
-      inputs.nixpkgs.follows = "nixpkgs"
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
       url = "github:sodiboo/niri-flake?ref=main";
-    };
-    cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
     };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak?ref=latest";
@@ -52,7 +47,6 @@
     nix-flatpak,
     mesa-pinned,
     niri,
-    cosmic,
     ...
   } @ inputs:
   let
@@ -91,7 +85,6 @@
 
       modules = [
         ./hosts/zephyrwork/machine.nix
-        cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
         {
             home-manager.useGlobalPkgs = true;

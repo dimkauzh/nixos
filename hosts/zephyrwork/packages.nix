@@ -15,6 +15,13 @@ in
     "freeimage-3.18.0-unstable-2024-04-18"
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      odin = import ../../modules/nixos/packages/odin.nix { pkgs = final; };
+    })
+  ];
+
+
   environment.systemPackages = with pkgs; [
     # Essentials
     git
@@ -46,9 +53,13 @@ in
 
     # Programming
     go
+    ols
+    zls
+    zig
     nil
     lua
     nixd
+    odin
 
     # Archives
     unzip

@@ -5,7 +5,6 @@
     enable = true;
 
     detect-sleep = true;
-    not-when-audio = true;
 
     timers = [
       {

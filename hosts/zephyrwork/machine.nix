@@ -37,8 +37,7 @@
     spiceUSBRedirection.enable = true;
   };
   services.spice-vdagentd.enable = true;
-  services.teamviewer.enable = true;
-  services.desktopManager.cosmic.enable = true;
+  services.teamviewer.enable = false; # re-enable when needed
 
   networking = {
     hostName = lib.mkForce "zephyrwork";
