@@ -5,7 +5,9 @@ let
   alt = "Mod1";
 
   resizeSpeed = "8";
+  resizeSpeedSlowed = "4";
   moveSpeed = "10";
+  moveSpeedSlowed = "5";
 in
 {
   xsession.windowManager.i3 = {
@@ -188,15 +190,15 @@ in
         };
 
         resize = {
-          j = "resize shrink width ${resizeSpeed} px or ${resizeSpeed} ppt";
-          k = "resize grow height ${resizeSpeed} px or ${resizeSpeed} ppt";
-          l = "resize shrink height ${resizeSpeed} px or ${resizeSpeed} ppt";
-          semicolon = "resize grow width ${resizeSpeed} px or ${resizeSpeed} ppt";
-
           Left = "resize shrink width ${resizeSpeed} px or ${resizeSpeed} ppt";
           Down = "resize grow height ${resizeSpeed} px or ${resizeSpeed} ppt";
           Up = "resize shrink height ${resizeSpeed} px or ${resizeSpeed} ppt";
           Right = "resize grow width ${resizeSpeed} px or ${resizeSpeed} ppt";
+
+          "Shift+Left" = "resize shrink width ${resizeSpeedSlowed} px or ${resizeSpeedSlowed} ppt";
+          "Shift+Down" = "resize grow height ${resizeSpeedSlowed} px or ${resizeSpeedSlowed} ppt";
+          "Shift+Up" = "resize shrink height ${resizeSpeedSlowed} px or ${resizeSpeedSlowed} ppt";
+          "Shift+Right" = "resize grow width ${resizeSpeedSlowed} px or ${resizeSpeedSlowed} ppt";
 
           Return = "mode default";
           Escape = "mode default";
@@ -206,15 +208,15 @@ in
         };
 
         move = {
-          j = "move down ${moveSpeed} px";
-          k = "move up ${moveSpeed} px";
-          l = "move right ${moveSpeed} px";
-          semicolon = "move left ${moveSpeed} px";
-
           Left = "move left ${moveSpeed} px";
           Down = "move down ${moveSpeed} px";
           Up = "move up ${moveSpeed} px";
           Right = "move right ${moveSpeed} px";
+
+          "Shift+Left" = "move left ${moveSpeedSlowed} px";
+          "Shift+Down" = "move down ${moveSpeedSlowed} px";
+          "Shift+Up" = "move up ${moveSpeedSlowed} px";
+          "Shift+Right" = "move right ${moveSpeedSlowed} px";
 
           Return = "mode default";
           Escape = "mode default";

@@ -19,19 +19,15 @@
     };
 
     gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-        gtk-decoration-layout=:menu
-        gtk-font-name=Noto Sans 10
-      '';
+      gtk-application-prefer-dark-theme = 1;
+      gtk-decoration-layout = ":menu";
+      gtk-font-name = "Noto Sans 10";
     };
 
     gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-        gtk-decoration-layout=:menu
-        gtk-font-name=Noto Sans 10
-      '';
+      gtk-application-prefer-dark-theme = 1;
+      gtk-decoration-layout = ":menu";
+      gtk-font-name = "Noto Sans 10";
     };
   };
 

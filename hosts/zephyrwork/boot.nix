@@ -3,7 +3,6 @@
 {
   boot = {
     extraModprobeConfig = ''
-      options mt7921e disable_aspm=1
       options cfg80211 ieee80211_regdom="NL"
     '';
 

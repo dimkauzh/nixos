@@ -37,24 +37,15 @@
     spiceUSBRedirection.enable = true;
   };
   services.spice-vdagentd.enable = true;
-  services.teamviewer.enable = false; # re-enable when needed
+  services.teamviewer.enable = true;
 
   networking = {
     hostName = lib.mkForce "zephyrwork";
 
     networkmanager.wifi = {
       powersave = false;
-      backend = "iwd";
     };
 
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        Settings = {
-          AutoConnect = true;
-        };
-      };
-    };
   };
 
   services.udev.extraRules = ''

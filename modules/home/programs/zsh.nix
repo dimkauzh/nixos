@@ -25,7 +25,7 @@
       TERM="xterm-256color";
     };
 
-    initExtra = ''
+    initContent = ''
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
 

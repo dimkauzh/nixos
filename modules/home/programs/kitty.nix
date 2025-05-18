@@ -37,6 +37,10 @@
       initial_window_height = 330;
       tab_bar_edge = "top";
       tab_bar_style = "slant";
+
+      foreground = "#d4be98";
+      color7 = "#d4be98";
+      color15 = "#ddc7a1";
     };
   };
 }

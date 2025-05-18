@@ -11,10 +11,9 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    mesa-pinned.url = "github:nixos/nixpkgs?rev=6a0ba68039594c1382d503f68e71a5217b3eb1b9";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?ref=release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -35,6 +34,7 @@
     };
     niri = {
       url = "github:sodiboo/niri-flake?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak?ref=latest";
@@ -45,14 +45,9 @@
     nixpkgs, self,
     home-manager,
     nix-flatpak,
-    mesa-pinned,
     niri,
     ...
   } @ inputs:
-  let
-    system = "x86_64-linux";
-    mesa-pkg = import mesa-pinned { inherit system; };
-  in 
   {
     nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -80,7 +75,7 @@
     nixosConfigurations.zephyrwork = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs self mesa-pkg;
+        inherit inputs self;
       };
 
       modules = [

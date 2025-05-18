@@ -1,19 +1,22 @@
 { pkgs, inputs, ... }:
 
 let
+  v-analyzer = import ../../modules/nixos/packages/v-analyzer.nix { inherit pkgs; };
   xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
   wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
-  sladeC = import ../../modules/nixos/packages/slade.nix { inherit pkgs; };
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
   fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
   nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
 in
 {
   # Allow insecure packages
-  nixpkgs.config.permittedInsecurePackages = [
-    "freeimage-unstable-2021-11-01"
-    "freeimage-3.18.0-unstable-2024-04-18"
-  ];
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "freeimage-unstable-2021-11-01"
+      "freeimage-3.18.0-unstable-2024-04-18"
+    ];
+    allowBroken = true;
+  };
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -29,14 +32,18 @@ in
     wget
     btop
     dconf
+    pkg-config
 
     # Window Manager
     i3
     lightdm
+    xorg.xinit
     i3lock-color
     lightdm-gtk-greeter
 
     # Development
+    tmux
+    slade
     kitty
     docker
     gzdoom
@@ -46,9 +53,11 @@ in
     godot_4
     simulide
     filezilla
+    zed-editor
     rpi-imager
     ghidra-bin
     gtkradiant
+    kicad-small
     xfce.mousepad
 
     # Programming
@@ -60,6 +69,8 @@ in
     lua
     nixd
     odin
+    vlang
+    rustup
 
     # Archives
     unzip
@@ -69,7 +80,6 @@ in
     nemo
     xpad
     slack
-    zapzap
     halloy
     spotube
     vesktop
@@ -84,6 +94,7 @@ in
     cinny-desktop
     github-desktop
     element-desktop
+    whatsapp-for-linux
 
     # Media
     vlc
@@ -91,8 +102,10 @@ in
     zbar
     gimp
     lmms
+    zenity
     shotcut
     blender
+    wifi-qr
     snapshot
     audacity
     darktable
@@ -127,6 +140,7 @@ in
     dxvk
     ruffle
     lutris
+    heroic
     winetricks
     joystickwake
     wineWowPackages.stable
@@ -149,7 +163,7 @@ in
     fastfetch
 
     # Custom Package
-    sladeC
+    v-analyzer
     wallpapers
     xeventbind
     zen-browser
@@ -162,8 +176,9 @@ in
     clang
     ripgrep
     flatpak
+    openssl
     libapparmor
-    nodejs-slim_23
+    nodejs-slim_24
     lua-language-server
 
     # Wayland specific

@@ -15,5 +15,7 @@
     ./git.nix
     ./neovim.nix
     ./niri.nix
+    ./tmux.nix
+    ./v-analyzer.nix
   ];
 }
