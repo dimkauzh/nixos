@@ -7,9 +7,18 @@ let
   zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
 in
 {
-  # Allow insecure packages
-  nixpkgs.config.permittedInsecurePackages = [
-    "freeimage-unstable-2021-11-01"
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "freeimage-unstable-2021-11-01"
+      "freeimage-3.18.0-unstable-2024-04-18"
+    ];
+    allowBroken = true;
+  };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      odin = import ../../modules/nixos/packages/odin.nix { pkgs = final; };
+    })
   ];
 
   environment.systemPackages = with pkgs; [
@@ -86,7 +95,8 @@ in
     # Dependencies
     jdk
     flatpak
-    nodejs-slim_23
+    ripgrep
+    nodejs-slim_24
 
     # System Audio
     pulseaudio

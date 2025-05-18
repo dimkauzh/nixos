@@ -4,10 +4,9 @@
 {
   imports =
     [
-      ../../modules/home/home/dima.nix
-      ../../modules/home/modules.nix
-
       ./overwrites.nix
+      ../../modules/home/dima.nix
+      ../../modules/home/modules.nix
     ];
 
   home.sessionVariables = {

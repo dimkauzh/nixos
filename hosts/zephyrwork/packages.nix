@@ -9,7 +9,6 @@ let
   nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
 in
 {
-  # Allow insecure packages
   nixpkgs.config = {
     permittedInsecurePackages = [
       "freeimage-unstable-2021-11-01"

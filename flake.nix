@@ -64,6 +64,8 @@
             home-manager.users.dima.imports = [
               ./hosts/zephyr/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
+              niri.homeModules.niri
+
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs self;
