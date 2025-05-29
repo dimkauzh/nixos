@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services = {
@@ -11,5 +11,17 @@
 
     acpid.enable = true;
     fwupd.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = "gtk";
+    xdgOpenUsePortal = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-xapp
+      xdg-desktop-portal-gnome
+    ];
   };
 }

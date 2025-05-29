@@ -40,17 +40,6 @@
       };
     };
 
-    portal = {
-      enable = true;
-      config.common.default = "*";
-
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-xapp
-        xdg-desktop-portal-gnome
-      ];
-    };
-
     desktopEntries = {
       zen-beta = {
         name = "Zen Browser (Beta)";

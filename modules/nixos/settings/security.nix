@@ -8,6 +8,8 @@
     enableGnomeKeyring = true;
   };
 
+  security.rtkit.enable = true;
+
   services.gnome.gnome-keyring.enable = true;
 
   programs.ssh = {

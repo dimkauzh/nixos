@@ -101,6 +101,7 @@ in
     zbar
     gimp
     lmms
+    weasis
     zenity
     shotcut
     blender
@@ -220,6 +221,7 @@ in
     # System Utilities
     atk
     dex
+    aria
     acpi
     gtk3
     gtk4
