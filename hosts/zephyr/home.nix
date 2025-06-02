@@ -14,7 +14,7 @@
     BROWSER = "zen-browser";
   };
 
-  home.stateVersion = "24.11"; # (dont change)
+  home.stateVersion = "25.05"; # (dont change)
 
   programs.home-manager.enable = false;
 }

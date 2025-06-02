@@ -117,6 +117,7 @@ in
 
     # Games
     zeroad
+    trigger
     minetest
     ioquake3
     superTuxKart
@@ -133,7 +134,6 @@ in
     virt-manager
     virglrenderer
     spice-protocol
-
 
     # Emulation and Tools
     mgba
@@ -177,6 +177,7 @@ in
     ripgrep
     flatpak
     openssl
+    wireplumber
     libapparmor
     nodejs-slim_24
     lua-language-server
@@ -228,6 +229,7 @@ in
     avahi
     direnv
     nix-direnv
+    door-knocker
 
     # Gnome Utilities
     polkit_gnome
@@ -272,22 +274,5 @@ in
 
     # XDG stuff
     xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
-
-    # Running Binaries
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs:
-        (base.targetPkgs pkgs) ++ (with pkgs; [
-          pkg-config
-          ncurses
-        ]
-      );
-      profile = "export FHS=1";
-      runScript = "bash";
-      extraOutputsToInstall = ["dev"];
-    }))
   ];
 }

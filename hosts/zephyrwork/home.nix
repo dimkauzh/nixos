@@ -42,9 +42,27 @@
         '';
         executable = true;
       };
+
+      "games/trigger/run.sh" = {
+        enable = true;
+        text = ''
+          #!/bin/bash
+          ${pkgs.trigger}/bin/trigger-rally
+        '';
+        executable = true;
+      };
+
+      "games/prismlauncher/run.sh" = {
+        enable = true;
+        text = ''
+          #!/bin/bash
+          ${pkgs.prismlauncher}/bin/prismlauncher
+        '';
+        executable = true;
+      };
     };
 
-    stateVersion = "24.11"; # (dont change)
+    stateVersion = "25.05"; # (dont change)
   };
 
   dconf.settings = {
