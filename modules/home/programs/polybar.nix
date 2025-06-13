@@ -258,7 +258,8 @@
       "module/backlight" = {
         type = "internal/backlight";
         interval = 1;
-        card = "amdgpu_bl0";
+        card = "amdgpu_bl1";
+        use-actual-brightness = false;
         enable-scroll = true;
         format = "<label>";
         format-padding = 1;

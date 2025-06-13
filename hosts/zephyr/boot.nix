@@ -1,12 +1,15 @@
 { ... }:
 
 {
-  boot.loader.grub.extraEntries = ''
-   	menuentry "Windows" {
-		set root=(hd0,gpt1)
-		chainloader /EFI/Microsoft/Boot/bootmgfw.efi
- 	  }
-  '';
+  boot.loader.grub = {
+    gfxmodeEfi = "1920x1080";
+    extraEntries = ''
+      menuentry "Windows" {
+      set root=(hd0,gpt1)
+      chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      }
+    '';
+  };
 
   boot.kernelParams = [
       "quiet"

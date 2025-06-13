@@ -204,6 +204,7 @@ in
     # System Security
     fprintd
     libsecret
+    xsecurelock
     gnome-keyring
 
     # System Messages
@@ -228,6 +229,7 @@ in
     gtk4
     avahi
     direnv
+    screen
     nix-direnv
     door-knocker
 

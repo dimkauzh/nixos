@@ -44,6 +44,11 @@
           corner-radius = 0;
         },
         {
+          match = "class_g = 'xsecurelock'";
+          fade = false;
+          shadow = false;
+        },
+        {
           match = "fullscreen";
           shadow = false;
           corner-radius = 0;

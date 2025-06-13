@@ -10,7 +10,7 @@
     shell = "${pkgs.zsh}/bin/zsh";
 
     extraConfig = ''
-      set -g status off
+      set -g status on
     '';
   };
 }
