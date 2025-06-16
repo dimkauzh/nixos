@@ -113,6 +113,7 @@ in
     caffeine-ng
     rawtherapee
     libresprite
+    ns-usbloader
     davinci-resolve
 
     # Games

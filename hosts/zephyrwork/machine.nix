@@ -51,6 +51,13 @@
   services.udev.extraRules = ''
     # Wakeup on keyboard
     ACTION=="add", SUBSYSTEM=="serio", DRIVERS=="atkbd", ATTR{power/wakeup}="enabled"
+
+    # NS-USBLOADER
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"
+
+    # YAFI
+    KERNEL=="port", TAG+="uaccess"
+    KERNEL=="cros_ec", TAG+="uaccess"
   '';
 
   # DO NOT MODIFY
