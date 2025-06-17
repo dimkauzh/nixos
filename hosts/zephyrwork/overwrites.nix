@@ -14,4 +14,15 @@
     "module/backlight".card = lib.mkForce "amdgpu_bl1";
     "module/cpu-temp".exec = lib.mkForce "${pkgs.lm_sensors}/bin/sensors | ${pkgs.gawk}/bin/awk '/^cpu@4c:/ {temp = $2 + 0.5; print int(temp)\"°\"}'";
   };
+
+  services.flatpak.packages = lib.mkAfter [
+    rec {
+      bundle = "${pkgs.fetchurl {
+        url = "https://github.com/Steve-Tech/YAFI/releases/download/0.3/au.stevetech.yafi.flatpak";
+        sha256 = sha256;
+      }}";
+      appId = "au.stevetech.yafi";
+      sha256 = "1xywyfvw4mbzdgj5w69hvx6737hc3ipkqbqkhzsb03vwpfjddbr1";
+    }
+  ];
 }
