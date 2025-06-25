@@ -45,12 +45,14 @@ in
     slade
     kitty
     docker
+    podman
     gzdoom
     neovim
     leocad
     freecad
     godot_4
     simulide
+    distrobox
     filezilla
     zed-editor
     rpi-imager

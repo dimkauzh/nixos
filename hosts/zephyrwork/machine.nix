@@ -26,6 +26,7 @@
   users.groups.libvirtd.members = [ "dima" ];
 
   virtualisation = {
+    spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
       qemu = {
@@ -34,9 +35,13 @@
         ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
-    spiceUSBRedirection.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
   };
   services.spice-vdagentd.enable = true;
+
   services.teamviewer.enable = true;
 
   networking = {
