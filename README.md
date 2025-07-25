@@ -12,10 +12,8 @@ Due to the machine being low on storage, this is the most lightweight setup I co
 ### Zephyrwork
 This machine has a lot of storage (compaired to zephyr) so this includes tons of application. But this includes a few hardware specific touches too:
 1. Added fingerprint support.
-2. Couple (3-4) fixes for the wifi card, as the RZ616 doesn't want to play nice with Linux.
-3. Pinned Mesa version, due to the newer versions generating issues like "screen-rash" and "pixel-bath".
-4. Includes a small config for niri (the window manager).
-5. Includes a setup for QEMU/KVM
+2. Includes a small config for niri (the window manager).
+3. Includes a setup for QEMU/KVM
 ### Small differences
 The configs also have a couple differences in some utilities used for the same tasks:
 - Power Management: Zephyr uses TLD, while Zephyrwork uses auto-cpufreq.
