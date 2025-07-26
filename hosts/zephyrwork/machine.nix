@@ -37,7 +37,9 @@
     };
     podman = {
       enable = true;
-      dockerCompat = true;
+    };
+    docker = {
+      enable = true;
     };
   };
   services.spice-vdagentd.enable = true;

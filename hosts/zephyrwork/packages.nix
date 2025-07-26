@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, unstable, ... }:
 
 let
   v-analyzer = import ../../modules/nixos/packages/v-analyzer.nix { inherit pkgs; };
@@ -31,6 +31,7 @@ in
     wget
     btop
     dconf
+    gnumake
     pkg-config
 
     # Window Manager
@@ -54,12 +55,12 @@ in
     simulide
     distrobox
     filezilla
-    zed-editor
     rpi-imager
     ghidra-bin
     gtkradiant
     kicad-small
     xfce.mousepad
+    unstable.zed-editor
 
     # Programming
     go
@@ -144,6 +145,7 @@ in
     ruffle
     lutris
     heroic
+    ryujinx
     winetricks
     joystickwake
     wineWowPackages.stable

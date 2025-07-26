@@ -12,6 +12,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvim-config = {
-      url = "github:dimkauzh/nvim-config";
+      url = "git+https://codeberg.org/dimkauzh/nvim-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fuckingnode = {
@@ -42,12 +43,16 @@
   };
 
   outputs = {
-    nixpkgs, self,
+    nixpkgs, nixpkgs-unstable, self,
     home-manager,
     nix-flatpak,
     niri,
     ...
   } @ inputs:
+  let
+    system = "x86_64-linux";
+    unstable = import nixpkgs-unstable { inherit system; };
+  in
   {
     nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -77,7 +82,7 @@
     nixosConfigurations.zephyrwork = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs self;
+        inherit inputs self unstable;
       };
 
       modules = [
