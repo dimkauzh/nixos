@@ -1,3 +1,34 @@
-## Things left to port over
-- Git
-  - Credentials
+## Roadmap
+- [ ] Niri
+    - [x] Sleep and Idle
+    - [ ] Keybinds (Replicate current)
+        - [ ] No i3wm modes, replace power with rofi-power-menu
+    - [ ] Utilities
+        - [ ] Waybar
+        - [ ] Swaylock
+        - [ ] Screenshots
+            - [ ] Single-window screenshots
+            - [x] Fullscreen
+            - [x] Selected
+        - [ ] Clipboard
+        - [ ] Wayland
+            - [ ] Wayland Default
+            - [ ] xwayland-satellite
+            - [ ] Wayland screen capture
+        - [ ] Themes
+            - [ ] Icons
+            - [ ] Main Theme
+            - [ ] QT Bars
+        - [ ] Background
+    - [ ] Customization
+        - [ ] Outline
+        - [ ] Animations
+        - [ ] Title Bar
+    - [ ] Issues
+        - [ ] **Rofi**: Flatpak app packages don't show up
+        - [ ] **Niri Input**: Too hard to swipe through big windows
+        - [x] **Nvim Config**: No copy/paste
+
+- [ ] Configuration
+    - [x] Redo repo structure
+    - [ ] Clean up code 

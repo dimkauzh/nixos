@@ -1,13 +1,5 @@
-{ pkgs, inputs, unstable, ... }:
+{ pkgs, unstable, ... }:
 
-let
-  v-analyzer = import ../../modules/nixos/packages/v-analyzer.nix { inherit pkgs; };
-  xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
-  wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
-  zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
-  fuckingnode = inputs.fuckingnode.packages."${pkgs.system}".default;
-  nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
-in
 {
   nixpkgs.config = {
     permittedInsecurePackages = [
@@ -16,13 +8,6 @@ in
     ];
     allowBroken = true;
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      odin = import ../../modules/nixos/packages/odin.nix { pkgs = final; };
-    })
-  ];
-
 
   environment.systemPackages = with pkgs; [
     # Essentials
@@ -45,6 +30,7 @@ in
     tmux
     slade
     kitty
+    gnupg
     docker
     podman
     gzdoom
@@ -85,12 +71,14 @@ in
     halloy
     spotube
     vesktop
+    sunshine
     obsidian
     tuxguitar
     ente-auth
     riseup-vpn
     teamviewer
     figma-linux
+    moonlight-qt
     protonvpn-gui
     youtube-music
     cinny-desktop
@@ -117,16 +105,19 @@ in
     rawtherapee
     libresprite
     ns-usbloader
+    google-chrome
     davinci-resolve
 
     # Games
     zeroad
     trigger
+    yquake2
     minetest
     ioquake3
     superTuxKart
     prismlauncher
     extremetuxracer
+    pegasus-frontend
 
     # VMs
     spice
@@ -146,8 +137,10 @@ in
     lutris
     heroic
     ryujinx
+    gparted
     winetricks
     joystickwake
+    unstable.xenia-canary
     wineWowPackages.stable
 
     # Office
@@ -169,11 +162,11 @@ in
 
     # Custom Package
     v-analyzer
-    wallpapers
     xeventbind
     zen-browser
     fuckingnode
     nvim-config
+    mantablockscreen
 
     # Dependencies
     jdk
@@ -190,6 +183,7 @@ in
     # Wayland specific
     weston
     waydroid
+    wl-clipboard
     xwayland-satellite
 
     # System Audio
@@ -258,10 +252,24 @@ in
     xss-lock
     xidlehook
     xsettingsd
-    rofi-wayland
     lxqt.lxqt-policykit
     haskellPackages.greenclip
     (flameshot.override { enableWlrSupport = true; })
+
+    # Niri/Wayland Utilities
+    rofi-wayland
+    
+    # OBS packages
+    (pkgs.wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vaapi
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    })
 
     # Storage Utilities
     tokei

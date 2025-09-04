@@ -1,11 +1,5 @@
 { pkgs, inputs, ... }:
 
-let
-  xeventbind = import ../../modules/nixos/packages/xeventbind.nix { inherit pkgs; };
-  wallpapers = import ../../modules/nixos/packages/wallpapers.nix { inherit pkgs; };
-  nvim-config = import ../../modules/nixos/packages/neovim.nix { inherit pkgs; };
-  zen-browser = inputs.zen-browser.packages."${pkgs.system}".default;
-in
 {
   nixpkgs.config = {
     permittedInsecurePackages = [
@@ -14,12 +8,6 @@ in
     ];
     allowBroken = true;
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      odin = import ../../modules/nixos/packages/odin.nix { pkgs = final; };
-    })
-  ];
 
   environment.systemPackages = with pkgs; [
     # Essentials
@@ -87,7 +75,6 @@ in
     nerdfetch
 
     # Custom Package
-    wallpapers
     xeventbind
     zen-browser
     nvim-config

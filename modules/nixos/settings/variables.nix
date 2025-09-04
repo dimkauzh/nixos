@@ -7,6 +7,11 @@
     QT_STYLE_OVERRIDE = "Fusion";
     GTK_THEME = "Gruvbox-Dark";
 
+    # Wayland
+    NIXOS_OZONE_WL = 1;
+    DISPLAY = ":0";
+    QT_QPA_PLATFORM = "wayland";
+
     # Cursor
     XCURSOR_SIZE = 30;
 

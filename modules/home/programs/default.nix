@@ -1,0 +1,21 @@
+{
+  imports = 
+    [
+      ./direnv.nix
+      ./feh.nix
+      ./git.nix
+      ./greenclip.nix
+      ./halloy.nix
+      ./i3wm.nix
+      ./kitty.nix
+      ./neovim.nix
+      ./niri.nix
+      ./polybar.nix
+      ./rofi.nix
+      ./starship.nix
+      ./swaylock.nix
+      ./tmux.nix
+      ./v-analyzer.nix
+      ./zsh.nix
+    ];
+}

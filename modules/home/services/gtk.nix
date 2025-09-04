@@ -31,13 +31,15 @@
     };
   };
 
-  home.file.".icons/default/index.theme" = {
-    enable = true;
-    text = ''
-      [Icon Theme]
-      Name=Default
-      Comment=Default Cursor Theme
-      Inherits=capitaine-cursors
-    '';
+  home.file = {
+    ".icons/default/index.theme" = {
+      enable = true;
+      text = ''
+        [Icon Theme]
+        Name=Default
+        Comment=Default Cursor Theme
+        Inherits=capitaine-cursors
+      '';
+    };
   };
 }

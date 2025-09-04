@@ -178,7 +178,7 @@ in
       modes = {
         system = {
           e = "exec i3-msg exit";
-          l = "exec ${pkgs.lightdm}/bin/dm-tool switch-to-greeter, mode default";
+          l = "exec ${pkgs.mantablockscreen}/bin/mantablockscreen -sc, mode default";
           p = "exec systemctl suspend, mode default";
           h = "exec systemctl hibernate, mode default";
           r = "exec systemctl reboot, mode default";

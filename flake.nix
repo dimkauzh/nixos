@@ -4,15 +4,18 @@
   nixConfig = {
     extra-substituters = [
       "https://niri.cachix.org"
+      "https://chaotic-nyx.cachix.org"
     ];
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
     ];
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,42 +46,16 @@
   };
 
   outputs = {
-    nixpkgs, nixpkgs-unstable, self,
+    nixpkgs, nixpkgs-unstable, chaotic, self,
     home-manager,
     nix-flatpak,
     niri,
     ...
   } @ inputs:
   let
-    system = "x86_64-linux";
-    unstable = import nixpkgs-unstable { inherit system; };
+    unstable = import nixpkgs-unstable { system = "x86_64-linux"; };
   in
   {
-    nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs self;
-      };
-
-      modules = [
-        ./hosts/zephyr/machine.nix
-        home-manager.nixosModules.home-manager
-        {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.dima.imports = [
-              ./hosts/zephyr/home.nix
-              nix-flatpak.homeManagerModules.nix-flatpak
-              niri.homeModules.niri
-
-            ];
-            home-manager.extraSpecialArgs = {
-              inherit inputs self;
-            };
-        }
-      ];
-    };
-
     nixosConfigurations.zephyrwork = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -87,20 +64,64 @@
 
       modules = [
         ./hosts/zephyrwork/machine.nix
+        ./modules/nixos
+        ./modules/nixos/graphics/amd.nix
+
+        chaotic.nixosModules.nyx-cache
+        chaotic.nixosModules.nyx-overlay
+        chaotic.nixosModules.nyx-registry
+
         home-manager.nixosModules.home-manager
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.dima.imports = [
               ./hosts/zephyrwork/home.nix
-              nix-flatpak.homeManagerModules.nix-flatpak
+              ./modules/home
+
               niri.homeModules.niri
+              nix-flatpak.homeManagerModules.nix-flatpak
             ];
             home-manager.extraSpecialArgs = {
-              inherit inputs self;
+              inherit inputs self unstable;
             };
         }
       ];
     };
+
+    nixosConfigurations.zephyr = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs self unstable;
+      };
+
+      modules = [
+        ./hosts/zephyr/machine.nix
+        ./modules/nixos
+        ./modules/nixos/graphics/intel.nix
+
+        chaotic.nixosModules.nyx-cache
+        chaotic.nixosModules.nyx-overlay
+        chaotic.nixosModules.nyx-registry
+
+        home-manager.nixosModules.home-manager
+        {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.dima.imports = [
+              ./hosts/zephyr/home.nix
+              ./mmodules/home
+
+              niri.nixosModules.niri
+              nix-flatpak.homeManagerModules.nix-flatpak
+
+            ];
+            home-manager.extraSpecialArgs = {
+              inherit inputs self unstable;
+            };
+        }
+      ];
+    };
+
   };
 }

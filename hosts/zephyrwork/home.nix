@@ -5,8 +5,6 @@
   imports =
     [
       ./overwrites.nix
-      ../../modules/home/dima.nix
-      ../../modules/home/modules.nix
     ];
 
   home = {
@@ -71,6 +69,4 @@
       uris = ["qemu:///system"];
     };
   };
-
-  programs.home-manager.enable = false;
 }

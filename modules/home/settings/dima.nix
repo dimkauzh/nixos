@@ -7,6 +7,6 @@
   };
 
   home.file.".face" = {
-    source = assets/icons/face.png;
+    source = ../assets/icons/face.png;
   };
 }

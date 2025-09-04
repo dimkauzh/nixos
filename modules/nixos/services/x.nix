@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  wallpapers = import ../../packages/wallpapers.nix { inherit pkgs; };
-in
 {
   services.xserver = {
     enable = true;
@@ -33,7 +30,7 @@ in
         };
 
         extraConfig = ''
-          background=${wallpapers}/backgrounds/wallpapers/irl/gruvbox-forest.jpg
+          background=${pkgs.gruvbox-wallpapers}/backgrounds/wallpapers/irl/gruvbox-forest.jpg
         '';
       };
     };

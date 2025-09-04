@@ -3,10 +3,6 @@
 {
   imports =
     [
-      ../../modules/graphics/intel.nix
-      ../../modules/nixos/default.nix
-
-
       ./boot.nix
       ./packages.nix
       ./power.nix

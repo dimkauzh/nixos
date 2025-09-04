@@ -3,7 +3,7 @@
 {
   programs.xss-lock = {
     enable = true;
-    lockerCommand = "${pkgs.lightdm}/bin/dm-tool switch-to-greeter";
+    lockerCommand = "${pkgs.mantablockscreen}/bin/mantablockscreen -sc";
     extraOptions = [
       "--transfer-sleep-lock"
     ];
