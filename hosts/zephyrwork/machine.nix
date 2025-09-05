@@ -13,6 +13,10 @@
   programs = {
     steam.enable = true;
     virt-manager.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
   };
 
   security.pam.services.lightdm.fprintAuth = true;

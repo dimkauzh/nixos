@@ -106,7 +106,7 @@
     libresprite
     ns-usbloader
     google-chrome
-    davinci-resolve
+    unstable.davinci-resolve
 
     # Games
     zeroad
@@ -183,8 +183,18 @@
     # Wayland specific
     weston
     waydroid
+    wdisplays
     wl-clipboard
     xwayland-satellite
+
+    # Streaming
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
+    gst_all_1.gst-vaapi
 
     # System Audio
     pulseaudio

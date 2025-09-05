@@ -21,6 +21,7 @@
 
     # NixOS
     XDG_RUNTIME_DIR = "/run/user/$UID";
+    GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
 
     # XSecureLock
     XSECURELOCK_NO_COMPOSITE = 1;

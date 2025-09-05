@@ -3,6 +3,7 @@
     [
       ./batsignal.nix
       ./caffeine.nix
+      ./cliphist.nix
       ./dconf.nix
       ./dunst.nix
       ./flatpak.nix

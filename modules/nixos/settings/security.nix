@@ -19,10 +19,12 @@
   networking.firewall = {
     enable = true;
 
-    allowedTCPPorts = [ 47984 47989 47990 48010 ];
-    allowedUDPPorts = [ 27960 ];
+    trustedInterfaces = [ "p2p-wl+" ];
+    allowedTCPPorts = [ 47984 47989 47990 48010 7236 7250 5353 ];
+    allowedUDPPorts = [ 27960 7236 5353 1900 1901 5353 ];
     allowedUDPPortRanges = [
       { from = 47998; to = 48000; }
+      { from = 5000; to = 5999; }
       { from = 8000; to = 8010; }
     ];
   };
