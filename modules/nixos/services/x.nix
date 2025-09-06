@@ -13,25 +13,30 @@
       i3.enable = true;
     };
 
-    displayManager.lightdm = {
-      enable = true;
+    displayManager = {
+      lightdm = {
+        enable = false;
 
-      greeters.gtk = {
-        enable = true;
+        greeters.gtk = {
+          enable = false;
 
-        theme = {
-          package = pkgs.gruvbox-gtk-theme;
-          name = "Gruvbox-Dark";
+          theme = {
+            package = pkgs.gruvbox-gtk-theme;
+            name = "Gruvbox-Dark";
+          };
+
+          iconTheme = {
+            package = pkgs.gruvbox-plus-icons;
+            name = "Gruvbox-Plus-Dark";
+          };
+
+          extraConfig = ''
+            background=${pkgs.gruvbox-wallpapers}/backgrounds/wallpapers/irl/gruvbox-forest.jpg
+          '';
         };
-
-        iconTheme = {
-          package = pkgs.gruvbox-plus-icons;
-          name = "Gruvbox-Plus-Dark";
-        };
-
-        extraConfig = ''
-          background=${pkgs.gruvbox-wallpapers}/backgrounds/wallpapers/irl/gruvbox-forest.jpg
-        '';
+      };
+      gdm = {
+        enable = false;
       };
     };
     config = ''

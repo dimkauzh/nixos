@@ -11,10 +11,10 @@
             - [x] Fullscreen
             - [x] Selected
         - [ ] Clipboard
-        - [ ] Wayland
-            - [ ] Wayland Default
-            - [ ] xwayland-satellite
-            - [ ] Wayland screen capture
+        - [x] Wayland
+            - [x] Wayland Default
+            - [x] xwayland-satellite
+            - [x] Wayland screen capture
         - [ ] Themes
             - [ ] Icons
             - [ ] Main Theme
@@ -28,6 +28,7 @@
         - [ ] **Rofi**: Flatpak app packages don't show up
         - [ ] **Niri Input**: Too hard to swipe through big windows
         - [x] **Nvim Config**: No copy/paste
+        - [x] **LightDM**: Replace with SDDM
 
 - [ ] Configuration
     - [x] Redo repo structure
