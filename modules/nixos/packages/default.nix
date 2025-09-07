@@ -18,9 +18,12 @@
       xwayland-satellite = prev.xwayland-satellite.override { withSystemd = true; };
       elegant-sddm = prev.elegant-sddm.override {
         themeConfig.General = {
-           background = "${./assets/background.png}";
+           background = "${./assets/sddm-background.png}";
         };
       };
+      rofi-power-menu = prev.rofi-power-menu.overrideAttrs (oldAttrs: {
+        patches = oldAttrs.patches or [] ++ [ ./assets/rofi-power-menu.patch ];
+      });
     })
   ];
 }

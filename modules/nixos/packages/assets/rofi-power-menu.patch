@@ -1,0 +1,34 @@
+diff --git a/rofi-power-menu b/rofi-power-menu
+index 9484f68..43a5e39 100755
+--- a/rofi-power-menu
++++ b/rofi-power-menu
+@@ -28,19 +28,18 @@ texts[reboot]="reboot"
+ texts[shutdown]="shut down"
+ 
+ declare -A icons
+-icons[lockscreen]="\Uf033e"
+-icons[switchuser]="\Uf0019"
+-icons[logout]="\Uf0343"
+-icons[suspend]="\Uf04b2"
+-icons[hibernate]="\Uf02ca"
+-icons[reboot]="\Uf0709"
+-icons[shutdown]="\Uf0425"
+-icons[cancel]="\Uf0156"
++icons[lockscreen]="\Uf033e "
++icons[switchuser]="\Uf0019 "
++icons[logout]="\Uf0343 "
++icons[suspend]="\Uf04b2 "
++icons[hibernate]="\Uf02ca "
++icons[reboot]="\Uf0709 "
++icons[shutdown]="\Uf0425 "
++icons[cancel]="\Uf0156 "
+ 
+ declare -A actions
+-actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+-#actions[switchuser]="???"
+-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
++actions[lockscreen]="dm-tool switch-to-greeter"
++actions[logout]="niri msg action exit"
+ actions[suspend]="systemctl suspend"
+ actions[hibernate]="systemctl hibernate"
+ actions[reboot]="systemctl reboot"

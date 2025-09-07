@@ -5,12 +5,12 @@
         - [ ] No i3wm modes, replace power with rofi-power-menu
     - [ ] Utilities
         - [ ] Waybar
-        - [ ] Swaylock
+        - [x] Lock screen (using SDDM)
         - [ ] Screenshots
             - [ ] Single-window screenshots
             - [x] Fullscreen
             - [x] Selected
-        - [ ] Clipboard
+        - [x] Clipboard (cliphist)
         - [x] Wayland
             - [x] Wayland Default
             - [x] xwayland-satellite
@@ -19,9 +19,12 @@
             - [ ] Icons
             - [ ] Main Theme
             - [ ] QT Bars
-        - [ ] Background
+        - [x] Background
+        - [ ] File Manager
+        - [ ] Archive manager
     - [ ] Customization
-        - [ ] Outline
+        - [x] Outline
+        - [x] Rounded corners
         - [ ] Animations
         - [ ] Title Bar
     - [ ] Issues
