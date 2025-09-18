@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ unstable, ... }:
+# { pkgs, ... }:
 
 {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
 
-    extraPackages = with pkgs; [
+    package = unstable.mesa;
+    package32 = unstable.driversi686Linux.mesa;
+
+    extraPackages = with unstable; [
+    #extraPackages = with pkgs; [
       mesa
       amdvlk
 
@@ -17,7 +22,9 @@
       vulkan-validation-layers
       vulkan-tools
     ];
-    extraPackages32 = with pkgs.driversi686Linux; [
+
+    extraPackages32 = with unstable.driversi686Linux; [
+    # extraPackages32 = with pkgs.driversi686Linux; [
       mesa
       amdvlk
       libva-vdpau-driver

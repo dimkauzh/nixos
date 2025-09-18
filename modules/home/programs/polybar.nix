@@ -228,7 +228,7 @@
         label-muted-foreground = "\${colors.fg}";
         label-muted-padding = 1;
 
-        # click-right = "pavucontrol&";
+        click-right = "pwvucontrol&";
       };
 
       "module/cpu-temp" = {
@@ -258,7 +258,6 @@
       "module/backlight" = {
         type = "internal/backlight";
         interval = 1;
-        card = "amdgpu_bl1";
         use-actual-brightness = false;
         enable-scroll = true;
         format = "<label>";

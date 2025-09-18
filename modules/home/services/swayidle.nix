@@ -2,7 +2,7 @@
 
 {
   services.swayidle = {
-    enable = true;
+    enable = false;
 
     events = [
       { event = "before-sleep"; command = "${pkgs.lightdm}/bin/dm-tool switch-to-greeter"; }

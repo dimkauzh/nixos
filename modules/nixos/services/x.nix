@@ -15,10 +15,10 @@
 
     displayManager = {
       lightdm = {
-        enable = false;
+        enable = true;
 
         greeters.gtk = {
-          enable = false;
+          enable = true;
 
           theme = {
             package = pkgs.gruvbox-gtk-theme;
