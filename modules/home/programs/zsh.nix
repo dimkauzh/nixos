@@ -87,9 +87,14 @@
             echo "Upgrading the system..."
             system update && system rebuild
             ;;
+          
+          reboot)
+            echo "Rebooting the system..."
+            systemctl reboot
+            ;;
 
           *)
-            echo "Usage: system {update|rebuild|upgrade}"
+            echo "Usage: system {update|rebuild|upgrade|reboot}"
             return 1
             ;;
         esac
