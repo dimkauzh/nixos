@@ -20,5 +20,5 @@ The configs also have a couple differences in some utilities used for the same t
 - UI: Polybar and i3wm are modified/overwritten to function better on the specific machines, due to different naming/schemes (basic stuff).
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/5501ccce-d48c-49bf-a474-6f4b7fdb3d10)
-![image](https://github.com/user-attachments/assets/df4a3f1d-7f4a-4f64-8fa4-94237a508585)
+![image](assets/screenshot1.png)
+![image](assets/screenshot2.png)
