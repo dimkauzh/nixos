@@ -15,6 +15,7 @@
       nvim-config = inputs.nvim-config.packages."${final.system}".default;
 
       flameshot = prev.flameshot.override { enableWlrSupport = true; };
+      polybar = prev.polybar.override { pulseSupport = true; i3Support = true; };
       xwayland-satellite = prev.xwayland-satellite.override { withSystemd = true; };
       elegant-sddm = prev.elegant-sddm.override {
         themeConfig.General = {

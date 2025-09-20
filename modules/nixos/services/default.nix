@@ -1,10 +1,11 @@
 {
   imports =
     [
+      ./display.nix
       ./fonts.nix
-      ./x.nix
       ./others.nix
       ./sunshine.nix
-      ./display.nix
+      ./x.nix
+      ./xdg.nix
     ];
 }

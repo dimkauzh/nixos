@@ -33,10 +33,11 @@ pkgs.stdenv.mkDerivation {
   '';
 
   meta = with pkgs.lib; {
+    mainProgram = "mantablockscreen";
     description = "A lockscreen script based on i3lock-color";
     homepage = "https://github.com/reorr/mantablockscreen";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [ dimkauzh ];
     platforms = platforms.linux;
   };
 }

@@ -1,6 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 let
+  execScript = { path, args ? "" }: ''
+    exec ${lib.getExe pkgs.zsh} ${config.xdg.configFile."${path}".target} ${args}
+  '';
+
   mod = "Mod4";
   alt = "Mod1";
 
@@ -8,6 +12,24 @@ let
   resizeSpeedSlowed = "4";
   moveSpeed = "10";
   moveSpeedSlowed = "5";
+
+  services = [
+    "dunst"
+    "nm-applet"
+    "polkit-gnome"
+    "feh"
+    "picom"
+    "polybar"
+    "sunshine"
+    "joystickwake"
+    "xeventbind"
+    "xidlehook"
+    "caffeine"
+    "batsignal"
+    "xss-lock"
+    "blueman-applet"
+    "xsettingsd"
+  ];
 in
 {
   xsession.windowManager.i3 = {
@@ -24,23 +46,23 @@ in
 
       keybindings = {
         # System Audio Controls
-        "XF86AudioRaiseVolume" = "exec bash ~/.config/i3/volume_brightness.sh volume_up";
-        "XF86AudioLowerVolume" = "exec bash ~/.config/i3/volume_brightness.sh volume_down";
-        "XF86AudioMute" = "exec bash ~/.config/i3/volume_brightness.sh volume_mute";
+        "XF86AudioRaiseVolume" = execScript { path = "i3/volume_brightness.sh"; args = "volume_up"; };
+        "XF86AudioLowerVolume" = execScript { path = "i3/volume_brightness.sh"; args = "volume_down"; };
+        "XF86AudioMute" = execScript { path = "i3/volume_brightness.sh"; args = "volume_mute"; };
 
         # Media keys
-        "XF86AudioPlay" = "exec playerctl play-pause";
-        "XF86AudioPause" = "exec playerctl play-pause";
-        "XF86AudioNext" = "exec playerctl position 10+";
-        "XF86AudioPrev" = "exec playerctl position 10-";
+        "XF86AudioPlay" = "exec ${lib.getExe pkgs.playerctl} play-pause";
+        "XF86AudioPause" = "exec ${lib.getExe pkgs.playerctl} play-pause";
+        "XF86AudioNext" = "exec ${lib.getExe pkgs.playerctl} position 10+";
+        "XF86AudioPrev" = "exec ${lib.getExe pkgs.playerctl} position 10-";
 
         # System Brightness Controls
-        "XF86MonBrightnessUp" = "exec bash ~/.config/i3/volume_brightness.sh brightness_up";
-        "XF86MonBrightnessDown" = "exec bash ~/.config/i3/volume_brightness.sh brightness_down";
+        "XF86MonBrightnessUp" = execScript { path = "i3/volume_brightness.sh"; args = "brightness_up"; };
+        "XF86MonBrightnessDown" = execScript { path = "i3/volume_brightness.sh"; args = "brightness_down"; };
 
         # Binding other top keys
-        "${mod}+p" = "exec arandr";
-        "F9" = "exec kitty";
+        "${mod}+p" = "exec ${lib.getExe pkgs.arandr}";
+        "F9" = "exec ${lib.getExe pkgs.kitty}";
 
         # Kill focused window
         "${mod}+q" = "kill";
@@ -118,27 +140,25 @@ in
         "${alt}+Shift+Tab" = "focus left";
 
         # Screenshotting
-        "Print" = "exec flameshot gui -c -p ~/Pictures/Screenshots";
-        "${mod}+Print" = "exec bash ~/.config/i3/window_ss.sh";
-        "${mod}+Shift+Print" = "exec flameshot full -c -p ~/Pictures/Screenshots";
+        "Print" = "exec ${lib.getExe pkgs.flameshot} gui -c -p ${config.home.homeDirectory}/Pictures/Screenshots";
+        "${mod}+Print" = execScript { path = "i3/window_ss.sh"; };
+        "${mod}+Shift+Print" = "exec ${lib.getExe pkgs.flameshot} full -c -p ${config.home.homeDirectory}/Pictures/Screenshots";
 
         # Rofi
-        "${mod}+space" = "exec XDG_DATA_DIRS=$XDG_DATA_DIRS:${config.home.homeDirectory}/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share rofi -show drun -show-icons";
-
-        # Greenclip
-        "${mod}+x" = "exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
+        "${mod}+space" = "exec ${lib.getExe config.programs.rofi.package} -show drun -show-icons";
+        "${mod}+x" = "exec ${lib.getExe config.programs.rofi.package} -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
 
         # Reset monitor settings
-        "${mod}+z" = "exec xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off";
+        "${mod}+z" = "exec ${lib.getExe pkgs.xorg.xrandr} --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off";
 
         # Display redraw
-        "${mod}+Shift+z" = "exec bash ~/.config/i3/redraw.sh";
+        "${mod}+Shift+z" = execScript { path = "i3/redraw.sh"; };
 
         # Toggle polybar
-        "${alt}+p" = "exec polybar-msg cmd toggle";
+        "${alt}+p" = "exec ${pkgs.polybar}/bin/polybar-msg cmd toggle";
 
         # Restart picom
-        "${mod}+Shift+p" = "exec systemctl --user restart picom";
+        "${mod}+Shift+p" = "exec ${pkgs.systemd}/bin/systemctl --user restart picom";
 
         # Reload the configuration file
         "${mod}+Shift+r" = "reload";
@@ -177,12 +197,12 @@ in
 
       modes = {
         system = {
-          e = "exec i3-msg exit";
-          l = "exec ${pkgs.mantablockscreen}/bin/mantablockscreen -sc, mode default";
-          p = "exec systemctl suspend, mode default";
-          h = "exec systemctl hibernate, mode default";
-          r = "exec systemctl reboot, mode default";
-          s = "exec systemctl poweroff, mode default";
+          e = "exec ${pkgs.i3}/bin/i3-msg exit";
+          l = "exec ${lib.getExe pkgs.mantablockscreen} -sc, mode default";
+          p = "exec ${pkgs.systemd}/bin/systemctl suspend, mode default";
+          h = "exec ${pkgs.systemd}/bin/systemctl hibernate, mode default";
+          r = "exec ${pkgs.systemd}/bin/systemctl reboot, mode default";
+          s = "exec ${pkgs.systemd}/bin/systemctl poweroff, mode default";
 
           Escape = "mode default";
           Return = "mode default";
@@ -243,13 +263,7 @@ in
       };
 
       startup = [
-        { command = "systemctl --user restart xsettingsd polybar dunst blueman-applet picom feh xss-lock gnome-keyring xidlehook"; }
-        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
-        { command = "nm-applet"; }
-        { command = "greenclip daemon"; }
-        { command = "joystickwake"; }
-        { command = "${pkgs.batsignal}/bin/batsignal '-d 5' '-w 15' '-c 10'"; }
-        { command = "xeventbind resolution ~/.config/i3/redraw.sh"; }
+        { command = "${pkgs.systemd}/bin/systemctl --user restart " + builtins.concatStringsSep " " (map (s: "${s}.service") services); }
       ];
     };
 
@@ -273,7 +287,7 @@ in
   xdg.configFile = {
     "i3/redraw.sh" = {
       text = ''
-        systemctl --user restart feh picom
+        ${pkgs.systemd}/bin/systemctl --user restart feh picom
       '';
       executable = true;
     };
@@ -284,14 +298,14 @@ in
 
         mkdir -p "$HOME/Pictures/Screenshots"
 
-        scrot -u "$filename"
+        ${lib.getExe pkgs.scrot} -u "$filename"
 
         if [[ -f "$filename" ]]; then
-            xclip -selection clipboard -t image/png < "$filename"
+            ${lib.getExe pkgs.xclip} -selection clipboard -t image/png < "$filename"
 
-            notify-send "Screenshot saved" "File: $filename (copied to clipboard)"
+            ${lib.getExe pkgs.libnotify} "Screenshot saved" "File: $filename (copied to clipboard)"
         else
-            notify-send "Screenshot failed" "File: $filename could not be saved"
+            ${lib.getExe pkgs.libnotify} "Screenshot failed" "File: $filename could not be saved"
         fi
       '';
       executable = true;
@@ -305,15 +319,15 @@ in
         notification_timeout=1000
 
         function get_volume {
-            pulsemixer --get-volume | awk '{print $1}'
+            ${lib.getExe pkgs.pulsemixer} --get-volume | ${lib.getExe pkgs.gawk} '{print $1}'
         }
 
         function get_mute {
-            pulsemixer --get-mute
+            ${lib.getExe pkgs.pulsemixer} --get-mute
         }
 
         function get_brightness {
-            brightnessctl get
+            ${lib.getExe pkgs.brightnessctl} get
         }
 
         function get_volume_icon {
@@ -335,47 +349,47 @@ in
         function show_volume_notif {
             volume=$(get_volume)
             get_volume_icon
-            notify-send -t $notification_timeout -h string:x-dunst-stack-tag:volume_notif -h int:value:$volume "$volume_icon    $volume%"
+            ${lib.getExe pkgs.libnotify} -t $notification_timeout -h string:x-dunst-stack-tag:volume_notif -h int:value:$volume "$volume_icon    $volume%"
         }
 
         function show_brightness_notif {
             brightness=$(get_brightness)
-            max_brightness=$(brightnessctl max)
+            max_brightness=$(${lib.getExe pkgs.brightnessctl} max)
             percentage=$(( brightness * 100 / max_brightness ))
             get_brightness_icon
-            notify-send -t $notification_timeout -h string:x-dunst-stack-tag:brightness_notif -h int:value:$percentage "$brightness_icon    $percentage%"
+            ${lib.getExe pkgs.libnotify} -t $notification_timeout -h string:x-dunst-stack-tag:brightness_notif -h int:value:$percentage "$brightness_icon    $percentage%"
         }
 
         case $1 in
             volume_up)
-                pactl set-sink-mute @DEFAULT_SINK@ 0
-                pulsemixer --change-volume +$volume_step --max-volume $max_volume
+                ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ 0
+                ${lib.getExe pkgs.pulsemixer} --change-volume +$volume_step --max-volume $max_volume
                 show_volume_notif
                 ;;
 
             volume_down)
-                pactl set-sink-mute @DEFAULT_SINK@ 0
-                pulsemixer --change-volume -$volume_step --max-volume $max_volume
+                ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ 0
+                ${lib.getExe pkgs.pulsemixer} --change-volume -$volume_step --max-volume $max_volume
                 show_volume_notif
                 ;;
 
             volume_mute)
-                pactl set-sink-mute @DEFAULT_SINK@ toggle
+                ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
                 show_volume_notif
                 ;;
 
             brightness_up)
-                brightnessctl set +$brightness_step%
+                ${lib.getExe pkgs.brightnessctl} set +$brightness_step%
                 show_brightness_notif
                 ;;
 
             brightness_down)
-                brightnessctl set $brightness_step%-
+                ${lib.getExe pkgs.brightnessctl} set $brightness_step%-
                 show_brightness_notif
                 ;;
 
             *)
-                notify-send "Error" "Invalid argument. Use 'volume_up', 'volume_down', 'brightness_up', or 'brightness_down'."
+                ${lib.getExe pkgs.libnotify} "Error" "Invalid argument. Use 'volume_up', 'volume_down', 'brightness_up', or 'brightness_down'."
                 ;;
         esac
       '';

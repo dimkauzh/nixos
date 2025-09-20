@@ -19,4 +19,13 @@ pkgs.stdenv.mkDerivation {
     mkdir -p $out/bin
     cp xeventbind $out/bin/
   '';
+
+   meta = with pkgs.lib; {
+    mainProgram = "xeventbind";
+    description = "A small utillity that runs your script on X11 events";
+    homepage = "https://github.com/ritave/xeventbind";
+    license = licenses.gpl3Plus;
+    maintainers = with maintainers; [ dimkauzh ];
+    platforms = platforms.linux;
+  }; 
 }

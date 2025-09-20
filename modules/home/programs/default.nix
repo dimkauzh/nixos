@@ -10,6 +10,7 @@
       ./kitty.nix
       ./neovim.nix
       ./niri.nix
+      ./polkit-gnome.nix
       ./polybar.nix
       ./rofi.nix
       ./starship.nix

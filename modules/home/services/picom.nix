@@ -1,5 +1,8 @@
 { lib, config, ... }:
 
+let
+  apps = [ "class_g = 'Dunst'" "class_g = 'Polybar'" "class_g = 'rofi'" "fullscreen" ];
+in 
 {
   services.picom = {
     enable = true;
@@ -16,13 +19,6 @@
       detect-client-opacity = true;
       detect-transient = true;
       use-damage = true;
-
-    };
-
-    wintypes = {
-      dock = { shadow = false; corner-radius = 0; };
-      fullscreen = { shadow = false; corner-radius = 0; };
-      notification = { shadow = false; corner-radius = 0; };
     };
 
     extraArgs = [
@@ -33,26 +29,13 @@
   xdg.configFile = {
     "picom/picom.conf".text = lib.mkAfter ''
       rules = (
+        ${lib.concatStringsSep "\n" (map (app: ''
         {
-          match = "class_g = 'Polybar'";
+          match = "${app}";
           shadow = false;
           corner-radius = 0;
         },
-        {
-          match = "class_g = 'Dunst'";
-          shadow = false;
-          corner-radius = 0;
-        },
-        {
-          match = "class_g = 'xsecurelock'";
-          fade = false;
-          shadow = false;
-        },
-        {
-          match = "fullscreen";
-          shadow = false;
-          corner-radius = 0;
-        }
+        '') apps)}
       );
 
       animations = (

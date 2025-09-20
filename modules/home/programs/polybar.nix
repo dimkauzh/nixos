@@ -3,12 +3,7 @@
 {
   services.polybar = {
     enable = true;
-    script = "polybar --reload main";
-
-    package = pkgs.polybar.override {
-      pulseSupport = true;
-      i3Support = true;
-    };
+    script = "polybar &";
 
     settings = {
       "colors" = {
@@ -131,7 +126,6 @@
         format-margin = "8px";
         format-background = "\${colors.bg}";
         tray-padding = "8px";
-        # tray-size = "150%";
       };
 
       "module/battery" = {
@@ -258,6 +252,7 @@
       "module/backlight" = {
         type = "internal/backlight";
         interval = 1;
+        card = "amdgpu_bl0";
         use-actual-brightness = false;
         enable-scroll = true;
         format = "<label>";
@@ -287,15 +282,7 @@
 
       "settings" = {
         screenchange-reload = true;
-        # pseudo-transparency = true;
       };
-    };
-  };
-
-  systemd.user.services.polybar = {
-    Service = {
-      Type = lib.mkForce "simple";
-      TimeoutStartSec = "5s";
     };
   };
 }

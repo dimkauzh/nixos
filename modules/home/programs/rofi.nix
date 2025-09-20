@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi;
     font = "Noto Sans 14";
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "${lib.getExe pkgs.kitty}";
     theme = ../assets/rofi/gruvbox-material.rasi;
 
     extraConfig = {
@@ -17,5 +18,9 @@
       display-window = "";
       display-combi = "";
     };
+  };
+
+  home.sessionVariables = lib.recursiveUpdate {} {
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:${config.home.homeDirectory}/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share";
   };
 }

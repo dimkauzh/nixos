@@ -5,7 +5,11 @@ let
 in 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];
-  programs.nix-ld.enable = true;
+
+  programs = {
+    nix-ld.enable = true;
+    nm-applet.enable = true;
+  };
 
   nixpkgs = {
     overlays = [ inputs.niri.overlays.niri ];
@@ -15,6 +19,7 @@ in
   services = {
     scx.enable = true;
     preload.enable = true;
+    flatpak.enable = true;
   };
 
   boot = {
@@ -36,9 +41,6 @@ in
       theme = "nixos-bgrt";
       themePackages = with pkgs; [
         nixos-bgrt-plymouth
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
       ];
     };
 

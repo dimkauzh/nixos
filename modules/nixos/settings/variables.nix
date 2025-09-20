@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }: 
 
 {
   environment.variables = {
@@ -8,9 +8,9 @@
     GTK_THEME = "Gruvbox-Dark";
 
     # Wayland
-    NIXOS_OZONE_WL = 1;
     DISPLAY = ":0";
-    QT_QPA_PLATFORM = "wayland";
+    NIXOS_OZONE_WL = if config.programs.niri.enable then 1 else 0;
+    QT_QPA_PLATFORM = if config.programs.niri.enable then "wayland" else "xcb";
 
     # Cursor
     XCURSOR_SIZE = 30;
