@@ -2,7 +2,7 @@
 
 {
   services.xidlehook = {
-    enable = true;
+    enable = false;
 
     detect-sleep = true;
     not-when-audio = true;

@@ -18,7 +18,6 @@ in
 
   services = {
     scx.enable = true;
-    preload.enable = true;
     flatpak.enable = true;
   };
 

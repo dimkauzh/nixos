@@ -60,7 +60,7 @@
       };
     };
 
-    stateVersion = "25.05"; # (dont change)
+    stateVersion = "25.11"; # (dont change)
   };
 
   dconf.settings = {

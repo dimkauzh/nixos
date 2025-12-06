@@ -4,11 +4,13 @@
   services = {
     upower.enable = true;
 
-    logind = {
-      powerKey = "ignore";
-      lidSwitch = "suspend-then-hibernate";
-      lidSwitchExternalPower = "suspend-then-hibernate";
-      lidSwitchDocked = "suspend-then-hibernate";
+    logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      HandleLidSwitch = "suspend-then-hibernate";
+      HandleLidSwitchExternalPower = "suspend-then-hibernate";
+      HandleLidSwitchDocked = "suspend-then-hibernate";
+      IdleAction = "suspend-then-hibernate";
+      IdleActionSec = "5min";
     };
   };
 

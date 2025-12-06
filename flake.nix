@@ -13,11 +13,11 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-25.05";
+      url = "github:nix-community/home-manager?ref=release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -72,9 +72,7 @@
         ./modules/nixos
         ./modules/nixos/graphics/amd.nix
 
-        chaotic.nixosModules.nyx-cache
-        chaotic.nixosModules.nyx-overlay
-        chaotic.nixosModules.nyx-registry
+        chaotic.nixosModules.default
 
         home-manager.nixosModules.home-manager
         {

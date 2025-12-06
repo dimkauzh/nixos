@@ -75,9 +75,9 @@ in
         "${mod}+Up".action = focus-workspace-up;
 
         # Rofi-based shortcuts
-        "${mod}+Escape".action.spawn = [ "${pkgs.rofi-wayland}/bin/rofi" "-show" "p" "-modi" "p:${pkgs.rofi-power-menu}/bin/rofi-power-menu" "-font" "JetBrains Mono NF 20" ];
-        "${mod}+Space".action.spawn = [ "${pkgs.rofi-wayland}/bin/rofi" "-show" "drun" "-show-icons" ];
-        "${mod}+x".action.spawn = [ "${pkgs.rofi-wayland}/bin/rofi" "-show" "cliphist" "-modi" "cliphist:${pkgs.cliphist}/bin/cliphist-rofi" ];
+        "${mod}+Escape".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "p" "-modi" "p:${pkgs.rofi-power-menu}/bin/rofi-power-menu" "-font" "JetBrains Mono NF 20" ];
+        "${mod}+Space".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" ];
+        "${mod}+x".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "cliphist" "-modi" "cliphist:${pkgs.cliphist}/bin/cliphist-rofi" ];
 
         # Screenshotting
         "Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];

@@ -9,9 +9,12 @@
 
     packages = [
       # FlatHub
+      "eu.vcmi.VCMI"
       "app.drey.Elastic"
       "dev.tchx84.Gameeky"
+      "com.vixalien.sticky"
       "org.vinegarhq.Sober"
+      "io.github.jonmagon.kdiskmark"
 
       # Flatpak files
       rec {

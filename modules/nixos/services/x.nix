@@ -35,9 +35,6 @@
           '';
         };
       };
-      gdm = {
-        enable = false;
-      };
     };
     config = ''
       Section "InputClass"

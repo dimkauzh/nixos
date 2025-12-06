@@ -16,6 +16,7 @@
       ./starship.nix
       ./swaylock.nix
       ./tmux.nix
+      ./trigger.nix
       ./v-analyzer.nix
       ./zsh.nix
     ];

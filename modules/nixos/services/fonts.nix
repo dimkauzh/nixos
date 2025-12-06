@@ -20,8 +20,8 @@
 
     # System Fonts
     noto-fonts
-    noto-fonts-emoji
     noto-fonts-cjk-sans
+    noto-fonts-color-emoji
 
     # Coding Fonts
     nerd-fonts.comic-shanns-mono

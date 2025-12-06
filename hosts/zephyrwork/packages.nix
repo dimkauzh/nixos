@@ -28,7 +28,6 @@
 
     # Development
     tmux
-    slade
     kitty
     gnupg
     docker
@@ -41,11 +40,14 @@
     simulide
     distrobox
     filezilla
-    rpi-imager
+    uhk-agent
     ghidra-bin
     gtkradiant
     kicad-small
+    android-tools
     xfce.mousepad
+    unstable.slade
+    unstable.rpi-imager
     unstable.zed-editor
 
     # Programming
@@ -66,14 +68,13 @@
 
     # Communication
     nemo
-    xpad
     slack
     halloy
     spotube
     vesktop
     sunshine
     obsidian
-    tuxguitar
+    wasistlos
     ente-auth
     riseup-vpn
     teamviewer
@@ -81,24 +82,26 @@
     moonlight-qt
     protonvpn-gui
     youtube-music
-    cinny-desktop
     github-desktop
     element-desktop
-    whatsapp-for-linux
 
     # Media
     vlc
     feh
+    mpv
     zbar
     gimp
     lmms
     weasis
     zenity
+    ffmpeg
     shotcut
     blender
     wifi-qr
+    vdhcoapp
     snapshot
     audacity
+    kdiskmark
     darktable
     obs-studio
     caffeine-ng
@@ -109,21 +112,22 @@
     unstable.davinci-resolve
 
     # Games
+    luanti
     zeroad
-    trigger
     yquake2
-    minetest
     ioquake3
     superTuxKart
     prismlauncher
     extremetuxracer
     pegasus-frontend
+    trigger-unstable
 
     # VMs
     spice
+    freerdp
     spice-gtk
     win-spice
-    win-virtio
+    virtio-win
     virt-viewer
     gnome-boxes
     virt-manager
@@ -136,7 +140,7 @@
     ruffle
     lutris
     heroic
-    ryujinx
+    ryubing
     gparted
     winetricks
     joystickwake
@@ -175,6 +179,7 @@
     ripgrep
     flatpak
     openssl
+    usbutils
     wireplumber
     libapparmor
     nodejs-slim_24
@@ -232,10 +237,10 @@
     # System Utilities
     atk
     dex
-    aria
     acpi
     gtk3
     gtk4
+    aria2
     avahi
     direnv
     screen
@@ -265,9 +270,6 @@
     lxqt.lxqt-policykit
     haskellPackages.greenclip
     (flameshot.override { enableWlrSupport = true; })
-
-    # Niri/Wayland Utilities
-    rofi-wayland
     
     # OBS packages
     (pkgs.wrapOBS {

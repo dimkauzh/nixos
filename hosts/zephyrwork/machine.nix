@@ -21,6 +21,7 @@
 
   security.pam.services.lightdm.fprintAuth = true;
   users.groups.libvirtd.members = [ "dima" ];
+  users.groups.dialout.members = [ "dima" ];
 
   virtualisation = {
     podman.enable = true;
@@ -31,8 +32,6 @@
       enable = true;
       qemu = {
         swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
   };
@@ -47,11 +46,6 @@
     teamviewer.enable = true;
     power-profiles-daemon.enable = lib.mkForce false;
 
-    desktopManager.cosmic = {
-      enable = true;
-      xwayland.enable = true;
-    };
-
     fprintd = {
       enable = true;
       tod.enable = false;
@@ -60,6 +54,7 @@
     udev = {
       packages = with pkgs; [
         numworks-udev-rules
+        uhk-udev-rules
       ];
 
       extraRules = ''
@@ -80,5 +75,5 @@
   };
 
   # ONLY MODIFY ON RELEASE
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

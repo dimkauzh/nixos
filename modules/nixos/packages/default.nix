@@ -9,6 +9,7 @@
       xeventbind = import ./xeventbind.nix { pkgs = final; };
       mantablockscreen = import ./mantablockscreen.nix { pkgs = final; };
       tartarus = import ./tartarus.nix { pkgs = final; };
+      trigger-unstable = import ./trigger-unstable.nix { pkgs = final; };
 
       zen-browser = inputs.zen-browser.packages."${final.system}".default;
       fuckingnode = inputs.fuckingnode.packages."${final.system}".default;

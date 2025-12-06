@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   boot = {
@@ -8,6 +8,10 @@
         GRUB_GFXPAYLOAD_LINUX=2256x1504
       '';
     };
+
+    extraModulePackages = with config.boot.kernelPackages; [
+      zenpower
+    ];
 
     extraModprobeConfig = ''
       options cfg80211 ieee80211_regdom="NL"

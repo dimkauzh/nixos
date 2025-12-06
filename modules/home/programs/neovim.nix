@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 let
-  nvim-config = inputs.nvim-config.packages."${pkgs.system}".default;
+  nvim-config = inputs.nvim-config.packages."${pkgs.stdenv.hostPlatform.system}".default;
 in 
 
 {

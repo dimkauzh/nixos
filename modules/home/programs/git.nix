@@ -4,15 +4,17 @@
   programs.git = {
     enable = true;
 
-    userName = "Dima";
-    userEmail = "uzhdimka@gmail.com";
+    settings = {
+      user.name = "Dima";
+      user.email = "uzhdimka@gmail.com";
 
-    aliases = {
-      "a" = "add";
-      "c" = "commit";
-      "p" = "push";
-      "pl" = "pull";
-      "s" = "status";
+      aliases = {
+        "a" = "add";
+        "c" = "commit";
+        "p" = "push";
+        "pl" = "pull";
+        "s" = "status";
+      };
     };
   };
 }
