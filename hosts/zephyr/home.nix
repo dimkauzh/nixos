@@ -12,5 +12,5 @@
     BROWSER = "zen";
   };
 
-  home.stateVersion = "25.05"; # (dont change)
+  home.stateVersion = "25.11"; # (dont change)
 }

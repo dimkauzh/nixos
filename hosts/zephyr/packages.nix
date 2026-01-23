@@ -34,10 +34,10 @@
     # Communication
     nemo
     vesktop
+    wasistlos
     ente-auth
     protonvpn-gui
     github-desktop
-    whatsapp-for-linux
 
     # Media
     vlc
