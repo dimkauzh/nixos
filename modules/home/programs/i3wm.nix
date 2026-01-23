@@ -281,6 +281,7 @@ in
       text = ''
         Xcursor.theme: capitaine-cursors
         Xcursor.size: 30
+        Xft.dpi: 96
       '';
     };
   };

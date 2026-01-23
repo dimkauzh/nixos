@@ -44,7 +44,7 @@
       zen-beta = {
         name = "Zen Browser (Beta)";
         exec = "zen %u";
-        icon = "zen";
+        icon = "zen-browser";
         genericName = "Web Browser";
         terminal = false;
         categories = [ "Application" "Network" "WebBrowser" ];

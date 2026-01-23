@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }:
 
 let
-  kernel = pkgs.linuxPackages_cachyos-rc;
+  kernel = pkgs.linuxPackages_cachyos;
 in 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];

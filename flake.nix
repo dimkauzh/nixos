@@ -113,7 +113,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.dima.imports = [
               ./hosts/zephyr/home.nix
-              ./mmodules/home
+              ./modules/home
 
               niri.nixosModules.niri
               nix-flatpak.homeManagerModules.nix-flatpak

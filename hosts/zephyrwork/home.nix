@@ -45,7 +45,7 @@
         enable = true;
         text = ''
           #!/bin/bash
-          ${pkgs.trigger}/bin/trigger-rally
+          ${pkgs.trigger-unstable}/bin/trigger-rally
         '';
         executable = true;
       };

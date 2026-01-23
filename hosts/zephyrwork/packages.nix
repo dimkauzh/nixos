@@ -15,6 +15,7 @@
     gcc
     wget
     btop
+    xmake
     dconf
     gnumake
     pkg-config
@@ -34,7 +35,6 @@
     podman
     gzdoom
     neovim
-    leocad
     freecad
     godot_4
     simulide
@@ -43,12 +43,14 @@
     uhk-agent
     ghidra-bin
     gtkradiant
-    kicad-small
     android-tools
     xfce.mousepad
+    zed-editor-fhs
     unstable.slade
     unstable.rpi-imager
-    unstable.zed-editor
+
+    # 3D Printing
+    orca-slicer
 
     # Programming
     go
@@ -59,41 +61,34 @@
     lua
     nixd
     odin
-    vlang
-    rustup
 
     # Archives
+    zip
     unzip
     unrar
 
     # Communication
     nemo
     slack
-    halloy
-    spotube
     vesktop
     sunshine
     obsidian
     wasistlos
     ente-auth
-    riseup-vpn
     teamviewer
     figma-linux
-    moonlight-qt
     protonvpn-gui
     youtube-music
     github-desktop
     element-desktop
+    teams-for-linux
 
     # Media
-    vlc
     feh
     mpv
     zbar
     gimp
-    lmms
     weasis
-    zenity
     ffmpeg
     shotcut
     blender
@@ -101,7 +96,6 @@
     vdhcoapp
     snapshot
     audacity
-    kdiskmark
     darktable
     obs-studio
     caffeine-ng
@@ -139,7 +133,6 @@
     dxvk
     ruffle
     lutris
-    heroic
     ryubing
     gparted
     winetricks
@@ -165,7 +158,6 @@
     fastfetch
 
     # Custom Package
-    v-analyzer
     xeventbind
     zen-browser
     fuckingnode
