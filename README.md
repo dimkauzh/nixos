@@ -2,7 +2,7 @@
 This is my nixos configuration. Fully reproducible, using home-manager.
 
 ## Machines:
-- Zephyr: Dell Latitude 3420 (Intel i3-1125G4, 8GB, 128GB)
+- Zephyr: Dell Latitude 3420 (Intel i3-1125G4, 12GB, 256GB), Dualbooted with Windows 10 (50GB for W10)
 - Zephyrwork: Framework Laptop 13 (AMD Ryzen 5 7640u, 16GB, 1TB)
 
 ## Information
