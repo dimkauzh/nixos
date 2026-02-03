@@ -1,9 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking = {
     dhcpcd.enable = true;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
   };
 
   hardware.bluetooth = {
