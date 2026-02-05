@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ unstable, pkgs, ... }:
 
 {
   nixpkgs.config = {
@@ -60,7 +60,7 @@
     winetricks
     joystickwake
     prismlauncher
-    wineWowPackages.stable
+    unstable.wineWowPackages.stagingFull
 
     # Office
     zathura
