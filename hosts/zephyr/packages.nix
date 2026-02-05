@@ -38,6 +38,7 @@
     ente-auth
     protonvpn-gui
     github-desktop
+    element-desktop
 
     # Media
     vlc
@@ -48,11 +49,13 @@
     darktable
     obs-studio
     caffeine-ng
+    youtube-music
 
     # Games/Emulation and Tools
     mgba
     mesa
     dxvk
+    steam
     lutris
     winetricks
     joystickwake
