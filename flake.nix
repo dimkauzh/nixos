@@ -103,9 +103,7 @@
         ./modules/nixos
         ./modules/nixos/graphics/intel.nix
 
-        chaotic.nixosModules.nyx-cache
-        chaotic.nixosModules.nyx-overlay
-        chaotic.nixosModules.nyx-registry
+        chaotic.nixosModules.default
 
         home-manager.nixosModules.home-manager
         {
@@ -115,7 +113,7 @@
               ./hosts/zephyr/home.nix
               ./modules/home
 
-              niri.nixosModules.niri
+              niri.homeModules.niri
               nix-flatpak.homeManagerModules.nix-flatpak
 
             ];

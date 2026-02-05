@@ -10,4 +10,5 @@
     ];
 
   networking.hostName = "zephyr";
+  system.stateVersion = "25.11";
 }
