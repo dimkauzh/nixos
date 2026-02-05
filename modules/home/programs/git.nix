@@ -8,7 +8,7 @@
       user.name = "Dima";
       user.email = "uzhdimka@gmail.com";
 
-      aliases = {
+      alias = {
         "a" = "add";
         "c" = "commit";
         "p" = "push";
