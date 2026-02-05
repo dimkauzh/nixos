@@ -45,9 +45,9 @@
     gtkradiant
     android-tools
     xfce.mousepad
-    zed-editor-fhs
     unstable.slade
     unstable.rpi-imager
+    unstable.zed-editor-fhs
 
     # 3D Printing
     orca-slicer
@@ -138,7 +138,7 @@
     winetricks
     joystickwake
     unstable.xenia-canary
-    wineWowPackages.stable
+    wineWowPackages.stagingFull
 
     # Office
     zathura
