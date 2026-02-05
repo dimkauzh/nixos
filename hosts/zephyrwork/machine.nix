@@ -14,7 +14,7 @@
     steam.enable = true;
     virt-manager.enable = true;
     niri = {
-      enable = false;
+      enable = true;
       package = pkgs.niri-unstable;
     };
   };

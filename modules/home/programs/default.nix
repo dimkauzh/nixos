@@ -18,6 +18,7 @@
       ./tmux.nix
       ./trigger.nix
       ./v-analyzer.nix
+      ./zed.nix
       ./zsh.nix
     ];
 }
