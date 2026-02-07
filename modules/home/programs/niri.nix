@@ -20,7 +20,7 @@ let
     "dunst"
     "nm-applet"
     "polkit-gnome"
-    "swaylock"
+    "swaybg"
     "joystickwake"
     "caffeine"
     "batsignal"
