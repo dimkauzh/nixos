@@ -12,6 +12,7 @@ in
     settings = [
       {
         position = "top";
+        layer = "top";
 
         modules-left = [
           "custom/launcher"
