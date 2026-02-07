@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, lib, ... }:
 
+let
+  hwPath = config.waybar.thermalPath or "/sys/class/thermal/thermal_zone5/temp";
+in
 {
   programs.waybar = {
     enable = true;
@@ -86,6 +89,7 @@
         temperature = {
           interval = 1;
           format = " {temperatureC}°C";
+          hwmon-path = hwPath;
         };
 
         "custom/launcher" = {
