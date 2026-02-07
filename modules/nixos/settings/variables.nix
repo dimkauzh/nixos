@@ -1,4 +1,4 @@
-{ ... }: 
+{ config, ... }: 
 
 {
   environment.variables = {
@@ -9,8 +9,8 @@
 
     # Wayland
     DISPLAY = ":0";
-    NIXOS_OZONE_WL = 0;
-    QT_QPA_PLATFORM = "xcb";
+    NIXOS_OZONE_WL = if config.programs.niri.enable then 1 else 0;
+    QT_QPA_PLATFORM = if config.programs.niri.enable then "wayland" else "xcb";
 
     # Cursor
     XCURSOR_SIZE = 30;

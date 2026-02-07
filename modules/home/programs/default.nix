@@ -14,10 +14,11 @@
       ./polybar.nix
       ./rofi.nix
       ./starship.nix
-      ./swaylock.nix
+      ./swaybg.nix
       ./tmux.nix
       ./trigger.nix
       ./v-analyzer.nix
+      ./waybar.nix
       ./zed.nix
       ./zsh.nix
     ];

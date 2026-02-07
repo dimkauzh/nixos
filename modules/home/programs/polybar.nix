@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   services.polybar = {
-    enable = true;
+    enable = false;
     script = "polybar &";
 
     settings = {

@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   services.swayidle = {
-    enable = false;
+    enable = true;
 
     events = [
-      { event = "before-sleep"; command = "${pkgs.lightdm}/bin/dm-tool switch-to-greeter"; }
-      { event = "lock"; command = "${pkgs.lightdm}/bin/dm-tool switch-to-greeter"; }
+      { event = "before-sleep"; command = "${lib.getExe pkgs.gtklock}"; }
+      { event = "lock"; command = "${lib.getExe pkgs.gtklock}"; }
     ];
     timeouts = [
       { timeout = 300; command = "${pkgs.systemd}/bin/systemctl suspend-then-hibernate"; }

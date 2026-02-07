@@ -6,6 +6,7 @@
       ./cliphist.nix
       ./dconf.nix
       ./dunst.nix
+      ./flameshot.nix
       ./flatpak.nix
       ./gtk.nix
       ./joystickwake.nix

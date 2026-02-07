@@ -13,9 +13,11 @@ pkgs.stdenv.mkDerivation {
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out/backgrounds
-    cp -r $src/wallpapers/ $out/backgrounds/
+    mkdir -p $out/backgrounds/wallpapers/irl
+    cp -r $src/wallpapers/* $out/backgrounds/wallpapers/
+    cp ${../assets/gtklock/lockscreen.jpg} $out/backgrounds/wallpapers/irl/forest-3-blur-dark.jpg
   '';
+
 
   dontBuild = true;
   dontConfigure = true;

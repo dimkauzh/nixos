@@ -2,7 +2,7 @@
 
 {
   programs.xss-lock = {
-    enable = true;
+    enable = false;
     lockerCommand = "${pkgs.mantablockscreen}/bin/mantablockscreen -sc";
     extraOptions = [
       "--transfer-sleep-lock"
