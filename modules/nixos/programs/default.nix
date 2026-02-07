@@ -1,9 +1,10 @@
 {
   imports =
     [
-      ./spicetify.nix
-      ./xss.nix
       ./appimage.nix
       ./gtklock.nix
+      ./niri.nix
+      ./spicetify.nix
+      ./xss.nix
     ];
 }
