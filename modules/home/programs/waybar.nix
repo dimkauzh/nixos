@@ -8,6 +8,8 @@
     style = ../assets/waybar/style.css;
     settings = [
       {
+        position = "top";
+
         modules-left = [
           "custom/launcher"
           "battery"
