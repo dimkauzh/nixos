@@ -5,6 +5,9 @@ let
   alt = "Alt";
   corner-radius = 10;
 
+  resizeSpeed = "8";
+  resizeSpeedSlowed = "4";
+
   toFloat = x: x + 0.0;
 
   script = { path, args ? [] }:
@@ -31,6 +34,7 @@ in
 
     settings = {
       prefer-no-csd = true;
+      clipboard.disable-primary = true;
 
       layout = {
         background-color = "transparent";
@@ -109,7 +113,19 @@ in
         "${mod}+Shift+f".action = fullscreen-window;
         "${mod}+m".action = maximize-column;
         "${mod}+p".action.spawn = [ "${lib.getExe pkgs.wdisplays}" ];
+        "${alt}+Backspace".action.set-column-width = "default";
 
+        # Resize Horizontal
+        "${alt}+Left".action.set-column-width = "-${resizeSpeed}%";
+        "${alt}+Right".action.set-column-width = "+${resizeSpeed}%";
+        "${alt}+Shift+Left".action.set-column-width = "-${resizeSpeedSlowed}%";
+        "${alt}+Shift+Right".action.set-column-width = "+${resizeSpeedSlowed}%";
+
+        # Resize Vertical
+        "${alt}+Down".action.set-window-height = "+${resizeSpeed}%";
+        "${alt}+Up".action.set-window-height = "-${resizeSpeed}%";
+        "${alt}+Shift+Down".action.set-window-height = "+${resizeSpeedSlowed}%";
+        "${alt}+Shift+Up".action.set-window-height = "-${resizeSpeedSlowed}%";
 
         # Moving through columns
         "${mod}+Left".action = focus-column-left;

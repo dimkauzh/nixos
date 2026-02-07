@@ -27,7 +27,7 @@ index 9484f68..43a5e39 100755
 -actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
 -#actions[switchuser]="???"
 -actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
-+actions[lockscreen]="dm-tool switch-to-greeter"
++actions[lockscreen]="loginctl lock-session"
 +actions[logout]="niri msg action exit"
  actions[suspend]="systemctl suspend"
  actions[hibernate]="systemctl hibernate"
