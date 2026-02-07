@@ -113,7 +113,6 @@ in
         "${mod}+Shift+f".action = fullscreen-window;
         "${mod}+m".action = maximize-column;
         "${mod}+p".action.spawn = [ "${lib.getExe pkgs.wdisplays}" ];
-        "${alt}+Backspace".action.set-column-width = "default";
 
         # Resize Horizontal
         "${alt}+Left".action.set-column-width = "-${resizeSpeed}%";
