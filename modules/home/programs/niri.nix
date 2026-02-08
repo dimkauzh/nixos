@@ -21,6 +21,7 @@ let
     "nm-applet"
     "polkit-gnome"
     "swaybg"
+    "swayidle"
     "joystickwake"
     "caffeine"
     "batsignal"

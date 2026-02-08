@@ -1,6 +1,7 @@
 {
   imports =
     [
+      ./apps.nix
       ./connectivity.nix
       ./nixos.nix
       ./power.nix
