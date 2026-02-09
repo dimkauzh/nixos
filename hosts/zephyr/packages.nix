@@ -84,6 +84,7 @@
 
     # Dependencies
     jdk
+    nixd
     flatpak
     ripgrep
     nodejs-slim_24
@@ -116,6 +117,7 @@
     # System Display
     brightnessctl
     xorg.xbacklight
+    xwayland-satellite
 
     # System Utilities
     atk
