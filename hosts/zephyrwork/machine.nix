@@ -5,7 +5,6 @@
     [
       ./boot.nix
       ./packages.nix
-      ./power.nix
       ./hardware/hardware.nix
     ];
 

@@ -1,9 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
   services = {
+    auto-cpufreq.enable = lib.mkForce false;
     thermald.enable = true;
-
+    
     tlp = {
       enable = true;
       settings = {
@@ -19,7 +20,7 @@
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
         CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 75;
+        CPU_MAX_PERF_ON_BAT = 80;
 
         CPU_SCALING_MIN_FREQ_ON_AC=0;
         CPU_SCALING_MAX_FREQ_ON_AC=9999999;
