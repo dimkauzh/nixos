@@ -3,6 +3,7 @@
     [
       ./direnv.nix
       ./feh.nix
+      ./floorp.nix
       ./git.nix
       ./greenclip.nix
       ./halloy.nix

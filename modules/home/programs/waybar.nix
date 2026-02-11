@@ -55,7 +55,7 @@
             good = 75;
             decent = 50;
             warning = 20;
-            critical = 5;
+            critical = 10;
           };
           format = "{icon}  {capacity}%";
           format-time = "{H} h {M} min";

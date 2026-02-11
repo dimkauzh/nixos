@@ -36,6 +36,7 @@
     vesktop
     wasistlos
     ente-auth
+    floorp-bin
     protonvpn-gui
     github-desktop
     element-desktop
@@ -79,8 +80,8 @@
 
     # Custom Package
     xeventbind
-    zen-browser
     nvim-config
+    # zen-browser stupid window-sync, why zen, WHY :(
 
     # Dependencies
     jdk

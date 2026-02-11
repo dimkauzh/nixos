@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home = {
@@ -7,4 +7,8 @@
   };
 
   home.file.".face".source = ../assets/icons/face.png;
+  home.file."Pictures/wallpapers" = {
+    source = "${pkgs.gruvbox-wallpapers}/backgrounds/wallpapers";
+    recursive = true;
+  };
 }
