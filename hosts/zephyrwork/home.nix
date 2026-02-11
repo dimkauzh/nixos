@@ -6,6 +6,7 @@
     [
       ./overwrites.nix
     ];
+  custom.hwmon = "/sys/class/thermal/thermal_zone3/temp";
 
   home = {
     sessionVariables = {

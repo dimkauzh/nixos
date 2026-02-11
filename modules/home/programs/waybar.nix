@@ -1,8 +1,5 @@
 { pkgs, config, lib, ... }:
 
-let
-  hwPath = config.waybar.thermalPath or "/sys/class/thermal/thermal_zone5/temp";
-in
 {
   programs.waybar = {
     enable = true;
@@ -57,7 +54,7 @@ in
             full = 100;
             good = 75;
             decent = 50;
-            warning = 10;
+            warning = 20;
             critical = 5;
           };
           format = "{icon}  {capacity}%";
@@ -67,8 +64,10 @@ in
         };
 
         clock = {
+          tooltip = false;
+          interval = 1;
           format = "  {:%H:%M}";
-          format-alt = "  {:%H:%M - %d/%m/%Y}";
+          format-alt = "  {:%H:%M:%S - %d/%m/%Y}";
         };
 
         tray = {
@@ -77,22 +76,22 @@ in
         };
 
         cpu = {
-          interval = 1;
+          interval = 3;
           format = "   {usage}%";
           max-length = 10;
           on-click = "${lib.getExe pkgs.kitty} -- ${lib.getExe pkgs.btop}";
         };
 
         memory = {
-          interval = 1;
+          interval = 3;
           format = "   {}%";
           max-length = 10;
         };
 
         temperature = {
-          interval = 1;
+          interval = 3;
           format = " {temperatureC}°C";
-          hwmon-path = hwPath;
+          hwmon-path = config.custom.hwmon;
         };
 
         "custom/launcher" = {

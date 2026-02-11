@@ -29,6 +29,7 @@
 
       "amdgpu.si_support=1"
       "amdgpu.cik_support=1"
+      "amdgpu.dcdebugmask=0x10"
     ];
   };
 }
