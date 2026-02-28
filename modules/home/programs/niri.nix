@@ -32,6 +32,7 @@ in
 {
   programs.niri = {
     enable = true;
+    package = pkgs.niri-unstable;
 
     settings = {
       prefer-no-csd = true;
@@ -91,6 +92,11 @@ in
         }
       ];
 
+      input.touchpad = {
+        click-method = "clickfinger";
+        natural-scroll = false;
+        scroll-factor = 0.6;
+      };
 
       binds = with config.lib.niri.actions; {
         # System Audio Controls
@@ -115,6 +121,7 @@ in
         "${mod}+Shift+f".action = fullscreen-window;
         "${mod}+m".action = maximize-column;
         "${mod}+p".action.spawn = [ "${lib.getExe pkgs.wdisplays}" ];
+        "${mod}+Shift+m".action.set-window-height = "100%";
 
         # Resize Horizontal
         "${alt}+Left".action.set-column-width = "-${resizeSpeed}%";
@@ -151,27 +158,27 @@ in
         "${mod}+8".action.focus-workspace = 8;
         "${mod}+9".action.focus-workspace = 9;
 
-        # Move windows to cetain workspaces
-        "${mod}+Shift+1".action.move-window-to-workspace = [ { focus = false; } 1 ];
-        "${mod}+Shift+2".action.move-window-to-workspace = [ { focus = false; } 2 ];
-        "${mod}+Shift+3".action.move-window-to-workspace = [ { focus = false; } 3 ];
-        "${mod}+Shift+4".action.move-window-to-workspace = [ { focus = false; } 4 ];
-        "${mod}+Shift+5".action.move-window-to-workspace = [ { focus = false; } 5 ];
-        "${mod}+Shift+6".action.move-window-to-workspace = [ { focus = false; } 6 ];
-        "${mod}+Shift+7".action.move-window-to-workspace = [ { focus = false; } 7 ];
-        "${mod}+Shift+8".action.move-window-to-workspace = [ { focus = false; } 8 ];
-        "${mod}+Shift+9".action.move-window-to-workspace = [ { focus = false; } 9 ];
+        # Move windows to certain workspaces
+        "${mod}+Shift+1".action.move-window-to-workspace = [ { focus = true; } 1 ];
+        "${mod}+Shift+2".action.move-window-to-workspace = [ { focus = true; } 2 ];
+        "${mod}+Shift+3".action.move-window-to-workspace = [ { focus = true; } 3 ];
+        "${mod}+Shift+4".action.move-window-to-workspace = [ { focus = true; } 4 ];
+        "${mod}+Shift+5".action.move-window-to-workspace = [ { focus = true; } 5 ];
+        "${mod}+Shift+6".action.move-window-to-workspace = [ { focus = true; } 6 ];
+        "${mod}+Shift+7".action.move-window-to-workspace = [ { focus = true; } 7 ];
+        "${mod}+Shift+8".action.move-window-to-workspace = [ { focus = true; } 8 ];
+        "${mod}+Shift+9".action.move-window-to-workspace = [ { focus = true; } 9 ];
 
         # Move window and focus to certain workspaces
-        "${alt}+1".action.move-window-to-workspace = [ { focus = true; } 1 ];
-        "${alt}+2".action.move-window-to-workspace = [ { focus = true; } 2 ];
-        "${alt}+3".action.move-window-to-workspace = [ { focus = true; } 3 ];
-        "${alt}+4".action.move-window-to-workspace = [ { focus = true; } 4 ];
-        "${alt}+5".action.move-window-to-workspace = [ { focus = true; } 5 ];
-        "${alt}+6".action.move-window-to-workspace = [ { focus = true; } 6 ];
-        "${alt}+7".action.move-window-to-workspace = [ { focus = true; } 7 ];
-        "${alt}+8".action.move-window-to-workspace = [ { focus = true; } 8 ];
-        "${alt}+9".action.move-window-to-workspace = [ { focus = true; } 9 ];
+        "${alt}+1".action.move-window-to-workspace = [ { focus = false; } 1 ];
+        "${alt}+2".action.move-window-to-workspace = [ { focus = false; } 2 ];
+        "${alt}+3".action.move-window-to-workspace = [ { focus = false; } 3 ];
+        "${alt}+4".action.move-window-to-workspace = [ { focus = false; } 4 ];
+        "${alt}+5".action.move-window-to-workspace = [ { focus = false; } 5 ];
+        "${alt}+6".action.move-window-to-workspace = [ { focus = false; } 6 ];
+        "${alt}+7".action.move-window-to-workspace = [ { focus = false; } 7 ];
+        "${alt}+8".action.move-window-to-workspace = [ { focus = false; } 8 ];
+        "${alt}+9".action.move-window-to-workspace = [ { focus = false; } 9 ];
 
         # Rofi-based shortcuts
         "${mod}+Escape".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "p" "-modi" "p:${pkgs.rofi-power-menu}/bin/rofi-power-menu" "-font" "JetBrains Mono NF 20" ];
@@ -182,17 +189,26 @@ in
         "Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
         "${mod}+Shift+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "full" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
       };
-
-      input.touchpad = {
-        click-method = "clickfinger";
-        natural-scroll = false;
-        scroll-factor = 0.8;
-      };
     };
   };
-    xdg.configFile = {
+  
+  xdg.configFile = {
     "niri/window_ss.sh" = {
       text = ''
+        # Format: YYYY-MM-DD_HH-MM.png
+        filename="$HOME/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M').png"
+
+        mkdir -p "$HOME/Pictures/Screenshots"
+
+        ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" "$filename"
+
+        if [[ -f "$filename" ]]; then
+            ${lib.getExe pkgs.wl-clipboard} "$filename"
+
+            ${lib.getExe pkgs.libnotify} "Screenshot saved" "File: $filename"
+        else
+            ${lib.getExe pkgs.libnotify} "Screenshot failed" "Operation cancelled"
+        fi
       '';
       executable = true;
     };

@@ -3,12 +3,11 @@
 {
   xdg.portal = {
     enable = true;
-    config.common.default = [ "gtk" "xapp" "gnome" ];
+    config.common.default = [ "*" ];
     xdgOpenUsePortal = true;
 
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-xapp
       xdg-desktop-portal-gnome
     ];
   };

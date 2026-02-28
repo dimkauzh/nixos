@@ -50,14 +50,17 @@
         };
 
         battery = {
+          interval = 2;
           states = {
             full = 100;
             good = 75;
             decent = 50;
-            warning = 20;
+            warning = 25;
             critical = 10;
           };
           format = "{icon}  {capacity}%";
+          format-charging = "󱐋  {capacity}%";
+          format-plugged = "  {capacity}%";
           format-time = "{H} h {M} min";
           format-alt = "{icon}  {time}";
           format-icons = [ " " " " " " " " " " ];

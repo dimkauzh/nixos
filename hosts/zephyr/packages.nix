@@ -34,12 +34,12 @@
     # Communication
     nemo
     vesktop
-    wasistlos
     ente-auth
     floorp-bin
     protonvpn-gui
     github-desktop
     element-desktop
+    unstable.karere
 
     # Media
     vlc

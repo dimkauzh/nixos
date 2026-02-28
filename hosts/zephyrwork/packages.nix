@@ -73,7 +73,6 @@
     vesktop
     sunshine
     obsidian
-    wasistlos
     ente-auth
     teamviewer
     figma-linux
@@ -82,6 +81,7 @@
     github-desktop
     element-desktop
     teams-for-linux
+    unstable.karere
 
     # Media
     feh
@@ -118,6 +118,7 @@
 
     # VMs
     spice
+    winapps
     freerdp
     spice-gtk
     win-spice
@@ -127,12 +128,14 @@
     virt-manager
     virglrenderer
     spice-protocol
+    winapps-launcher
 
     # Emulation and Tools
     mgba
     dxvk
     ruffle
     lutris
+    melonDS
     ryubing
     gparted
     winetricks
@@ -159,12 +162,13 @@
 
     # Custom Package
     xeventbind
-    zen-browser
     fuckingnode
     nvim-config
     mantablockscreen
+    # zen-browser
 
     # Dependencies
+    yad
     jdk
     iwd
     clang

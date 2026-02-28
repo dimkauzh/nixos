@@ -18,6 +18,7 @@ in
 
   services = {
     scx.enable = true;
+    dbus.enable = true;
     flatpak.enable = true;
   };
 

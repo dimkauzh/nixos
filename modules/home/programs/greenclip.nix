@@ -18,7 +18,6 @@ let
   };
 
   greenclipSettingsFile = settingsFormat.generate "greenclip.toml" greenclipSettings;
-
 in
 {
   home.file.".config/greenclip.toml".source = greenclipSettingsFile;

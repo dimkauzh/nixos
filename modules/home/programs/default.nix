@@ -20,6 +20,7 @@
       ./trigger.nix
       ./v-analyzer.nix
       ./waybar.nix
+      ./winapps.nix
       ./zed.nix
       ./zsh.nix
     ];
