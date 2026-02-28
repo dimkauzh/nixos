@@ -61,7 +61,7 @@
     winetricks
     joystickwake
     prismlauncher
-    unstable.wineWowPackages.stagingFull
+    unstable.wineWow64Packages.stagingFull
 
     # Office
     zathura

@@ -141,7 +141,7 @@
     winetricks
     joystickwake
     unstable.xenia-canary
-    unstable.wineWowPackages.stagingFull
+    unstable.wineWow64Packages.stagingFull
 
     # Office
     zathura
