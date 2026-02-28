@@ -72,6 +72,13 @@
     starship
     wakatime-cli
 
+    # Wayland specific
+    weston
+    waydroid
+    wdisplays
+    wl-clipboard
+    xwayland-satellite
+
     # Ricing
     pipes
     nitch
@@ -118,7 +125,6 @@
     # System Display
     brightnessctl
     xorg.xbacklight
-    xwayland-satellite
 
     # System Utilities
     atk

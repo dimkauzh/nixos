@@ -7,4 +7,5 @@
       proton-ge-bin
     ];
   };
+  virtualisation.waydroid.enable = true;
 }

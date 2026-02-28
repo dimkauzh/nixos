@@ -5,7 +5,7 @@ let
     owner = "greeeen-dev";
     repo = "natsumi-browser";
     rev = "v6.1.3";
-    hash = "sha256-Jsqx0AhS0NkhJlfL0DX2YSvcdFNqx/sRrIQw53sj6Tg=";
+    hash = "sha256-iEs9TfIzJwhm3bE54muZWixd5dLR2xSGIO3jNBhNaVE=";
   };
 
   floorpProfile = "default";

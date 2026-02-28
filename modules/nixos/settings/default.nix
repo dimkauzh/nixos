@@ -5,9 +5,10 @@
       ./connectivity.nix
       ./nixos.nix
       ./power.nix
+      ./security.nix
       ./users.nix
       ./variables.nix
       ./zone.nix
-      ./security.nix
+      ./virtualisation.nix
     ];
 }
