@@ -1,8 +1,5 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
-let
-  kernel = pkgs.linuxPackages_cachyos;
-in 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];
 
@@ -23,7 +20,7 @@ in
   };
 
   boot = {
-    kernelPackages = kernel;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -52,7 +49,6 @@ in
   };
 
   system = {
-    modulesTree = [ (lib.getOutput "modules" kernel.kernel) ];
     activationScripts.script.text = ''
       # User icon
       cp /home/dima/.face /var/lib/AccountsService/icons/dima

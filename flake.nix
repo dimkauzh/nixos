@@ -4,18 +4,18 @@
   nixConfig = {
     extra-substituters = [
       "https://niri.cachix.org"
-      "https://chaotic-nyx.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,10 +28,6 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # zen-browser = {
-    #   url = "github:0xc000022070/zen-browser-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nvim-config = {
       url = "git+https://codeberg.org/dimkauzh/nvim-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +46,7 @@
   };
 
   outputs = {
-    nixpkgs, nixpkgs-unstable, chaotic, self,
+    nixpkgs, nixpkgs-unstable, self,
     home-manager,
     nix-flatpak,
     niri,
@@ -76,22 +72,20 @@
         ./modules/nixos
         ./modules/nixos/graphics/amd.nix
 
-        chaotic.nixosModules.default
-
         home-manager.nixosModules.home-manager
         {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.dima.imports = [
-              ./hosts/zephyrwork/home.nix
-              ./modules/home
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.dima.imports = [
+            ./hosts/zephyrwork/home.nix
+            ./modules/home
 
-              niri.homeModules.niri
-              nix-flatpak.homeManagerModules.nix-flatpak
-            ];
-            home-manager.extraSpecialArgs = {
-              inherit inputs self unstable;
-            };
+            niri.homeModules.niri
+            nix-flatpak.homeManagerModules.nix-flatpak
+          ];
+          home-manager.extraSpecialArgs = {
+            inherit inputs self unstable;
+          };
         }
       ];
     };
@@ -107,23 +101,21 @@
         ./modules/nixos
         ./modules/nixos/graphics/intel.nix
 
-        chaotic.nixosModules.default
-
         home-manager.nixosModules.home-manager
         {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.dima.imports = [
-              ./hosts/zephyr/home.nix
-              ./modules/home
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.dima.imports = [
+            ./hosts/zephyr/home.nix
+            ./modules/home
 
-              niri.homeModules.niri
-              nix-flatpak.homeManagerModules.nix-flatpak
+            niri.homeModules.niri
+            nix-flatpak.homeManagerModules.nix-flatpak
 
-            ];
-            home-manager.extraSpecialArgs = {
-              inherit inputs self unstable;
-            };
+          ];
+          home-manager.extraSpecialArgs = {
+            inherit inputs self unstable;
+          };
         }
       ];
     };

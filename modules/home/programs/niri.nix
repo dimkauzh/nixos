@@ -92,10 +92,17 @@ in
         }
       ];
 
-      input.touchpad = {
-        click-method = "clickfinger";
-        natural-scroll = false;
-        scroll-factor = 0.6;
+      input = {
+        touchpad = {
+          click-method = "clickfinger";
+          natural-scroll = false;
+          scroll-factor = 0.6;
+        };
+
+        keyboard.xkb = {
+          layout = "us";
+          options = "compose:ralt";
+        };
       };
 
       binds = with config.lib.niri.actions; {

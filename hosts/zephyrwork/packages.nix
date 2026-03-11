@@ -66,6 +66,7 @@
     zip
     unzip
     unrar
+    extract-xiso
 
     # Communication
     nemo
