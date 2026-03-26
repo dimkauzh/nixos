@@ -14,7 +14,7 @@
       '';
     };
 
-    boot.kernelParams = [
+    kernelParams = [
         "quiet"
         "splash"
         "boot.shell_on_fail"

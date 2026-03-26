@@ -187,6 +187,7 @@
     waydroid
     wdisplays
     wl-clipboard
+    waydroid-helper
     xwayland-satellite
 
     # Streaming

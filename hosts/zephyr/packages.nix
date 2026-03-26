@@ -46,6 +46,7 @@
     feh
     gimp
     zbar
+    loupe
     shotcut
     darktable
     obs-studio
@@ -77,6 +78,7 @@
     waydroid
     wdisplays
     wl-clipboard
+    waydroid-helper
     xwayland-satellite
 
     # Ricing
