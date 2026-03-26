@@ -14,7 +14,6 @@
       trigger-unstable = import ./trigger-unstable.nix { pkgs = final; };
       extract-xiso = import ./extract-xiso.nix { pkgs = final; };
 
-      # zen-browser = inputs.zen-browser.packages."${final.system}".default;
       fuckingnode = inputs.fuckingnode.packages."${final.system}".default;
       nvim-config = inputs.nvim-config.packages."${final.system}".default;
       winapps = inputs.winapps.packages."${final.system}".winapps;

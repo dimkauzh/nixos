@@ -114,8 +114,8 @@ in
         # Media keys
         "XF86AudioPlay".action.spawn = [ "${lib.getExe pkgs.playerctl}" "play-pause" ];
         "XF86AudioPause".action.spawn = [ "${lib.getExe pkgs.playerctl}" "play-pause" ];
-        "XF86AudioNext".action.spawn = [ "${lib.getExe pkgs.playerctl}" "position next" ];
-        "XF86AudioPrev".action.spawn = [ "${lib.getExe pkgs.playerctl}" "position previous" ];
+        "XF86AudioNext".action.spawn = [ "${lib.getExe pkgs.playerctl}" "next" ];
+        "XF86AudioPrev".action.spawn = [ "${lib.getExe pkgs.playerctl}" "previous" ];
         "XF86AudioMedia".action.spawn = [ "${lib.getExe pkgs.lutris}" ];
 
         # System Brightness Controls

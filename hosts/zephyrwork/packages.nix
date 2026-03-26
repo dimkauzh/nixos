@@ -82,13 +82,14 @@
     github-desktop
     element-desktop
     teams-for-linux
-    unstable.karere
+    unstable.zapzap
 
     # Media
     feh
     mpv
     zbar
     gimp
+    loupe
     weasis
     ffmpeg
     shotcut
@@ -97,8 +98,6 @@
     vdhcoapp
     snapshot
     audacity
-    darktable
-    obs-studio
     caffeine-ng
     rawtherapee
     libresprite
@@ -261,26 +260,14 @@
     scrot
     arandr
     picom
-    playerctl
     xss-lock
+    flameshot
     xidlehook
+    playerctl
     xsettingsd
     lxqt.lxqt-policykit
     haskellPackages.greenclip
-    (flameshot.override { enableWlrSupport = true; })
     
-    # OBS packages
-    (pkgs.wrapOBS {
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-        obs-vaapi
-        obs-gstreamer
-        obs-vkcapture
-      ];
-    })
-
     # Storage Utilities
     tokei
     baobab

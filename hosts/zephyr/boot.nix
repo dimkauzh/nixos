@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = lib.mkForce pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    kernelPackages = lib.mkForce pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
 
     loader.grub = {
       gfxmodeEfi = "1920x1080";

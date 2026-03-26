@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = lib.mkForce pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+    kernelPackages = lib.mkForce pkgs.cachyosKernels.linuxPackages-cachyos-latest-zen4;
 
     loader.grub = {
       gfxmodeEfi = "2256x1504";
