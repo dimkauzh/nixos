@@ -86,24 +86,29 @@
 
     # Media
     feh
-    mpv
     zbar
-    gimp
-    loupe
     weasis
     ffmpeg
-    shotcut
     blender
     wifi-qr
     vdhcoapp
     snapshot
     audacity
     caffeine-ng
-    rawtherapee
     libresprite
     ns-usbloader
     google-chrome
+
+    # Pictures / Video
+    vlc
+    mpv
+    gimp
+    loupe
+    shotcut
+    digikam
+    rawtherapee
     unstable.davinci-resolve
+
 
     # Games
     luanti

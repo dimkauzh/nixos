@@ -3,6 +3,7 @@
     [
       ./apps.nix
       ./connectivity.nix
+      ./console.nix
       ./nixos.nix
       ./power.nix
       ./security.nix

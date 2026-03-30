@@ -38,6 +38,7 @@ in
       prefer-no-csd = true;
       clipboard.disable-primary = true;
       hotkey-overlay.skip-at-startup = true;
+      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M.png";
 
       layout = {
         background-color = "transparent";
@@ -194,7 +195,11 @@ in
 
         # Screenshotting
         "Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
+        "Shift+Print".action.spawn = [ "${lib.getExe pkgs.zsh}" "${config.xdg.configFile."niri/window_ss.sh".target}" ];
         "${mod}+Shift+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "full" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
+
+        # Fixes
+        "${mod}+Shift+a".action.spawn = [ "${pkgs.systemd}/bin/systemctl" "--user" "restart" "cliphist" "swaybg" ];
       };
     };
   };
@@ -202,19 +207,12 @@ in
   xdg.configFile = {
     "niri/window_ss.sh" = {
       text = ''
-        # Format: YYYY-MM-DD_HH-MM.png
-        filename="$HOME/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M').png"
-
         mkdir -p "$HOME/Pictures/Screenshots"
 
-        ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" "$filename"
-
-        if [[ -f "$filename" ]]; then
-            ${lib.getExe pkgs.wl-clipboard} "$filename"
-
-            ${lib.getExe pkgs.libnotify} "Screenshot saved" "File: $filename"
+        if ${lib.getExe pkgs.niri-unstable} msg action screenshot-window; then
+            ${lib.getExe pkgs.libnotify} "Window Captured" "Screenshot saved and copied to clipboard."
         else
-            ${lib.getExe pkgs.libnotify} "Screenshot failed" "Operation cancelled"
+            ${lib.getExe pkgs.libnotify} "Screenshot failed" "Operation cancelled or failed."
         fi
       '';
       executable = true;

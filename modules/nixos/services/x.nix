@@ -15,7 +15,7 @@
 
     displayManager = {
       lightdm = {
-        enable = true;
+        enable = false;
 
         greeters.gtk = {
           enable = true;
