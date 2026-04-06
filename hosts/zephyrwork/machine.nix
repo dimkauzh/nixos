@@ -8,7 +8,8 @@
       ./hardware/hardware.nix
     ];
 
-  security.pam.services.lightdm.fprintAuth = true;
+  security.pam.services.ly.fprintAuth = false;
+  security.pam.services.login.fprintAuth = true;
 
   networking = {
     hostName = lib.mkForce "zephyrwork";
