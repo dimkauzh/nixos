@@ -7,7 +7,7 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        # Archives
+        # Archives with XArchiver
         "application/zip" = [ "xarchiver.desktop" ];
         "application/x-tar" = [ "xarchiver.desktop" ];
         "application/x-7z-compressed" = [ "xarchiver.desktop" ];
@@ -16,17 +16,17 @@
         "application/x-bzip" = [ "xarchiver.desktop" ];
         "application/x-xz" = [ "xarchiver.desktop" ];
 
-        # Folders
+        # Folders with Nemo
         "inode/directory" = [ "nemo.desktop" ];
 
-        # Video files with VLC
-        "video/mp4" = [ "vlc.desktop" ];
-        "video/x-matroska" = [ "vlc.desktop" ];
-        "video/x-msvideo" = [ "vlc.desktop" ];
-        "video/quicktime" = [ "vlc.desktop" ];
-        "video/webm" = [ "vlc.desktop" ];
-        "video/x-flv" = [ "vlc.desktop" ];
-        "video/mpeg" = [ "vlc.desktop" ];
+        # Video files with mpv
+        "video/mp4" = [ "mpv.desktop" ];
+        "video/x-matroska" = [ "mpv.desktop" ];
+        "video/x-msvideo" = [ "mpv.desktop" ];
+        "video/quicktime" = [ "mpv.desktop" ];
+        "video/webm" = [ "mpv.desktop" ];
+        "video/x-flv" = [ "mpv.desktop" ];
+        "video/mpeg" = [ "mpv.desktop" ];
 
         # Audio files with Audacity
         "audio/mpeg" = [ "audacity.desktop" ];
@@ -37,6 +37,24 @@
         "audio/x-aiff" = [ "audacity.desktop" ];
         "audio/mp4" = [ "audacity.desktop" ];
         "audio/x-ms-wma" = [ "audacity.desktop" ];
+
+        # Images with Loupe
+        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+        "image/png" = [ "org.gnome.Loupe.desktop" ];
+        "image/gif" = [ "org.gnome.Loupe.desktop" ];
+        "image/webp" = [ "org.gnome.Loupe.desktop" ];
+        "image/bmp" = [ "org.gnome.Loupe.desktop" ];
+        "image/tiff" = [ "org.gnome.Loupe.desktop" ];
+        "image/svg+xml" = [ "org.gnome.Loupe.desktop" ];
+
+        # Web & PDFs with Floorp
+        "text/html" = [ "floorp.desktop" ];
+        "application/pdf" = [ "floorp.desktop" ];
+        "application/x-extension-pdf" = [ "floorp.desktop" ];
+        "x-scheme-handler/http" = [ "floorp.desktop" ];
+        "x-scheme-handler/https" = [ "floorp.desktop" ];
+        "x-scheme-handler/about" = [ "floorp.desktop" ];
+        "x-scheme-handler/unknown" = [ "floorp.desktop" ];
       };
     };
 
