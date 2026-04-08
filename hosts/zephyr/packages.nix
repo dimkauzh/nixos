@@ -39,7 +39,7 @@
     protonvpn-gui
     github-desktop
     element-desktop
-    unstable.karere
+    unstable.zapzap
 
     # Media
     vlc
@@ -48,8 +48,8 @@
     zbar
     loupe
     shotcut
-    darktable
     obs-studio
+    rawtherapee
     caffeine-ng
     youtube-music
 
@@ -65,7 +65,6 @@
     unstable.wineWow64Packages.stagingFull
 
     # Office
-    zathura
     libreoffice
 
     # Terminal
@@ -90,7 +89,6 @@
     # Custom Package
     xeventbind
     nvim-config
-    # zen-browser stupid window-sync, why zen, WHY :(
 
     # Dependencies
     jdk
@@ -164,12 +162,16 @@
     xarchiver
 
     # Networking and Connectivity
-    blueman
     bluez
+    blueman
     bluez-tools
     networkmanagerapplet
 
     # Themes and Icons
     lxappearance
+    capitaine-cursors
+
+    # XDG stuff
+    xdg-desktop-portal
   ];
 }

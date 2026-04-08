@@ -28,21 +28,17 @@
     lightdm-gtk-greeter
 
     # Development
-    tmux
     kitty
     gnupg
     docker
     podman
     gzdoom
     neovim
-    freecad
     godot_4
-    simulide
     distrobox
     filezilla
     uhk-agent
     ghidra-bin
-    gtkradiant
     android-tools
     xfce.mousepad
     unstable.slade
@@ -50,6 +46,7 @@
     unstable.zed-editor-fhs
 
     # 3D Printing
+    freecad
     orca-slicer
 
     # Programming
@@ -61,6 +58,7 @@
     lua
     nixd
     odin
+    lua-language-server
 
     # Archives
     zip
@@ -72,11 +70,9 @@
     nemo
     slack
     vesktop
-    sunshine
     obsidian
     ente-auth
     teamviewer
-    figma-linux
     protonvpn-gui
     youtube-music
     github-desktop
@@ -92,7 +88,6 @@
     blender
     wifi-qr
     vdhcoapp
-    snapshot
     audacity
     caffeine-ng
     libresprite
@@ -105,10 +100,8 @@
     gimp
     loupe
     shotcut
-    digikam
     rawtherapee
     unstable.davinci-resolve
-
 
     # Games
     luanti
@@ -118,7 +111,6 @@
     superTuxKart
     prismlauncher
     extremetuxracer
-    pegasus-frontend
     trigger-unstable
 
     # VMs
@@ -141,7 +133,6 @@
     ruffle
     lutris
     melonDS
-    ryubing
     gparted
     winetricks
     joystickwake
@@ -149,7 +140,6 @@
     unstable.wineWow64Packages.stagingFull
 
     # Office
-    zathura
     libreoffice
 
     # Terminal
@@ -170,7 +160,6 @@
     fuckingnode
     nvim-config
     mantablockscreen
-    # zen-browser
 
     # Dependencies
     yad
@@ -184,7 +173,6 @@
     wireplumber
     libapparmor
     nodejs-slim_24
-    lua-language-server
 
     # Wayland specific
     weston
@@ -195,13 +183,13 @@
     xwayland-satellite
 
     # Streaming
+    gst_all_1.gst-libav
+    gst_all_1.gst-vaapi
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
-    gst_all_1.gst-libav
-    gst_all_1.gst-vaapi
 
     # System Audio
     pulseaudio
@@ -220,7 +208,6 @@
     # System Security
     fprintd
     libsecret
-    xsecurelock
     gnome-keyring
 
     # System Messages
@@ -280,8 +267,8 @@
     xarchiver
 
     # Networking and Connectivity
-    blueman
     bluez
+    blueman
     bluez-tools
     networkmanagerapplet
 
