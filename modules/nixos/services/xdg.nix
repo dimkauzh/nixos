@@ -6,8 +6,10 @@
     xdgOpenUsePortal = true;
 
     config = {
-      common.default = [ "gtk" ];
+      common.default = [ "gtk" "gnome" "wlr" ];
       niri = {
+        default = [ "gtk" "gnome" "wlr" ];
+        "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
         "org.freedesktop.impl.portal.Settings" = [ "gnome" ];
@@ -15,6 +17,9 @@
     };
 
     extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-phosh
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
     ];

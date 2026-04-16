@@ -3,6 +3,8 @@
 {
   programs.zed-editor = {
     enable = true;
+    package = pkgs.zed-editor-fhs;
+
     installRemoteServer = true;
     mutableUserSettings = false;
 
@@ -70,6 +72,6 @@
       };
     };
 
-    extraPackages = [ pkgs.nixd ];
+    extraPackages = [ pkgs.nixd pkgs.zls ];
   };
 }

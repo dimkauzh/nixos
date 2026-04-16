@@ -5,4 +5,8 @@
     type = lib.types.str;
     default = "/sys/class/thermal/thermal_zone0/temp";
   };
+
+  config.home.sessionVariables = {
+    BROWSER = "floorp";
+  };
 }

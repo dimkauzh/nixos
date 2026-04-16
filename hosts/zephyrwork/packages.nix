@@ -43,7 +43,6 @@
     xfce.mousepad
     unstable.slade
     unstable.rpi-imager
-    unstable.zed-editor-fhs
 
     # 3D Printing
     freecad
@@ -100,6 +99,7 @@
     gimp
     loupe
     shotcut
+    digikam
     rawtherapee
     unstable.davinci-resolve
 

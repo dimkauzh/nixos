@@ -7,13 +7,7 @@
       ./overwrites.nix
     ];
   custom.hwmon = "/sys/class/thermal/thermal_zone3/temp";
-
   home = {
-    sessionVariables = {
-      EDITOR = "nvim";
-      BROWSER = "zen";
-    };
-
     file = {
       "games/0ad/run.sh" = {
         enable = true;

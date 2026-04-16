@@ -12,6 +12,7 @@
       "eu.vcmi.VCMI"
       "app.drey.Elastic"
       "dev.tchx84.Gameeky"
+      "dev.zed.Zed-Preview"
       "com.vixalien.sticky"
       "org.vinegarhq.Sober"
       "io.github.jonmagon.kdiskmark"

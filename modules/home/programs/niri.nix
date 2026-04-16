@@ -194,9 +194,11 @@ in
         "${mod}+x".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "cliphist" "-modi" "cliphist:${pkgs.cliphist}/bin/cliphist-rofi" ];
 
         # Screenshotting
-        "Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
-        "Shift+Print".action.spawn = [ "${lib.getExe pkgs.zsh}" "${config.xdg.configFile."niri/window_ss.sh".target}" ];
-        "${mod}+Shift+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "full" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
+        "Print".action.screenshot = { show-pointer = true; };
+        "Shift+Print".action.screenshot-window = { show-pointer = true; };
+        "${mod}+Shift+Print".action.screenshot-screen = { show-pointer = true; };
+        "${alt}+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
+
 
         # Fixes
         "${mod}+Shift+a".action.spawn = [ "${pkgs.systemd}/bin/systemctl" "--user" "restart" "cliphist" "swaybg" ];
@@ -205,19 +207,6 @@ in
   };
   
   xdg.configFile = {
-    "niri/window_ss.sh" = {
-      text = ''
-        mkdir -p "$HOME/Pictures/Screenshots"
-
-        if ${lib.getExe pkgs.niri-unstable} msg action screenshot-window; then
-            ${lib.getExe pkgs.libnotify} "Window Captured" "Screenshot saved and copied to clipboard."
-        else
-            ${lib.getExe pkgs.libnotify} "Screenshot failed" "Operation cancelled or failed."
-        fi
-      '';
-      executable = true;
-    };
-
     "niri/volume_brightness.sh" = {
       text = ''
         volume_step=5
