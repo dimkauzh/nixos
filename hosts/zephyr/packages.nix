@@ -59,9 +59,9 @@
     dxvk
     steam
     lutris
-    winetricks
     joystickwake
     prismlauncher
+    unstable.winetricks
     unstable.wineWow64Packages.stagingFull
 
     # Office
