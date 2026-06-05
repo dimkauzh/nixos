@@ -11,11 +11,7 @@
       ./gtk.nix
       ./joystickwake.nix
       ./keyring.nix
-      ./picom.nix
       ./swayidle.nix
       ./xdg.nix
-      ./xeventbind.nix
-      ./xidlehook.nix
-      ./xsettingsd.nix
     ];
 }

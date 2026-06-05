@@ -17,12 +17,6 @@
     dconf
     unzip
 
-    # Window Manager
-    i3
-    lightdm
-    i3lock-color
-    lightdm-gtk-greeter
-
     # Development
     kitty
     slade
@@ -43,7 +37,6 @@
 
     # Media
     vlc
-    feh
     gimp
     zbar
     loupe
@@ -87,7 +80,6 @@
     nerdfetch
 
     # Custom Package
-    xeventbind
     nvim-config
 
     # Dependencies
@@ -124,7 +116,6 @@
 
     # System Display
     brightnessctl
-    xorg.xbacklight
 
     # System Utilities
     atk
@@ -144,17 +135,8 @@
 
     # i3wm Utilities
     rofi
-    xclip
-    scrot
-    arandr
-    picom
     flameshot
     playerctl
-    xss-lock
-    xidlehook
-    xsettingsd
-    lxqt.lxqt-policykit
-    haskellPackages.greenclip
 
     # Storage Utilities
     baobab

@@ -6,7 +6,6 @@
       ./others.nix
       ./power.nix
       ./sunshine.nix
-      ./x.nix
       ./xdg.nix
     ];
 }

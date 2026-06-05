@@ -8,8 +8,6 @@
     (final: prev: {
       gruvbox-wallpapers = import ./wallpapers.nix { pkgs = final; };
       v-analyzer = import ./v-analyzer.nix { pkgs = final; };
-      xeventbind = import ./xeventbind.nix { pkgs = final; };
-      mantablockscreen = import ./mantablockscreen.nix { pkgs = final; };
       tartarus = import ./tartarus.nix { pkgs = final; };
       trigger-unstable = import ./trigger-unstable.nix { pkgs = final; };
       extract-xiso = import ./extract-xiso.nix { pkgs = final; };

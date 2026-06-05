@@ -2,17 +2,12 @@
   imports = 
     [
       ./direnv.nix
-      ./feh.nix
       ./floorp.nix
       ./git.nix
-      ./greenclip.nix
-      ./halloy.nix
-      ./i3wm.nix
       ./kitty.nix
       ./neovim.nix
       ./niri.nix
       ./polkit-gnome.nix
-      ./polybar.nix
       ./rofi.nix
       ./starship.nix
       ./swaybg.nix

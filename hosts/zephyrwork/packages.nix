@@ -20,13 +20,6 @@
     gnumake
     pkg-config
 
-    # Window Manager
-    i3
-    lightdm
-    xorg.xinit
-    i3lock-color
-    lightdm-gtk-greeter
-
     # Development
     kitty
     gnupg
@@ -81,7 +74,6 @@
     teams-for-linux
 
     # Media
-    feh
     zbar
     weasis
     ffmpeg
@@ -157,10 +149,8 @@
     fastfetch
 
     # Custom Package
-    xeventbind
     fuckingnode
     nvim-config
-    mantablockscreen
 
     # Dependencies
     yad
@@ -221,7 +211,6 @@
 
     # System Display
     brightnessctl
-    xorg.xbacklight
 
     # System Utilities
     atk
@@ -246,19 +235,10 @@
     gnome-system-monitor
     gnome-network-displays
 
-    # i3wm Utilities
+    # WM Utilities
     rofi
-    xclip
-    scrot
-    arandr
-    picom
-    xss-lock
     flameshot
-    xidlehook
     playerctl
-    xsettingsd
-    lxqt.lxqt-policykit
-    haskellPackages.greenclip
     
     # Storage Utilities
     tokei
