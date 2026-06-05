@@ -9,10 +9,10 @@ in
   services.swayidle = {
     enable = true;
     
-    events = [
-      { event = "before-sleep"; command = "${lockCmd}"; }
-      { event = "lock"; command = "${lockCmd}"; }
-    ];
+    events = {
+      before-sleep = "${lockCmd}";
+      lock = "${lockCmd}";
+    };
 
     timeouts = [
       { 

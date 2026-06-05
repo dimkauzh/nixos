@@ -32,7 +32,7 @@ in
 {
   programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable;
+    package = pkgs.niri;
 
     settings = {
       prefer-no-csd = true;
@@ -223,7 +223,7 @@ in
         }
 
         get_brightness() {
-            ${lib.getExe pkgs.light} -G | cut -d. -f1
+            ${lib.getExe pkgs.brightnessctl} g
         }
 
         get_volume_icon() {

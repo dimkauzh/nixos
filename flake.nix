@@ -4,22 +4,26 @@
   nixConfig = {
     extra-substituters = [
       "https://niri.cachix.org"
+      "https://kopuz.cachix.org"
       "https://attic.xuyh0120.win/lantian"
     ];
+
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=main";
+    kopuz.url = "github:temidaradev/kopuz";
 
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-25.11";
+      url = "github:nix-community/home-manager?ref=release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -52,6 +56,8 @@
     ...
   } @ inputs:
   let
+    system_version = "26.05";
+
     unstable = import nixpkgs-unstable {
       system = "x86_64-linux";
       config = {
@@ -64,6 +70,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs self unstable;
+        system_version = system_version;
       };
 
       modules = [
@@ -84,6 +91,7 @@
           ];
           home-manager.extraSpecialArgs = {
             inherit inputs self unstable;
+            system_version = system_version;
           };
         }
       ];
@@ -93,6 +101,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs self unstable;
+        system_version = system_version;
       };
 
       modules = [
@@ -114,6 +123,7 @@
           ];
           home-manager.extraSpecialArgs = {
             inherit inputs self unstable;
+            system_version = system_version;
           };
         }
       ];

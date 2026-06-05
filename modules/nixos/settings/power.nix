@@ -14,7 +14,7 @@
     };
   };
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=15m
-  '';
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "15m";
+  };
 }

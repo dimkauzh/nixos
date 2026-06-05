@@ -1,4 +1,4 @@
-{ ... }:
+{ system_version, ... }:
 
 {
   imports =
@@ -10,5 +10,5 @@
     ];
 
   networking.hostName = "zephyr";
-  system.stateVersion = "25.11";
+  system.stateVersion = system_version;
 }

@@ -9,7 +9,7 @@
     users.dima = {
       isNormalUser = true;
       description = "Dima";
-      extraGroups = [ "wheel" "libvirtd" "docker" ];
+      extraGroups = [ "ydotool" "wheel" "libvirtd" "docker" ];
     };
   };
 

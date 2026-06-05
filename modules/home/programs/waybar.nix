@@ -45,8 +45,8 @@
           tooltip = false;
           format = "  {}%";
           interval = 1;
-          on-scroll-up = "${lib.getExe pkgs.light} -A 5";
-          on-scroll-down = "${lib.getExe pkgs.light} -U 5";
+          on-scroll-up = "${lib.getExe pkgs.brightnessctl} set 5%+";
+          on-scroll-down = "${lib.getExe pkgs.brightnessctl} set 5%-";
         };
 
         battery = {

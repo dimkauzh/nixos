@@ -30,19 +30,19 @@
     # Development
     kitty
     gnupg
+    slade
     docker
     podman
     gzdoom
     neovim
     godot_4
+    mousepad
     distrobox
     filezilla
     uhk-agent
     ghidra-bin
+    rpi-imager
     android-tools
-    xfce.mousepad
-    unstable.slade
-    unstable.rpi-imager
 
     # 3D Printing
     freecad
@@ -68,16 +68,17 @@
     # Communication
     nemo
     slack
+    kopuz
+    zapzap
     vesktop
     obsidian
     ente-auth
     teamviewer
-    protonvpn-gui
-    youtube-music
+    proton-vpn
+    pear-desktop
     github-desktop
     element-desktop
     teams-for-linux
-    unstable.zapzap
 
     # Media
     feh
@@ -86,7 +87,6 @@
     ffmpeg
     blender
     wifi-qr
-    vdhcoapp
     audacity
     caffeine-ng
     libresprite
@@ -101,14 +101,15 @@
     shotcut
     digikam
     rawtherapee
+    unstable.darktable
     unstable.davinci-resolve
 
     # Games
-    luanti
     zeroad
+    luanti
     yquake2
     ioquake3
-    superTuxKart
+    supertuxkart
     prismlauncher
     extremetuxracer
     trigger-unstable
@@ -132,10 +133,10 @@
     dxvk
     ruffle
     lutris
-    melonDS
+    melonds
     gparted
-    winetricks
     joystickwake
+    unstable.winetricks
     unstable.xenia-canary
     unstable.wineWow64Packages.stagingFull
 
@@ -164,7 +165,6 @@
     # Dependencies
     yad
     jdk
-    iwd
     clang
     ripgrep
     flatpak

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, system_version, ... }:
 
 
 {
@@ -55,7 +55,7 @@
       };
     };
 
-    stateVersion = "25.11"; # (dont change)
+    stateVersion = system_version; # (dont change)
   };
 
   dconf.settings = {

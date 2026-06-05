@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  programs.ydotool = {
+    enable = true;
+  };
+}

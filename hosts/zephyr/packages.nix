@@ -35,8 +35,8 @@
     nemo
     vesktop
     ente-auth
+    proton-vpn
     floorp-bin
-    protonvpn-gui
     github-desktop
     element-desktop
     unstable.zapzap
@@ -51,7 +51,7 @@
     obs-studio
     rawtherapee
     caffeine-ng
-    youtube-music
+    pear-desktop
 
     # Games/Emulation and Tools
     mgba

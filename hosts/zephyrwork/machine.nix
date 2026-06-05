@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, system_version, ... }:
 
 {
   imports =
@@ -27,5 +27,5 @@
   };
 
   # ONLY MODIFY ON RELEASE
-  system.stateVersion = "25.11";
+  system.stateVersion = system_version;
 }

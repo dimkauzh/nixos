@@ -7,5 +7,6 @@
       ./obs.nix
       ./spicetify.nix
       ./xss.nix
+      ./ydotool.nix
     ];
 }

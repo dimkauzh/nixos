@@ -6,9 +6,9 @@
     xdgOpenUsePortal = true;
 
     config = {
-      common.default = [ "gtk" "gnome" "wlr" ];
+      common.default = [ "gnome" "gtk" ];
       niri = {
-        default = [ "gtk" "gnome" "wlr" ];
+        default = [ "gnome" "gtk" ];
         "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];

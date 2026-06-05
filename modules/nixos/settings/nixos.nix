@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];
@@ -8,10 +8,9 @@
     nm-applet.enable = true;
   };
 
-  nixpkgs = {
-    overlays = [ inputs.niri.overlays.niri ];
-    config.allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
+
+  nix.settings.download-buffer-size = 21474836480;
 
   services = {
     scx.enable = true;
@@ -20,7 +19,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -50,8 +49,8 @@
 
   system = {
     activationScripts.script.text = ''
-      # User icon
-      cp /home/dima/.face /var/lib/AccountsService/icons/dima
+      # Dima User icon
+      cp ${../../home/assets/icons/dima.png} /var/lib/AccountsService/icons/dima
       echo -e "[User]\nIcon=/var/lib/AccountsService/icons/dima\n" > /var/lib/AccountsService/users/dima
     '';
   };
