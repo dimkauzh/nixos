@@ -194,9 +194,9 @@ in
         "${mod}+x".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "cliphist" "-modi" "cliphist:${pkgs.cliphist}/bin/cliphist-rofi" ];
 
         # Screenshotting
-        "Print".action.screenshot = { show-pointer = true; };
-        "Shift+Print".action.screenshot-window = { show-pointer = true; };
-        "${mod}+Shift+Print".action.screenshot-screen = { show-pointer = true; };
+        "Print".action.screenshot = { show-pointer = false; };
+        "Shift+Print".action.screenshot-window = { show-pointer = false; };
+        "${mod}+Shift+Print".action.screenshot-screen = { show-pointer = false; };
         "${alt}+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
 
 
@@ -223,7 +223,7 @@ in
         }
 
         get_brightness() {
-            ${lib.getExe pkgs.brightnessctl} g
+            echo "$(( $(${lib.getExe pkgs.brightnessctl} g) * 100 / $(${lib.getExe pkgs.brightnessctl} m) ))"
         }
 
         get_volume_icon() {
