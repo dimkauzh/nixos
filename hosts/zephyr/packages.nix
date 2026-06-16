@@ -51,7 +51,6 @@
     mesa
     dxvk
     steam
-    lutris
     joystickwake
     prismlauncher
     unstable.winetricks

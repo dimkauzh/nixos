@@ -4,7 +4,8 @@
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [
-      proton-ge-bin
+      proton-cachyos
+      proton-ge-custom
     ];
   };
   virtualisation.waydroid.enable = true;

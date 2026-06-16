@@ -1,12 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 
 {
   programs.lutris = {
     enable = true;
 
     steamPackage = pkgs.steam;
-    protonPackage = [
-      pkgs.proton-ge-bin
+    protonPackages = [
+      unstable.proton-ge-bin
+      #pkgs.proton-cachyos
+      #pkgs.proton-ge-custom
     ];
   };
 }

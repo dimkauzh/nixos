@@ -101,6 +101,7 @@
     luanti
     yquake2
     ioquake3
+    gamemode
     supertuxkart
     prismlauncher
     extremetuxracer
