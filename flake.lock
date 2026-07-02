@@ -527,11 +527,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1782918843,
-        "narHash": "sha256-ETYnV9U7Sr+A45dohzZdfCZKOss4qrTkO+wgNZNvEc0=",
+        "lastModified": 1782821651,
+        "narHash": "sha256-D5jO0ME1lA9bDHnd5kVawBwItG/N4oZr3FlXmMzLec8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e8273b29fe1390ec8d4603f2477357555291432e",
+        "rev": "e52c192be9d7b2c4bd4aed326c8731b35f8bb75c",
         "type": "github"
       },
       "original": {
@@ -584,11 +584,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1783004586,
-        "narHash": "sha256-F14Fvk7c1wtOFJcs80Xc9QOxCP+PMPycWtCStSFh5L0=",
+        "lastModified": 1783009498,
+        "narHash": "sha256-qfKbqzjO+O5lJQZFusSXIFkGhann1wTxIsQvxAvv79Q=",
         "ref": "refs/heads/main",
-        "rev": "2ae451c7e28f5162df02a3b23348016c9a405e4e",
-        "revCount": 45,
+        "rev": "6cfcde3ffb50c5c6df812d0183788b53a8d1e9cf",
+        "revCount": 49,
         "type": "git",
         "url": "https://codeberg.org/dimkauzh/nvim.git"
       },
