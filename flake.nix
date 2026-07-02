@@ -24,6 +24,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=main";
     kopuz.url = "github:temidaradev/kopuz";
+    nvim-config.url = "git+https://codeberg.org/dimkauzh/nvim.git";
 
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-26.05";
@@ -36,10 +37,6 @@
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nvim-config = {
-      url = "git+https://codeberg.org/dimkauzh/nvim-config.git";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     fuckingnode = {
       url = "github:ZakaHaceCosas/FuckingNode";

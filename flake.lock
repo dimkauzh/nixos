@@ -527,6 +527,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1782918843,
+        "narHash": "sha256-ETYnV9U7Sr+A45dohzZdfCZKOss4qrTkO+wgNZNvEc0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e8273b29fe1390ec8d4603f2477357555291432e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1781607440,
         "narHash": "sha256-rxO+uc/KFbSJp+pgyXRuAX6QlG9hJdnt0BXpEQRXY+U=",
         "owner": "NixOS",
@@ -544,7 +560,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "systems": "systems_2"
       },
       "locked": {
@@ -564,9 +580,7 @@
     "nvim-config": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
+        "nixpkgs": "nixpkgs_5",
         "nixvim": "nixvim"
       },
       "locked": {
@@ -576,11 +590,11 @@
         "rev": "2ae451c7e28f5162df02a3b23348016c9a405e4e",
         "revCount": 45,
         "type": "git",
-        "url": "https://codeberg.org/dimkauzh/nvim-config.git"
+        "url": "https://codeberg.org/dimkauzh/nvim.git"
       },
       "original": {
         "type": "git",
-        "url": "https://codeberg.org/dimkauzh/nvim-config.git"
+        "url": "https://codeberg.org/dimkauzh/nvim.git"
       }
     },
     "root": {

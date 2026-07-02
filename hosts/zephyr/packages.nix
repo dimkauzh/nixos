@@ -78,9 +78,6 @@
     cbonsai
     nerdfetch
 
-    # Custom Package
-    nvim-config
-
     # Dependencies
     jdk
     nixd

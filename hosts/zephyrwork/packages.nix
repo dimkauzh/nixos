@@ -152,7 +152,6 @@
 
     # Custom Package
     fuckingnode
-    nvim-config
 
     # Dependencies
     yad
