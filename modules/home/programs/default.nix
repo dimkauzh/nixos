@@ -6,7 +6,6 @@
       ./git.nix
       ./kitty.nix
       ./lutris.nix
-      ./neovim.nix
       ./niri.nix
       ./polkit-gnome.nix
       ./rofi.nix

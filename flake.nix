@@ -6,12 +6,14 @@
       "https://niri.cachix.org"
       "https://kopuz.cachix.org"
       "https://attic.xuyh0120.win/lantian"
+      "https://nix-community.cachix.org"
     ];
 
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
@@ -37,7 +39,7 @@
     };
     nvim-config = {
       url = "git+https://codeberg.org/dimkauzh/nvim-config.git";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     fuckingnode = {
       url = "github:ZakaHaceCosas/FuckingNode";

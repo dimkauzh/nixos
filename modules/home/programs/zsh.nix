@@ -29,13 +29,6 @@
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
 
-      # Functions
-      nvim-config() {
-        cd ~/.config/nvim
-        nvim
-        cd -
-      }
-
       project() {
         if [ -z "$1" ]; then
           cd ~/projects/ || return
