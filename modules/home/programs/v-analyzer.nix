@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-
 let
   settingsFormat = pkgs.formats.toml { };
 

@@ -1,6 +1,5 @@
 { pkgs, config, ... }:
 
-
 {
   services.flatpak = {
     enable = true;
@@ -30,7 +29,7 @@
 
     overrides = {
       global = {
-        Context.filesystems = ["${config.home.homeDirectory}/.themes/${config.gtk.theme.name}:ro"];
+        Context.filesystems = [ "${config.home.homeDirectory}/.themes/${config.gtk.theme.name}:ro" ];
         Environment.GTK_THEME = config.gtk.theme.name;
       };
     };

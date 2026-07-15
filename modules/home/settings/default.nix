@@ -1,7 +1,6 @@
 {
-  imports = 
-    [
-      ./dima.nix
-      ./globals.nix
-    ];
+  imports = [
+    ./dima.nix
+    ./globals.nix
+  ];
 }

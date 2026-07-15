@@ -1,7 +1,12 @@
 { pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" "impure-derivations" "ca-derivations" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "impure-derivations"
+    "ca-derivations"
+  ];
 
   programs = {
     nix-ld.enable = true;
@@ -13,13 +18,19 @@
   nix.settings.download-buffer-size = 21474836480;
 
   services = {
-    scx.enable = true;
     dbus.enable = true;
     flatpak.enable = true;
+
+    scx = {
+      enable = true;
+      scheduler = "scx_rusty";
+    };
   };
 
   boot = {
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+    initrd.verbose = false;
+    consoleLogLevel = 3;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -39,12 +50,6 @@
         nixos-bgrt-plymouth
       ];
     };
-
-    initrd = {
-      verbose = false;
-    };
-
-    consoleLogLevel = 0;
   };
 
   system = {

@@ -13,21 +13,22 @@
       extract-xiso = import ./extract-xiso.nix { pkgs = final; };
 
       fuckingnode = inputs.fuckingnode.packages."${final.system}".default;
-      winapps = inputs.winapps.packages."${final.system}".winapps;
-      winapps-launcher = inputs.winapps.packages."${final.system}".winapps-launcher;
       kopuz = inputs.kopuz.packages.${final.stdenv.hostPlatform.system}.default;
 
       neovim = inputs.nvim-config.packages.${final.system}.default;
       flameshot = prev.flameshot.override { enableWlrSupport = true; };
-      polybar = prev.polybar.override { pulseSupport = true; i3Support = true; };
+      polybar = prev.polybar.override {
+        pulseSupport = true;
+        i3Support = true;
+      };
       xwayland-satellite = prev.xwayland-satellite.override { withSystemd = true; };
       elegant-sddm = prev.elegant-sddm.override {
         themeConfig.General = {
-           background = "${./assets/sddm-background.png}";
+          background = "${./assets/sddm-background.png}";
         };
       };
       rofi-power-menu = prev.rofi-power-menu.overrideAttrs (oldAttrs: {
-        patches = oldAttrs.patches or [] ++ [ ./assets/rofi-power-menu.patch ];
+        patches = oldAttrs.patches or [ ] ++ [ ./assets/rofi-power-menu.patch ];
       });
     })
   ];

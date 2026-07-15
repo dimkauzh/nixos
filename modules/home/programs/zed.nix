@@ -8,7 +8,17 @@
     installRemoteServer = true;
     mutableUserSettings = false;
 
-    extensions = [ "html" "toml" "git-firefly" "make" "lua" "nix" "ini" "discord-presence" "wakatime" ];
+    extensions = [
+      "html"
+      "toml"
+      "git-firefly"
+      "make"
+      "lua"
+      "nix"
+      "ini"
+      "discord-presence"
+      "wakatime"
+    ];
 
     userSettings = {
       agent_buffer_font_size = 14.0;
@@ -22,7 +32,15 @@
       auto_complete = true;
       auto_complete_delay = 0;
       auto_complete_suggest = true;
-      auto_complete_triggers = [ "." ":" " " "(" "[" "{" "="];
+      auto_complete_triggers = [
+        "."
+        ":"
+        " "
+        "("
+        "["
+        "{"
+        "="
+      ];
 
       tab_size = 2;
       soft_wrap = "preferred_line_length";
@@ -47,7 +65,7 @@
         {
           host = "dimapi.local";
           username = "dima";
-          projects = [];
+          projects = [ ];
         }
       ];
 
@@ -72,6 +90,9 @@
       };
     };
 
-    extraPackages = [ pkgs.nixd pkgs.zls ];
+    extraPackages = [
+      pkgs.nixd
+      pkgs.zls
+    ];
   };
 }

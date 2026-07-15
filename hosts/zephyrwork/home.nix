@@ -1,11 +1,9 @@
 { pkgs, system_version, ... }:
 
-
 {
-  imports =
-    [
-      ./overwrites.nix
-    ];
+  imports = [
+    ./overwrites.nix
+  ];
   custom.hwmon = "/sys/class/thermal/thermal_zone3/temp";
   home = {
     file = {
@@ -56,12 +54,5 @@
     };
 
     stateVersion = system_version; # (dont change)
-  };
-
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
   };
 }

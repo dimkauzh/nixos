@@ -18,7 +18,6 @@ pkgs.stdenv.mkDerivation {
     cp ${../assets/gtklock/lockscreen.jpg} $out/backgrounds/wallpapers/irl/forest-3-blur-dark.jpg
   '';
 
-
   dontBuild = true;
   dontConfigure = true;
 

@@ -1,10 +1,8 @@
-
 {
-  imports =
-    [
-      ./programs
-      ./services
-      ./settings
-      ./packages
-    ];
+  imports = [
+    ./programs
+    ./services
+    ./settings
+    ./packages
+  ];
 }

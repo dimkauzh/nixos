@@ -9,9 +9,16 @@
     users.dima = {
       isNormalUser = true;
       description = "Dima";
-      extraGroups = [ "ydotool" "wheel" "libvirtd" "docker" ];
+      extraGroups = [
+        "ydotool"
+        "wheel"
+        "docker"
+      ];
     };
   };
 
-  nix.settings.trusted-users = [ "root" "dima" ];
+  nix.settings.trusted-users = [
+    "root"
+    "dima"
+  ];
 }

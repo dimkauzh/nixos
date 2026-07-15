@@ -1,22 +1,20 @@
 {
-  imports = 
-    [
-      ./direnv.nix
-      ./floorp.nix
-      ./git.nix
-      ./kitty.nix
-      ./lutris.nix
-      ./niri.nix
-      ./polkit-gnome.nix
-      ./rofi.nix
-      ./starship.nix
-      ./swaybg.nix
-      ./tmux.nix
-      ./trigger.nix
-      ./v-analyzer.nix
-      ./waybar.nix
-      ./winapps.nix
-      ./zed.nix
-      ./zsh.nix
-    ];
+  imports = [
+    ./direnv.nix
+    ./floorp.nix
+    ./git.nix
+    ./kitty.nix
+    ./lutris.nix
+    ./niri.nix
+    ./polkit-gnome.nix
+    ./rofi.nix
+    ./starship.nix
+    ./swaybg.nix
+    ./tmux.nix
+    ./trigger.nix
+    ./v-analyzer.nix
+    ./waybar.nix
+    ./zed.nix
+    ./zsh.nix
+  ];
 }

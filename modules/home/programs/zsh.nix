@@ -19,9 +19,10 @@
     };
 
     localVariables = {
-      PATH="$PATH:~/.local/bin:~/.local/go/bin";
-      GOPATH="~/.local/go";
-      GOMODCACHE="~/.local/go/pkg/mod";
+      PATH = "$PATH:~/.local/bin:~/.local/go/bin";
+      GOPATH = "~/.local/go";
+      GOMODCACHE = "~/.local/go/pkg/mod";
+      TERM = "xterm-256color";
     };
 
     initContent = ''

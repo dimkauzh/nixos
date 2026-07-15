@@ -1,12 +1,11 @@
 { lib, system_version, ... }:
 
 {
-  imports =
-    [
-      ./boot.nix
-      ./packages.nix
-      ./hardware/hardware.nix
-    ];
+  imports = [
+    ./boot.nix
+    ./packages.nix
+    ./hardware/hardware.nix
+  ];
 
   security.pam.services.ly.fprintAuth = false;
   security.pam.services.login.fprintAuth = true;

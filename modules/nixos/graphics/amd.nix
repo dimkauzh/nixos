@@ -4,7 +4,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    
+
     package = unstable.mesa;
     package32 = unstable.driversi686Linux.mesa;
 

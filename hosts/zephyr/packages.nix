@@ -23,7 +23,6 @@
     gzdoom
     neovim
     filezilla
-    zed-editor
 
     # Communication
     nemo
@@ -49,7 +48,6 @@
     # Games/Emulation and Tools
     mgba
     mesa
-    dxvk
     steam
     joystickwake
     prismlauncher
@@ -66,10 +64,8 @@
 
     # Wayland specific
     weston
-    waydroid
     wdisplays
     wl-clipboard
-    waydroid-helper
     xwayland-satellite
 
     # Ricing

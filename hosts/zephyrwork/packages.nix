@@ -70,6 +70,7 @@
     teamviewer
     proton-vpn
     pear-desktop
+    signal-desktop
     github-desktop
     element-desktop
     teams-for-linux
@@ -109,18 +110,7 @@
     trigger-unstable
 
     # VMs
-    spice
-    winapps
-    freerdp
-    spice-gtk
-    win-spice
-    virtio-win
-    virt-viewer
     gnome-boxes
-    virt-manager
-    virglrenderer
-    spice-protocol
-    winapps-launcher
 
     # Emulation and Tools
     mgba
@@ -132,7 +122,7 @@
     joystickwake
     unstable.winetricks
     unstable.xenia-canary
-    unstable.wineWow64Packages.stagingFull
+    unstable.wineWow64Packages.stable
 
     # Office
     libreoffice
@@ -240,7 +230,7 @@
     rofi
     flameshot
     playerctl
-    
+
     # Storage Utilities
     tokei
     baobab

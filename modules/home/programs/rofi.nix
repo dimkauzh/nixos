@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   programs.rofi = {
@@ -20,7 +25,7 @@
     };
   };
 
-  home.sessionVariables = lib.recursiveUpdate {} {
+  home.sessionVariables = lib.recursiveUpdate { } {
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:${config.home.homeDirectory}/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share";
   };
 }

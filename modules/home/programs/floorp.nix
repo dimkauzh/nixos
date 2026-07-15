@@ -13,11 +13,11 @@ in
 {
   programs.floorp = {
     enable = true;
-    
+
     profiles.${floorpProfile} = {
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        
+
         "browser.uidensity" = 0;
         "svg.context-properties.content.enabled" = true;
       };

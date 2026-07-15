@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   programs.waybar = {
@@ -37,7 +42,11 @@
           format-muted = "󰝟  {volume}%";
           on-click = "${lib.getExe pkgs.pwvucontrol} &";
           format-icons = {
-            default = [ "" " " "  " ];
+            default = [
+              ""
+              " "
+              "  "
+            ];
           };
         };
 
@@ -63,7 +72,13 @@
           format-plugged = "  {capacity}%";
           format-time = "{H} h {M} min";
           format-alt = "{icon}  {time}";
-          format-icons = [ " " " " " " " " " " ];
+          format-icons = [
+            " "
+            " "
+            " "
+            " "
+            " "
+          ];
         };
 
         clock = {

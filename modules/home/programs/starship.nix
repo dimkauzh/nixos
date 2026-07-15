@@ -73,7 +73,7 @@
           Redhat = "󱄛";
           RedHatEnterprise = "󱄛";
           Pop = "";
-          NixOS = "";  # NixOS symbol added
+          NixOS = ""; # NixOS symbol added
         };
       };
       username = {

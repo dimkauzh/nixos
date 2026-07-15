@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   mod = "Super";
@@ -10,10 +15,16 @@ let
 
   toFloat = x: x + 0.0;
 
-  script = { path, args ? [] }:
-  [ (lib.getExe pkgs.zsh)
-    config.xdg.configFile."${path}".target
-  ] ++ args;
+  script =
+    {
+      path,
+      args ? [ ],
+    }:
+    [
+      (lib.getExe pkgs.zsh)
+      config.xdg.configFile."${path}".target
+    ]
+    ++ args;
 
   services = [
     "waybar"
@@ -28,7 +39,7 @@ let
     "xss-lock"
     "blueman-applet"
   ];
-in 
+in
 {
   programs.niri = {
     enable = true;
@@ -71,18 +82,27 @@ in
           focus-ring = {
             enable = true;
 
-            active = { color = "#83a598"; };
-            inactive = { color = "#282828"; };
-            urgent = { color = "#dfbf8e"; };
+            active = {
+              color = "#83a598";
+            };
+            inactive = {
+              color = "#282828";
+            };
+            urgent = {
+              color = "#dfbf8e";
+            };
           };
         }
       ];
-      
+
       spawn-at-startup = [
         {
-          command =
-            [ "${pkgs.systemd}/bin/systemctl" "--user" "restart" ]
-            ++ map (s: "${s}.service") services;
+          command = [
+            "${pkgs.systemd}/bin/systemctl"
+            "--user"
+            "restart"
+          ]
+          ++ map (s: "${s}.service") services;
         }
       ];
 
@@ -108,20 +128,47 @@ in
 
       binds = with config.lib.niri.actions; {
         # System Audio Controls
-        "XF86AudioRaiseVolume".action.spawn = script { path = "niri/volume_brightness.sh"; args = [ "volume_up" ]; };
-        "XF86AudioLowerVolume".action.spawn = script { path = "niri/volume_brightness.sh"; args = [ "volume_down" ]; };
-        "XF86AudioMute".action.spawn = script { path = "niri/volume_brightness.sh"; args = [ "volume_mute" ]; };
+        "XF86AudioRaiseVolume".action.spawn = script {
+          path = "niri/volume_brightness.sh";
+          args = [ "volume_up" ];
+        };
+        "XF86AudioLowerVolume".action.spawn = script {
+          path = "niri/volume_brightness.sh";
+          args = [ "volume_down" ];
+        };
+        "XF86AudioMute".action.spawn = script {
+          path = "niri/volume_brightness.sh";
+          args = [ "volume_mute" ];
+        };
 
         # Media keys
-        "XF86AudioPlay".action.spawn = [ "${lib.getExe pkgs.playerctl}" "play-pause" ];
-        "XF86AudioPause".action.spawn = [ "${lib.getExe pkgs.playerctl}" "play-pause" ];
-        "XF86AudioNext".action.spawn = [ "${lib.getExe pkgs.playerctl}" "next" ];
-        "XF86AudioPrev".action.spawn = [ "${lib.getExe pkgs.playerctl}" "previous" ];
+        "XF86AudioPlay".action.spawn = [
+          "${lib.getExe pkgs.playerctl}"
+          "play-pause"
+        ];
+        "XF86AudioPause".action.spawn = [
+          "${lib.getExe pkgs.playerctl}"
+          "play-pause"
+        ];
+        "XF86AudioNext".action.spawn = [
+          "${lib.getExe pkgs.playerctl}"
+          "next"
+        ];
+        "XF86AudioPrev".action.spawn = [
+          "${lib.getExe pkgs.playerctl}"
+          "previous"
+        ];
         "XF86AudioMedia".action.spawn = [ "${lib.getExe pkgs.lutris}" ];
 
         # System Brightness Controls
-        "XF86MonBrightnessUp".action.spawn = script { path = "niri/volume_brightness.sh"; args = [ "brightness_up" ]; };
-        "XF86MonBrightnessDown".action.spawn = script { path = "niri/volume_brightness.sh"; args = [ "brightness_down" ]; };
+        "XF86MonBrightnessUp".action.spawn = script {
+          path = "niri/volume_brightness.sh";
+          args = [ "brightness_up" ];
+        };
+        "XF86MonBrightnessDown".action.spawn = script {
+          path = "niri/volume_brightness.sh";
+          args = [ "brightness_down" ];
+        };
 
         # Window Managment
         "${mod}+q".action = close-window;
@@ -147,13 +194,13 @@ in
         "${mod}+Left".action = focus-column-left;
         "${mod}+Right".action = focus-column-right;
         "${mod}+Shift+Left".action = move-column-left;
-        "${mod}+Shift+Right".action = move-column-right; 
+        "${mod}+Shift+Right".action = move-column-right;
 
         # Moving through workspaces
         "${mod}+Down".action = focus-workspace-down;
         "${mod}+Up".action = focus-workspace-up;
         "${mod}+Shift+Down".action = move-workspace-down;
-        "${mod}+Shift+Up".action = move-workspace-up; 
+        "${mod}+Shift+Up".action = move-workspace-up;
 
         # Focus on certain workspaces
         "${mod}+1".action.focus-workspace = 1;
@@ -167,45 +214,135 @@ in
         "${mod}+9".action.focus-workspace = 9;
 
         # Move windows to certain workspaces
-        "${mod}+Shift+1".action.move-window-to-workspace = [ { focus = true; } 1 ];
-        "${mod}+Shift+2".action.move-window-to-workspace = [ { focus = true; } 2 ];
-        "${mod}+Shift+3".action.move-window-to-workspace = [ { focus = true; } 3 ];
-        "${mod}+Shift+4".action.move-window-to-workspace = [ { focus = true; } 4 ];
-        "${mod}+Shift+5".action.move-window-to-workspace = [ { focus = true; } 5 ];
-        "${mod}+Shift+6".action.move-window-to-workspace = [ { focus = true; } 6 ];
-        "${mod}+Shift+7".action.move-window-to-workspace = [ { focus = true; } 7 ];
-        "${mod}+Shift+8".action.move-window-to-workspace = [ { focus = true; } 8 ];
-        "${mod}+Shift+9".action.move-window-to-workspace = [ { focus = true; } 9 ];
+        "${mod}+Shift+1".action.move-window-to-workspace = [
+          { focus = true; }
+          1
+        ];
+        "${mod}+Shift+2".action.move-window-to-workspace = [
+          { focus = true; }
+          2
+        ];
+        "${mod}+Shift+3".action.move-window-to-workspace = [
+          { focus = true; }
+          3
+        ];
+        "${mod}+Shift+4".action.move-window-to-workspace = [
+          { focus = true; }
+          4
+        ];
+        "${mod}+Shift+5".action.move-window-to-workspace = [
+          { focus = true; }
+          5
+        ];
+        "${mod}+Shift+6".action.move-window-to-workspace = [
+          { focus = true; }
+          6
+        ];
+        "${mod}+Shift+7".action.move-window-to-workspace = [
+          { focus = true; }
+          7
+        ];
+        "${mod}+Shift+8".action.move-window-to-workspace = [
+          { focus = true; }
+          8
+        ];
+        "${mod}+Shift+9".action.move-window-to-workspace = [
+          { focus = true; }
+          9
+        ];
 
         # Move window and focus to certain workspaces
-        "${alt}+1".action.move-window-to-workspace = [ { focus = false; } 1 ];
-        "${alt}+2".action.move-window-to-workspace = [ { focus = false; } 2 ];
-        "${alt}+3".action.move-window-to-workspace = [ { focus = false; } 3 ];
-        "${alt}+4".action.move-window-to-workspace = [ { focus = false; } 4 ];
-        "${alt}+5".action.move-window-to-workspace = [ { focus = false; } 5 ];
-        "${alt}+6".action.move-window-to-workspace = [ { focus = false; } 6 ];
-        "${alt}+7".action.move-window-to-workspace = [ { focus = false; } 7 ];
-        "${alt}+8".action.move-window-to-workspace = [ { focus = false; } 8 ];
-        "${alt}+9".action.move-window-to-workspace = [ { focus = false; } 9 ];
+        "${alt}+1".action.move-window-to-workspace = [
+          { focus = false; }
+          1
+        ];
+        "${alt}+2".action.move-window-to-workspace = [
+          { focus = false; }
+          2
+        ];
+        "${alt}+3".action.move-window-to-workspace = [
+          { focus = false; }
+          3
+        ];
+        "${alt}+4".action.move-window-to-workspace = [
+          { focus = false; }
+          4
+        ];
+        "${alt}+5".action.move-window-to-workspace = [
+          { focus = false; }
+          5
+        ];
+        "${alt}+6".action.move-window-to-workspace = [
+          { focus = false; }
+          6
+        ];
+        "${alt}+7".action.move-window-to-workspace = [
+          { focus = false; }
+          7
+        ];
+        "${alt}+8".action.move-window-to-workspace = [
+          { focus = false; }
+          8
+        ];
+        "${alt}+9".action.move-window-to-workspace = [
+          { focus = false; }
+          9
+        ];
 
         # Rofi-based shortcuts
-        "${mod}+Escape".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "p" "-modi" "p:${pkgs.rofi-power-menu}/bin/rofi-power-menu" "-font" "JetBrains Mono NF 20" ];
-        "${mod}+Space".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" ];
-        "${mod}+x".action.spawn = [ "${pkgs.rofi}/bin/rofi" "-show" "cliphist" "-modi" "cliphist:${pkgs.cliphist}/bin/cliphist-rofi" ];
+        "${mod}+Escape".action.spawn = [
+          "${pkgs.rofi}/bin/rofi"
+          "-show"
+          "p"
+          "-modi"
+          "p:${pkgs.rofi-power-menu}/bin/rofi-power-menu"
+          "-font"
+          "JetBrains Mono NF 20"
+        ];
+        "${mod}+Space".action.spawn = [
+          "${pkgs.rofi}/bin/rofi"
+          "-show"
+          "drun"
+          "-show-icons"
+        ];
+        "${mod}+x".action.spawn = [
+          "${pkgs.rofi}/bin/rofi"
+          "-show"
+          "cliphist"
+          "-modi"
+          "cliphist:${pkgs.cliphist}/bin/cliphist-rofi"
+        ];
 
         # Screenshotting
-        "Print".action.screenshot = { show-pointer = false; };
-        "Shift+Print".action.screenshot-window = { show-pointer = false; };
-        "${mod}+Shift+Print".action.screenshot-screen = { show-pointer = false; };
-        "${alt}+Print".action.spawn = [ "${pkgs.flameshot}/bin/flameshot" "gui" "-c" "-p" "${config.home.homeDirectory}/Pictures/Screenshots" ];
-
+        "Print".action.screenshot = {
+          show-pointer = false;
+        };
+        "Shift+Print".action.screenshot-window = {
+          show-pointer = false;
+        };
+        "${mod}+Shift+Print".action.screenshot-screen = {
+          show-pointer = false;
+        };
+        "${alt}+Print".action.spawn = [
+          "${pkgs.flameshot}/bin/flameshot"
+          "gui"
+          "-c"
+          "-p"
+          "${config.home.homeDirectory}/Pictures/Screenshots"
+        ];
 
         # Fixes
-        "${mod}+Shift+a".action.spawn = [ "${pkgs.systemd}/bin/systemctl" "--user" "restart" "cliphist" "swaybg" ];
+        "${mod}+Shift+a".action.spawn = [
+          "${pkgs.systemd}/bin/systemctl"
+          "--user"
+          "restart"
+          "cliphist"
+          "swaybg"
+        ];
       };
     };
   };
-  
+
   xdg.configFile = {
     "niri/volume_brightness.sh" = {
       text = ''
@@ -299,4 +436,3 @@ in
     };
   };
 }
-

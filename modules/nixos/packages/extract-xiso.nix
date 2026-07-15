@@ -21,11 +21,10 @@ pkgs.stdenv.mkDerivation {
 
   meta = with pkgs.lib; {
     mainProgram = "extract-xiso";
-    description = "Xbox ISO Creation/Extraction utility.";  
+    description = "Xbox ISO Creation/Extraction utility.";
     homepage = "https://github.com/XboxDev/extract-xiso";
     license = licenses.gpl3Plus;
     maintainers = with maintainers; [ dimkauzh ];
     platforms = platforms.linux;
   };
 }
-

@@ -10,7 +10,10 @@ pkgs.stdenv.mkDerivation {
     sha256 = "sha256-YTUEX9mAiIm/MY3tbSrh3KyM9TK+Xir7VM5VHh1SgZo=";
   };
 
-  nativeBuildInputs = [ pkgs.copyDesktopItems pkgs.makeWrapper ];
+  nativeBuildInputs = [
+    pkgs.copyDesktopItems
+    pkgs.makeWrapper
+  ];
 
   buildInputs = with pkgs; [
     SDL2
