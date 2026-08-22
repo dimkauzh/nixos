@@ -26,6 +26,10 @@
     kopuz.url = "github:temidaradev/kopuz";
     nvim-config.url = "git+https://codeberg.org/dimkauzh/nvim.git";
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";

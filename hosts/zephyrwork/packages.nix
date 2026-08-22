@@ -67,7 +67,6 @@
     vesktop
     obsidian
     ente-auth
-    teamviewer
     proton-vpn
     pear-desktop
     signal-desktop
@@ -92,9 +91,11 @@
     mpv
     gimp
     loupe
+    siril
     shotcut
     digikam
     rawtherapee
+    unstable.rapidraw
     unstable.darktable
     unstable.davinci-resolve
 

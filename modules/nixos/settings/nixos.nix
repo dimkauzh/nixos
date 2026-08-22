@@ -14,13 +14,15 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
   nix.settings.download-buffer-size = 21474836480;
+
+  hardware.enableRedistributableFirmware = true;
 
   services = {
     dbus.enable = true;
     flatpak.enable = true;
 
+    # Started to give me issues
     scx = {
       enable = true;
       scheduler = "scx_rusty";
@@ -31,6 +33,15 @@
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     initrd.verbose = false;
     consoleLogLevel = 3;
+
+    supportedFilesystems = [
+      "nfs"
+      "cifs"
+      "ntfs"
+      "exfat"
+      "vfat"
+      "btrfs"
+    ];
 
     loader = {
       efi.canTouchEfiVariables = true;

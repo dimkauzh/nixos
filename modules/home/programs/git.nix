@@ -7,6 +7,7 @@
     settings = {
       user.name = "Dima";
       user.email = "uzhdimka@gmail.com";
+      core.editor = "nvim";
 
       alias = {
         "a" = "add";

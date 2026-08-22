@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  qt.enable = true;
   services = {
     accounts-daemon.enable = true;
 

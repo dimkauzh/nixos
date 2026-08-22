@@ -20,13 +20,13 @@
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
-      gtk-decoration-layout = ":menu";
+      gtk-decoration-layout = "";
       gtk-font-name = "Noto Sans 10";
     };
 
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
-      gtk-decoration-layout = ":menu";
+      gtk-decoration-layout = "";
       gtk-font-name = "Noto Sans 10";
     };
   };

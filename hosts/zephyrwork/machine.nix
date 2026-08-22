@@ -1,4 +1,9 @@
-{ lib, system_version, ... }:
+{
+  lib,
+  system_version,
+  unstable,
+  ...
+}:
 
 {
   imports = [
@@ -16,7 +21,11 @@
   };
 
   services = {
-    teamviewer.enable = true;
+    teamviewer = {
+      enable = true;
+      package = unstable.teamviewer;
+    };
+
     power-profiles-daemon.enable = lib.mkForce false;
 
     fprintd = {

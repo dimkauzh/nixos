@@ -18,6 +18,7 @@
       vulkan-loader
       vulkan-validation-layers
       vulkan-tools
+      rocmPackages.clr.icd
     ];
 
     extraPackages32 = with unstable.driversi686Linux; [

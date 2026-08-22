@@ -6,7 +6,7 @@
       color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:";
+      button-layout = "";
     };
     "net/launchpad/caffeine" = {
       show-notification = false;
