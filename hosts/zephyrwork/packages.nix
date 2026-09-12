@@ -97,7 +97,10 @@
     rawtherapee
     unstable.rapidraw
     unstable.darktable
-    unstable.davinci-resolve
+
+    # https://github.com/NixOS/nixpkgs/pull/562336
+    davinci-resolve
+    # unstable.davinci-resolve
 
     # Games
     zeroad

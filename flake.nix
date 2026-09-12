@@ -5,7 +5,7 @@
     extra-substituters = [
       "https://niri.cachix.org"
       "https://kopuz.cachix.org"
-      #"https://attic.xuyh0120.win/lantian"
+      "https://attic.xuyh0120.win/lantian"
       "https://cache.xinux.uz"
       "https://nix-community.cachix.org"
     ];
@@ -13,7 +13,7 @@
     extra-trusted-public-keys = [
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
-      #"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
