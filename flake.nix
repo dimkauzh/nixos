@@ -116,6 +116,7 @@
           ./modules/nixos
           ./modules/nixos/graphics/intel.nix
 
+          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -6,5 +6,5 @@
     "module/backlight".card = lib.mkForce "intel_backlight";
     "module/title".label-maxlen = lib.mkForce 45;
   };
-  programs.lutris.enable = false;
+  programs.lutris.enable = lib.mkForce false;
 }
