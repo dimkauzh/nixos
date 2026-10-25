@@ -27,6 +27,8 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=main";
     kopuz.url = "github:temidaradev/kopuz";
     nvim-config.url = "git+https://codeberg.org/dimkauzh/nvim.git";
+    artcraft.url = "github:ejb1123/artcraft-nix";
+    floorp.url = "github:fyukmdaa/floorp-flake";
 
     nur = {
       url = "github:nix-community/NUR";
@@ -48,6 +50,10 @@
       url = "github:sodiboo/niri-flake?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    windscribe = {
+      url = "github:ParkerrDev/nixpkgs-windscribe";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -59,6 +65,9 @@
       home-manager,
       nix-flatpak,
       niri,
+      windscribe,
+      artcraft,
+      floorp,
       ...
     }@inputs:
     let
@@ -85,6 +94,9 @@
           ./modules/nixos/graphics/amd.nix
 
           chaotic.nixosModules.default
+          windscribe.nixosModules.windscribe
+          artcraft.nixosModules.default
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -95,6 +107,7 @@
 
               niri.homeModules.niri
               nix-flatpak.homeManagerModules.nix-flatpak
+              floorp.homeModules.floorp
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs self unstable;
@@ -117,6 +130,8 @@
           ./modules/nixos/graphics/intel.nix
 
           chaotic.nixosModules.default
+          windscribe.nixosModules.windscribe
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

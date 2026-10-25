@@ -39,7 +39,6 @@
     android-tools
 
     # 3D Printing
-    freecad
     orca-slicer
 
     # Programming
@@ -85,6 +84,7 @@
     libresprite
     ns-usbloader
     google-chrome
+    rockbox-utility
 
     # Pictures / Video
     vlc
@@ -123,6 +123,7 @@
     lutris
     melonds
     gparted
+    freecad
     joystickwake
     unstable.winetricks
     unstable.xenia-canary
@@ -158,6 +159,7 @@
     wireplumber
     libapparmor
     nodejs-slim_24
+    python3Packages.pypresence
 
     # Wayland specific
     weston

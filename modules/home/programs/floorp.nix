@@ -1,36 +1,10 @@
-{ pkgs, ... }:
-
-let
-  natsumiSrc = pkgs.fetchFromGitHub {
-    owner = "greeeen-dev";
-    repo = "natsumi-browser";
-    rev = "v6.1.3";
-    hash = "sha256-iEs9TfIzJwhm3bE54muZWixd5dLR2xSGIO3jNBhNaVE=";
-  };
-
-  floorpProfile = "default";
-in
+{ ... }:
 {
-  programs.floorp = {
+  programs.floorp-bin = {
     enable = true;
-
-    profiles.${floorpProfile} = {
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-
-        "browser.uidensity" = 0;
-        "svg.context-properties.content.enabled" = true;
-      };
+    natsumi = {
+      enable = true;
+      profiles = [ "default" ];
     };
-  };
-
-  home.file = {
-    ".floorp/${floorpProfile}/chrome/natsumi" = {
-      source = "${natsumiSrc}/natsumi";
-      recursive = true;
-    };
-    ".floorp/${floorpProfile}/chrome/userChrome.css".source = "${natsumiSrc}/userChrome.css";
-    ".floorp/${floorpProfile}/chrome/userContent.css".source = "${natsumiSrc}/userContent.css";
-    ".floorp/${floorpProfile}/chrome/natsumi-config.css".source = "${natsumiSrc}/natsumi-config.css";
   };
 }

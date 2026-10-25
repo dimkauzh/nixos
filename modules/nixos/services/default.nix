@@ -5,6 +5,7 @@
     ./others.nix
     ./power.nix
     ./sunshine.nix
+    ./windscribe.nix
     ./xdg.nix
   ];
 }

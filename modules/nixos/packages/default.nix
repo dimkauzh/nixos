@@ -4,6 +4,7 @@
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
     inputs.nix-cachyos-kernel.overlays.pinned
+    inputs.floorp.overlays.default
 
     (final: prev: {
       gruvbox-wallpapers = import ./wallpapers.nix { pkgs = final; };

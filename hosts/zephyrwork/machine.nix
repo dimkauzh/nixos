@@ -34,6 +34,14 @@
     };
   };
 
+  programs.artcraft = {
+    enable = true;
+    apps = [
+      "photocraft"
+      "lightcraft"
+    ];
+  };
+
   # ONLY MODIFY ON RELEASE
   system.stateVersion = system_version;
 }
